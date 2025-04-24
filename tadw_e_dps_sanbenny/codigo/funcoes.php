@@ -41,3 +41,6 @@ function pesquisarEntrega() {};
 
 // ADICIONAR VALOR PAGO E VALOR ENTREGA NO CARRINHO pronto
 // carrinho = venda 
+// izabella - produto e entrega
+// toddy - login e carrinho
+// sandy - calculo e clientes 
