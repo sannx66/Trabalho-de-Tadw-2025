@@ -1,6 +1,18 @@
 <?php
 
-function login($conexao, $nome, $email, $senha) {};
+function salvarLogin($conexao, $nome, $email, $senha) {
+    $sql = "INSERT INTO login (nome, email, senha) VALUES (?, ?, ?)";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'sss', $nome, $email, $senha);
+    
+    $funcionou = mysqli_stmt_execute($comando);
+    mysqli_stmt_close($comando);
+    
+    return $funcionou;
+};
+
+
 function verificarLogin() {};
 function verificarLogado() {};
 function listarLogin() {};
@@ -24,7 +36,18 @@ function deletarProduto($conexao, $idproduto) {};
 function pesquisarProduto($conexao, $nome) {};
 // quero encontrar o produto pelo nome 
 
-function salvarCarrinho($conexao, $produto, $quantidade, $valor_un, $valor_entrega, $valor_total, $valor_pago, $troco, $data_hora, $idcliente) {};
+function salvarCarrinho($conexao, $produto, $quantidade, $valor_un, $valor_entrega, $valor_total, $valor_pago, $troco, $data_hora, $idcliente) { $sql = "INSERT INTO tb_venda (idcliente, idproduto, valor_total, data) VALUES (?, ?, ?, ?)";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'iids', $idcliente, $idproduto, $valor_total, $data);
+
+    $funcionou = mysqli_stmt_execute($comando);
+    mysqli_stmt_close($comando);
+    
+    return $funcionou;
+
+};
+
 function listarCarrinho($conexao) {};
 function editarCarrinho($conexao, $produto, $quantidade, $valor_un, $valor_entrega, $valor_total, $valor_pago, $troco, $data_hora, $idcliente, $idcarrinho) {};
 function deletarCarrinho() {};
