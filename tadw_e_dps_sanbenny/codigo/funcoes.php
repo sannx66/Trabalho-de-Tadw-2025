@@ -19,13 +19,13 @@ function pesquisarCliente() {};
 
 function cadastrarProduto($conexao, $quantidade, $tipo, $nome, $ingredientes, $valor) {};
 function listarProdutos($conexao) {};
-function editarProduto() {};
+function editarProduto($conexao, $quantidade, $tipo, $nome, $ingredientes, $valor, $idcliente) {};
 function deletarProduto() {};
 function pesquisarProduto() {};
 
 function salvarCarrinho($conexao, $produto, $quantidade, $valor_un, $valor_entrega, $valor_total, $valor_pago, $troco, $data_hora, $idcliente) {};
 function listarCarrinho($conexao) {};
-function editarCarrinho() {};
+function editarCarrinho($conexao, $produto, $quantidade, $valor_un, $valor_entrega, $valor_total, $valor_pago, $troco, $data_hora, $idcliente, $idcarrinho) {};
 function deletarCarrinho() {};
 function pesquisarCarrinho() {};
 
@@ -35,7 +35,7 @@ function calculoTroco ($valor_pago, $valor_total) {};
 
 function cadastrarEntrega($conexao, $id_cliente, $id_carrinho) {};
 function listarEntrega($conexao) {};
-function editarEntrega() {};
+function editarEntrega($conexao, $id_cliente, $id_carrinho, $identrega) {};
 function deletarEntrega() {};
 function pesquisarEntrega() {};
 
