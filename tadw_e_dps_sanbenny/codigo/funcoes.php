@@ -19,7 +19,7 @@ function pesquisarCliente() {};
 
 function cadastrarProduto($conexao, $quantidade, $tipo, $nome, $ingredientes, $valor) {};
 function listarProdutos($conexao) {};
-function editarProduto($conexao, $quantidade, $tipo, $nome, $ingredientes, $valor, $idcliente) {};
+function editarProduto($conexao, $quantidade, $tipo, $nome, $ingredientes, $valor, $idproduto) {};
 function deletarProduto($conexao, $idproduto) {};
 function pesquisarProduto($conexao, $nome) {};
 // quero encontrar o produto pelo nome 
