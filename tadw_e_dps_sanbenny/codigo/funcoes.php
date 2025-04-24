@@ -49,6 +49,7 @@ function salvarCarrinho($conexao, $produto, $quantidade, $valor_un, $valor_entre
 };
 
 function listarCarrinho($conexao) {};
+function listarItensCarrinho($conexao) {};
 function editarCarrinho($conexao, $produto, $quantidade, $valor_un, $valor_entrega, $valor_total, $valor_pago, $troco, $data_hora, $idcliente, $idcarrinho) {};
 function deletarCarrinho() {};
 function pesquisarCarrinho() {};
