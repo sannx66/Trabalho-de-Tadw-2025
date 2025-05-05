@@ -13,25 +13,25 @@ function salvarLogin($conexao, $nome, $email, $senha) {
 };
 
 
-function verificarLogin() {};
-function verificarLogado() {};
-function listarLogin() {};
-function deletarLogin() {};
-function pesquisarLogin() {};
+function verificarLogin($conexao, $email, $senha) {};
+function verificarLogado($conexao) {};
+function listarLogin($conexao) {};
+function deletarLogin($conexao, $idlogin) {};
+function pesquisarLogin($conexao, $idlogin) {};
 
 
 function cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco) {}; 
-function verificarLogin_cliente() {};
-function verificarLogado_cliente() {};
+function verificarLogin_cliente($conexao, $email, $senha) {};
+function verificarLogado_cliente($conexao) {};
 function listarClientes($conexao) {};
-function editarCliente() {};
-function deletarCliente() {};
-function pesquisarCliente() {};
+function editarCliente($conexao, $email, $senha, $nome, $telefone, $endereco) {};
+function deletarCliente($conexao, $idcliente) {};
+function pesquisarCliente($conexao, $idcliente) {};
  
 
-function cadastrarProduto($conexao, $quantidade, $tipo, $nome, $ingredientes, $valor) {};
+function cadastrarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un) {};
 function listarProdutos($conexao) {};
-function editarProduto($conexao, $quantidade, $tipo, $nome, $ingredientes, $valor, $idproduto) {};
+function editarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un) {};
 function deletarProduto($conexao, $idproduto) {};
 function pesquisarProduto($conexao, $nome) {};
 // quero encontrar o produto pelo nome 
@@ -48,19 +48,20 @@ function salvarCarrinho($conexao, $produto, $quantidade, $valor_un, $valor_entre
 
 };
 
+function salvarCarrinho($conexao, $valor_entrega, $valor_total, $valor_pago, $troco, $data_hora, $idcliente) {};
 function listarCarrinho($conexao) {};
 function listarItensCarrinho($conexao) {};
-function editarCarrinho($conexao, $produto, $quantidade, $valor_un, $valor_entrega, $valor_total, $valor_pago, $troco, $data_hora, $idcliente, $idcarrinho) {};
-function deletarCarrinho() {};
-function pesquisarCarrinho() {};
+function editarCarrinho($conexao, $valor_entrega, $valor_total, $valor_pago, $troco, $data_hora, $idcliente) {};
+function deletarCarrinho($conexao, $idcarrinho) {};
+function pesquisarCarrinho($conexao, $nome) {};
 
 function calculoTotal ($conexao, $quantidade, $valor_un) {};
 function calculoEntrega ($conexao, $valor_total, $entrega) {};
 function calculoTroco ($valor_pago, $valor_total) {};
 
-function cadastrarEntrega($conexao, $id_cliente, $id_carrinho) {};
+function cadastrarEntrega($conexao, $entregador, $idcarrinho) {};
 function listarEntrega($conexao) {};
-function editarEntrega($conexao, $id_cliente, $id_carrinho, $identrega) {};
+function editarEntrega($conexao, $entregador, $idcarrinho) {};
 function deletarEntrega($conexao, $identrega) {};
 function pesquisarEntrega($conexao, $identrega) {};
 
