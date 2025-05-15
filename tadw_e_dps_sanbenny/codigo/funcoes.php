@@ -32,7 +32,7 @@ function pesquisarCliente($conexao, $idcliente) {};
 
 function salvarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un) {
     $sql = "INSERT INTO produto (disponivel, tipo, nome, ingredientes, valor_un) VALUES (?, ?, ?, ?, ?)";
-   $comando = mysqli_prepare($conexao, $sql);
+    $comando = mysqli_prepare($conexao, $sql);
    
    mysqli_stmt_bind_param($comando, 'ssssd', $disponivel, $tipo, $nome, $ingredientes, $valor_un);
    
