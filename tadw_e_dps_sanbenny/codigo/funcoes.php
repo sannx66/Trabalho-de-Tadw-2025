@@ -18,7 +18,7 @@ function verificarLogado($conexao) {};
 function listarLogin($conexao) {};
 function deletarLogin($conexao, $idlogin) {};
 function pesquisarLogin($conexao, $idlogin) {};
-
+//toddy
 
 function cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco) {}; 
 function verificarLogin_cliente($conexao, $email, $senha) {};
@@ -27,7 +27,7 @@ function listarClientes($conexao) {};
 function editarCliente($conexao, $email, $senha, $nome, $telefone, $endereco) {};
 function deletarCliente($conexao, $idcliente) {};
 function pesquisarCliente($conexao, $idcliente) {};
- 
+//sandy
 
 
 function salvarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un) {
@@ -113,6 +113,7 @@ function listarItensCarrinho($conexao) {};
 function editarCarrinho($conexao, $valor_entrega, $valor_total, $valor_pago, $troco, $data_hora, $idcliente) {};
 function deletarCarrinho($conexao, $idcarrinho) {};
 function pesquisarCarrinho($conexao, $nome) {};
+//toddy
 
 function calculoTotal ($conexao, $quantidade, $valor_un) {};
 function calculoEntrega ($conexao, $valor_total, $entrega) {};
