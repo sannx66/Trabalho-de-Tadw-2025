@@ -223,6 +223,7 @@ function listarEntregas($conexao) {
 
     return $lista_entregas;
 }
+// funcionando
 
 function editarEntrega($conexao, $entregador, $idcarrinho, $identrega){
     $sql = "UPDATE tb_entrega SET entregador=?, idcarrinho=? WHERE identrega=?";
@@ -251,6 +252,8 @@ function pesquisarEntregaId($conexao, $identrega) {
     return $entrega;
 }
 
+// funcionando
+
 function deletarEntrega($conexao, $identrega) {
     $sql = "DELETE FROM tb_entrega WHERE identrega = ?";
     $comando = mysqli_prepare($conexao, $sql);
@@ -262,6 +265,7 @@ function deletarEntrega($conexao, $identrega) {
     
     return $funcionou;
 }
+// funcionando
 
 //izabella
 
