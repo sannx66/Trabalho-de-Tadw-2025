@@ -31,8 +31,11 @@ function cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco)
 
     return $funcionou;
 };
-function verificarLogin_cliente($conexao, $email, $senha) {};
-function verificarLogado_cliente($conexao) {};
+
+// funcionando
+
+// function verificarLogin_cliente($conexao, $email, $senha) {}; dps
+// function verificarLogado_cliente($conexao) {};dps
 function listarClientes($conexao) {};
 function editarCliente($conexao, $email, $senha, $nome, $telefone, $endereco) {};
 function deletarCliente($conexao, $idcliente) {};
