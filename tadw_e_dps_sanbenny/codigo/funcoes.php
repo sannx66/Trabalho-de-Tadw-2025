@@ -211,7 +211,7 @@ function listarEntregas($conexao) {
 }
 
 function editarEntrega($conexao, $entregador, $idcarrinho, $identrega){
-    $sql = "UPDATE tb_entrega SET entregador=?, idcarrinho=?WHERE identrega=?";
+    $sql = "UPDATE tb_entrega SET entregador=?, idcarrinho=? WHERE identrega=?";
     $comando = mysqli_prepare($conexao, $sql);
     mysqli_stmt_bind_param($comando, 'sii',$entregador, $idcarrinho, $identrega);
     $funcionou = mysqli_stmt_execute($comando);
@@ -219,6 +219,8 @@ function editarEntrega($conexao, $entregador, $idcarrinho, $identrega){
     
     return $funcionou;
 }
+
+// funcionando
 
 function pesquisarEntregaId($conexao, $identrega) {
     $sql = "SELECT * FROM tb_entrega WHERE identrega = ?";
