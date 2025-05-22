@@ -3,13 +3,14 @@
     require_once "../funcoes.php";
 
     
-    $disponivel= "4";
+    $disponivel= 5;
     $tipo = "Milkshake";
-    $nome = "Pudim";
-    $ingredientes = "Sorvete de leite condensado, leite, calda de caramelo e chantilly";
-    $valor_un = 20;
+    $nome = "Sensação";
+    $ingredientes = "Sorvete de morango, leite, calda de chocolate, brigadeiro, cereja, pedaços de morango, granulados e chantilly";
+    $valor_un = 25;
     
 
     salvarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un);
 ?>
  
+<!-- funcionando -->

@@ -2,15 +2,15 @@
     require_once "../conexao.php";
     require_once "../funcoes.php";
 
-    $idproduto = 1;
+    $idproduto = 4;
 
-    $disponivel= "3";
+    $disponivel= 6;
     $tipo = "Milkshake";
-    $nome = "Oreo";
-    $ingredientes = "Sorvete de chocolate, leite, calda de chocolate, pedaços de oreo e chantilly";
+    $nome = "Morango";
+    $ingredientes = "Sorvete de morango, leite, calda de morango, pedaços de morango e chantilly";
     $valor_un = 22;
     
 
     editarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un, $idproduto);
 ?>
-
+<!-- funcionando -->

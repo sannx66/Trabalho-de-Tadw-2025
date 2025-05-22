@@ -34,7 +34,7 @@ function salvarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valo
     $sql = "INSERT INTO tb_produto (disponivel, tipo, nome, ingredientes, valor_un) VALUES (?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
    
-   mysqli_stmt_bind_param($comando, 'ssssd', $disponivel, $tipo, $nome, $ingredientes, $valor_un);
+   mysqli_stmt_bind_param($comando, 'isssd', $disponivel, $tipo, $nome, $ingredientes, $valor_un);
    
    mysqli_stmt_execute($comando);
    mysqli_stmt_close($comando);
@@ -59,7 +59,7 @@ function listarProdutos($conexao) {
 function editarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un, $idproduto){
     $sql = "UPDATE tb_produto SET disponivel=?, tipo=?, nome=?, ingredientes=?, valor_un=? WHERE idproduto=?";
     $comando = mysqli_prepare($conexao, $sql);
-    mysqli_stmt_bind_param($comando, 'ssssdi',$disponivel, $tipo, $nome, $ingredientes, $valor_un, $idproduto);
+    mysqli_stmt_bind_param($comando, 'isssdi',$disponivel, $tipo, $nome, $ingredientes, $valor_un, $idproduto);
     $funcionou = mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
     
