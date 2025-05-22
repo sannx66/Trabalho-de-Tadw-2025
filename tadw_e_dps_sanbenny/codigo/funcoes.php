@@ -20,7 +20,17 @@ function deletarLogin($conexao, $idlogin) {};
 function pesquisarLogin($conexao, $idlogin) {};
 //toddy
 
-function cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco) {}; 
+function cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco) { 
+    $sql = "INSERT INTO tb_cliente (email, senha, nome, telefone, endereco) VALUES (?, ?, ?, ?, ?)";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'sisis', $email, $senha, $nome, $telefone, $endereco);
+
+    $funcionou = mysqli_stmt_execute($comando);
+    mysqli_stmt_close($comando);
+
+    return $funcionou;
+};
 function verificarLogin_cliente($conexao, $email, $senha) {};
 function verificarLogado_cliente($conexao) {};
 function listarClientes($conexao) {};
