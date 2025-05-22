@@ -31,7 +31,7 @@ function pesquisarCliente($conexao, $idcliente) {};
 
 
 function salvarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un) {
-    $sql = "INSERT INTO produto (disponivel, tipo, nome, ingredientes, valor_un) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO tb_produto (disponivel, tipo, nome, ingredientes, valor_un) VALUES (?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
    
    mysqli_stmt_bind_param($comando, 'ssssd', $disponivel, $tipo, $nome, $ingredientes, $valor_un);
@@ -41,7 +41,7 @@ function salvarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valo
 }
 
 function listarProdutos($conexao) {
-    $sql = "SELECT * FROM produto";
+    $sql = "SELECT * FROM tb_produto";
     $comando = mysqli_prepare($conexao, $sql);
 
     mysqli_stmt_execute($comando);
@@ -57,7 +57,7 @@ function listarProdutos($conexao) {
 }
 
 function editarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un, $idproduto){
-    $sql = "UPDATE produto SET disponivel=?, tipo=?, nome=?, ingredientes=?, valor_un=? WHERE idproduto=?";
+    $sql = "UPDATE tb_produto SET disponivel=?, tipo=?, nome=?, ingredientes=?, valor_un=? WHERE idproduto=?";
     $comando = mysqli_prepare($conexao, $sql);
     mysqli_stmt_bind_param($comando, 'ssssdi',$disponivel, $tipo, $nome, $ingredientes, $valor_un, $idproduto);
     $funcionou = mysqli_stmt_execute($comando);
@@ -67,7 +67,7 @@ function editarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valo
 }
 
 function pesquisarProdutoId($conexao, $idproduto) {
-    $sql = "SELECT * FROM produto WHERE idproduto = ?";
+    $sql = "SELECT * FROM tb_produto WHERE idproduto = ?";
     $comando = mysqli_prepare($conexao, $sql);
 
     mysqli_stmt_bind_param($comando, 'i', $idproduto);
@@ -83,7 +83,7 @@ function pesquisarProdutoId($conexao, $idproduto) {
 
 
 function deletarProduto($conexao, $idproduto) {
-    $sql = "DELETE FROM produto WHERE idproduto = ?";
+    $sql = "DELETE FROM tb_produto WHERE idproduto = ?";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($comando, 'i', $idproduto);
@@ -132,7 +132,7 @@ function calculoTroco ($valor_pago, $valor_total) {};
 //sandy
 
 function salvarEntrega($conexao, $entregador, $idcarrinho) {
-    $sql = "INSERT INTO entrega (entregador, idcarrinho) VALUES (?, ?)";
+    $sql = "INSERT INTO tb_entrega (entregador, idcarrinho) VALUES (?, ?)";
    $comando = mysqli_prepare($conexao, $sql);
    
    mysqli_stmt_bind_param($comando, 'si', $entregador, $idcarrinho);
@@ -142,7 +142,7 @@ function salvarEntrega($conexao, $entregador, $idcarrinho) {
 }
 
 function listarEntregas($conexao) {
-    $sql = "SELECT * FROM entrega";
+    $sql = "SELECT * FROM tb_entrega";
     $comando = mysqli_prepare($conexao, $sql);
 
     mysqli_stmt_execute($comando);
@@ -158,7 +158,7 @@ function listarEntregas($conexao) {
 }
 
 function editarEntrega($conexao, $entregador, $idcarrinho, $identrega){
-    $sql = "UPDATE entrega SET entregador=?, idcarrinho=?WHERE identrega=?";
+    $sql = "UPDATE tb_entrega SET entregador=?, idcarrinho=?WHERE identrega=?";
     $comando = mysqli_prepare($conexao, $sql);
     mysqli_stmt_bind_param($comando, 'sii',$entregador, $idcarrinho, $identrega);
     $funcionou = mysqli_stmt_execute($comando);
@@ -168,7 +168,7 @@ function editarEntrega($conexao, $entregador, $idcarrinho, $identrega){
 }
 
 function pesquisarEntregaId($conexao, $identrega) {
-    $sql = "SELECT * FROM entrega WHERE identrega = ?";
+    $sql = "SELECT * FROM tb_entrega WHERE identrega = ?";
     $comando = mysqli_prepare($conexao, $sql);
 
     mysqli_stmt_bind_param($comando, 'i', $identrega);
@@ -183,7 +183,7 @@ function pesquisarEntregaId($conexao, $identrega) {
 }
 
 function deletarEntrega($conexao, $identrega) {
-    $sql = "DELETE FROM entrega WHERE identrega = ?";
+    $sql = "DELETE FROM tb_entrega WHERE identrega = ?";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($comando, 'i', $identrega);

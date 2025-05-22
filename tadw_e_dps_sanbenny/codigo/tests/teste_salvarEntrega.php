@@ -1,4 +1,4 @@
-<?php
+?php
     require_once "../conexao.php";
     require_once "../funcoes.php";
 
@@ -10,6 +10,5 @@
     $valor_un = 20;
     
 
-    salvarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un);
+    salvarCliente($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un);
 ?>
- 
