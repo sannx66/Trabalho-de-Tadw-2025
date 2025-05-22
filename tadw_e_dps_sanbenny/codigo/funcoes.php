@@ -238,6 +238,8 @@ function pesquisarEntregaId($conexao, $identrega) {
     return $entrega;
 }
 
+// funcionando
+
 function deletarEntrega($conexao, $identrega) {
     $sql = "DELETE FROM tb_entrega WHERE identrega = ?";
     $comando = mysqli_prepare($conexao, $sql);
