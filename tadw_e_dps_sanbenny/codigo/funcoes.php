@@ -36,7 +36,21 @@ function cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco)
 
 // function verificarLogin_cliente($conexao, $email, $senha) {}; dps
 // function verificarLogado_cliente($conexao) {};dps
-function listarClientes($conexao) {};
+function listarClientes($conexao) { 
+    $sql = "SELECT * FROM tb_cliente";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_execute($comando);
+    $resultados = mysqli_stmt_get_result($comando);
+    
+    $lista_clientes = [];
+    while ($cliente = mysqli_fetch_assoc($resultados)) {
+        $lista_clientes[] = $cliente;
+    }
+    mysqli_stmt_close($comando);
+
+    return $lista_clientes;
+};
 
 
 function editarCliente($conexao, $email, $senha, $nome, $telefone, $endereco, $idcliente) {
