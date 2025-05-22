@@ -105,19 +105,21 @@ function deletarProduto($conexao, $idproduto) {
 // funcionando
 //izabella
 
-function salvarCarrinho($conexao, $produto, $quantidade, $valor_un, $valor_entrega, $valor_total, $valor_pago, $troco, $data_hora, $idcliente) { $sql = "INSERT INTO tb_venda (idcliente, idproduto, valor_total, data) VALUES (?, ?, ?, ?)";
+function salvarCarrinho($conexao, $idcliente, $valor_entrega, $valor_total, $valor_pago, $troco, $data_hora) {
+    $sql = "INSERT INTO tb_carrinho (idcliente, valor_entrega, valor_total, valor_pago, troco, data_hora) VALUES (?, ?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
 
-    mysqli_stmt_bind_param($comando, 'iids', $idcliente, $idproduto, $valor_total, $data);
+    mysqli_stmt_bind_param($comando, 'idddds', $idcliente, $valor_entrega, $valor_total, $valor_pago, $troco, $data_hora);
 
-    $funcionou = mysqli_stmt_execute($comando);
+    mysqli_stmt_execute($comando);
+
+    $id_carrinho = mysqli_stmt_insert_id($comando);
     mysqli_stmt_close($comando);
-    
-    return $funcionou;
 
+    return $id_carrinho;
 };
 
-function oaarCarrinho($conexao, $valor_entrega, $valor_total, $valor_pago, $troco, $data_hora, $idcliente) {};
+
 function listarCarrinho($conexao) {};
 function listarItensCarrinho ($conexao, $id_venda, $id_produto, $quantidade) {
     $sql = "INSERT INTO tb_item_venda (idvenda, idproduto, quantidade) VALUES (?, ?, ?)";
