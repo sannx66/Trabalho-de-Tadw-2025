@@ -79,7 +79,19 @@ function deletarCliente($conexao, $idcliente) {
     return $funcionou;
 };
 
-function pesquisarCliente($conexao, $idcliente) {};
+function pesquisarCliente($conexao, $idcliente) {
+    $sql = "SELECT * FROM tb_cliente WHERE idcliente = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idcliente);
+
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $cliente = mysqli_fetch_assoc($resultado);
+
+    mysqli_stmt_close($comando);
+    return $cliente;};
 //sandy  $identrega = 1;
 
 
