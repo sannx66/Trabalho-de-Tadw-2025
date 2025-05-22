@@ -7,7 +7,9 @@ $senha = "321";
 $nome = "san";
 $telefone = "987654321";
 $endereco = "Rua 2";
-$codigo = 1;
+$idcliente = 1;
 
-editarCliente($conexao, $email, $senha, $nome, $telefone, $endereco);
+editarCliente($conexao, $email, $senha, $nome, $telefone, $endereco, $idcliente);
 ?>
+
+<!-- funcionando -->

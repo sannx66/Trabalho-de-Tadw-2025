@@ -37,21 +37,25 @@ function cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco)
 // function verificarLogin_cliente($conexao, $email, $senha) {}; dps
 // function verificarLogado_cliente($conexao) {};dps
 function listarClientes($conexao) {};
-function editarCliente($conexao, $email, $senha, $nome, $telefone, $endereco) {
+
+
+function editarCliente($conexao, $email, $senha, $nome, $telefone, $endereco, $idcliente) {
     $sql = "UPDATE tb_cliente SET email=?, senha=?, nome=?, telefone=?, endereco=? WHERE idcliente=?";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'sisis', $email, $senha, $nome, $telefone, $endereco);
+    mysqli_stmt_bind_param($comando, 'sisisi', $email, $senha, $nome, $telefone, $endereco, $idcliente);
     
     $funcionou = mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
     
     return $funcionou; 
 };
+// funcionando
+
 
 function deletarCliente($conexao, $idcliente) {};
 function pesquisarCliente($conexao, $idcliente) {};
-//sandy
+//sandy  $identrega = 1;
 
 
 function salvarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un) {
