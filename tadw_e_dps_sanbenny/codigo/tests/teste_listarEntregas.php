@@ -7,3 +7,4 @@ echo "<pre>";
 print_r(listarEntregas($conexao));
 echo "</pre>";
 ?>
+<!-- funcionando -->

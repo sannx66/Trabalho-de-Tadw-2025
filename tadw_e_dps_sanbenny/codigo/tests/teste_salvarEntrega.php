@@ -2,8 +2,8 @@
     require_once "../conexao.php";
     require_once "../funcoes.php";
     
-    $entregador= "Jin woo";
-    $idcarrinho = 1;
+    $entregador= "Jin Woo";
+    $idcarrinho = 2;
 
     salvarEntrega($conexao, $entregador, $idcarrinho);
 ?>

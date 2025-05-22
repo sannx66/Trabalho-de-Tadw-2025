@@ -198,6 +198,7 @@ function listarEntregas($conexao) {
 
     return $lista_entregas;
 }
+// funcionando
 
 function editarEntrega($conexao, $entregador, $idcarrinho, $identrega){
     $sql = "UPDATE tb_entrega SET entregador=?, idcarrinho=? WHERE identrega=?";
@@ -237,6 +238,7 @@ function deletarEntrega($conexao, $identrega) {
     
     return $funcionou;
 }
+// funcionando
 
 //izabella
 
