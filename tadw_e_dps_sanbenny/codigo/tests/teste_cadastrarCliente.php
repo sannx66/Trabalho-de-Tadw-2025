@@ -10,3 +10,5 @@
 
     cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco);
 ?>
+
+<!-- funcionando -->
