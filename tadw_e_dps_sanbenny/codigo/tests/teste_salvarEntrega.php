@@ -5,6 +5,8 @@
     
     $entregador= "Jin woo";
     $idcarrinho = 1;
-    
+
     function salvarEntrega($conexao, $entregador, $idcarrinho);
 ?>
+
+<!-- não sera possivel sem o carrinho pronto -->

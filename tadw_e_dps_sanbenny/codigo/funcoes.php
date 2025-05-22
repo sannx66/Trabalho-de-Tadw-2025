@@ -40,6 +40,8 @@ function salvarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valo
    mysqli_stmt_close($comando);
 }
 
+// funcionando
+
 function listarProdutos($conexao) {
     $sql = "SELECT * FROM tb_produto";
     $comando = mysqli_prepare($conexao, $sql);
@@ -56,6 +58,8 @@ function listarProdutos($conexao) {
     return $lista_produtos;
 }
 
+// funcionando
+
 function editarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un, $idproduto){
     $sql = "UPDATE tb_produto SET disponivel=?, tipo=?, nome=?, ingredientes=?, valor_un=? WHERE idproduto=?";
     $comando = mysqli_prepare($conexao, $sql);
@@ -65,6 +69,9 @@ function editarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valo
     
     return $funcionou;
 }
+
+// funcionando
+
 
 function pesquisarProdutoId($conexao, $idproduto) {
     $sql = "SELECT * FROM tb_produto WHERE idproduto = ?";
@@ -81,6 +88,7 @@ function pesquisarProdutoId($conexao, $idproduto) {
     return $produto;
 }
 
+// funcionando
 
 function deletarProduto($conexao, $idproduto) {
     $sql = "DELETE FROM tb_produto WHERE idproduto = ?";
@@ -93,6 +101,8 @@ function deletarProduto($conexao, $idproduto) {
     
     return $funcionou;
 }
+
+// funcionando
 //izabella
 
 function salvarCarrinho($conexao, $produto, $quantidade, $valor_un, $valor_entrega, $valor_total, $valor_pago, $troco, $data_hora, $idcliente) { $sql = "INSERT INTO tb_venda (idcliente, idproduto, valor_total, data) VALUES (?, ?, ?, ?)";
