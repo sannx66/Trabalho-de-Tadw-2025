@@ -53,7 +53,18 @@ function editarCliente($conexao, $email, $senha, $nome, $telefone, $endereco, $i
 // funcionando
 
 
-function deletarCliente($conexao, $idcliente) {};
+function deletarCliente($conexao, $idcliente) {
+    $sql = "DELETE FROM tb_cliente WHERE idcliente = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'i', $idcliente);
+
+    $funcionou = mysqli_stmt_execute($comando);
+    mysqli_stmt_close($comando);
+    
+    return $funcionou;
+};
+
 function pesquisarCliente($conexao, $idcliente) {};
 //sandy  $identrega = 1;
 
