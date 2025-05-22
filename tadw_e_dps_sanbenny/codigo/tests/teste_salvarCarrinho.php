@@ -13,3 +13,5 @@ $idcarrinho = salvarCarrinho($conexao, $idcliente, $valor_entrega, $valor_total,
 
 echo $idcarrinho;
 ?>
+
+<!-- funcionando -->

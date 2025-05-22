@@ -131,7 +131,7 @@ function salvarCarrinho($conexao, $idcliente, $valor_entrega, $valor_total, $val
 
     return $id_carrinho;
 };
-
+// funcionando
 
 function listarCarrinho($conexao) {};
 function listarItensCarrinho ($conexao, $id_venda, $id_produto, $quantidade) {
@@ -165,6 +165,8 @@ function salvarEntrega($conexao, $entregador, $idcarrinho) {
    mysqli_stmt_execute($comando);
    mysqli_stmt_close($comando);
 }
+
+// funcionando
 
 function listarEntregas($conexao) {
     $sql = "SELECT * FROM tb_entrega";
