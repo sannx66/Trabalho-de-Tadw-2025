@@ -260,7 +260,8 @@ function pesquisarCarrinhoId($conexao, $idcarrinho) {
 // funcionando
 //toddy
 
-function calculoTotal ($conexao, $quantidade, $valor_un) {};
+function calculoTotal ($conexao, $quantidade, $valor_un){};
+    
 function calculoEntrega ($conexao, $valor_total, $entrega) {};
 function calculoTroco ($valor_pago, $valor_total) {};
 //sandy
