@@ -215,7 +215,20 @@ function listarItensCarrinho ($conexao, $id_venda, $id_produto, $quantidade) {
     return $funcionou;
 }
 function editarCarrinho($conexao, $valor_entrega, $valor_total, $valor_pago, $troco, $data_hora, $idcliente) {};
-function deletarCarrinho($conexao, $idcarrinho) {};
+
+function deletarCarrinho($conexao, $idcarrinho) { 
+    $sql = "DELETE FROM tb_carrinho WHERE idcarrinho = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'i', $idcarrinho);
+
+    $funcionou = mysqli_stmt_execute($comando);
+    mysqli_stmt_close($comando);
+    
+    return $funcionou;
+};
+
+
 function pesquisarCarrinho($conexao, $nome) {};
 //toddy
 
