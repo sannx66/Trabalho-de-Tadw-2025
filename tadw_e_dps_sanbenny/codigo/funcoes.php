@@ -185,7 +185,23 @@ function salvarCarrinho($conexao, $idcliente, $valor_entrega, $valor_total, $val
 };
 // funcionando
 
-function listarCarrinho($conexao) {};
+function listarCarrinho($conexao) {
+    $sql = "SELECT * FROM tb_carrinho";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_execute($comando);
+    $resultados = mysqli_stmt_get_result($comando);
+
+    $lista_carrinho = [];
+    while ($carrinho = mysqli_fetch_assoc($resultados)) {
+        $lista_carrinho[] = $carrinho;
+    }
+    mysqli_stmt_close($comando);
+
+    return $lista_carrinho;
+};
+// funcionando
+
 function listarItensCarrinho ($conexao, $id_venda, $id_produto, $quantidade) {
     $sql = "INSERT INTO tb_item_venda (idvenda, idproduto, quantidade) VALUES (?, ?, ?)";
 
