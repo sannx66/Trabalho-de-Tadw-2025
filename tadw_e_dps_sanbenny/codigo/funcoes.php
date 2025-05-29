@@ -181,10 +181,10 @@ function salvarCarrinho($conexao, $idcliente, $valor_entrega, $valor_total, $val
 
     mysqli_stmt_execute($comando);
 
-    $id_carrinho = mysqli_stmt_insert_id($comando);
+    $idcarrinho = mysqli_stmt_insert_id($comando);
     mysqli_stmt_close($comando);
 
-    return $id_carrinho;
+    return $idcarrinho;
 };
 // funcionando
 
