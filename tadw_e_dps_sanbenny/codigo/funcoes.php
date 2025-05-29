@@ -205,18 +205,8 @@ function listarCarrinho($conexao) {
 };
 // funcionando
 
-function listarItensCarrinho ($conexao, $id_venda, $id_produto, $quantidade) {
-    $sql = "INSERT INTO tb_item_venda (idvenda, idproduto, quantidade) VALUES (?, ?, ?)";
 
-    $comando = mysqli_prepare($conexao, $sql);
 
-    mysqli_stmt_bind_param($comando, 'iid', $id_venda, $id_produto, $quantidade);
-
-    $funcionou = mysqli_stmt_execute($comando);
-    mysqli_stmt_close($comando);
-
-    return $funcionou;
-}
 function editarCarrinho($conexao, $idcliente, $valor_entrega, $valor_total, $valor_pago, $troco, $data_hora, $idcarrinho) {
     $sql = "UPDATE tb_carrinho SET idcliente=?, valor_entrega=?, valor_total=?, valor_pago=?, troco=?, data_hora=? WHERE idcarrinho=?";
     $comando = mysqli_prepare($conexao, $sql);
