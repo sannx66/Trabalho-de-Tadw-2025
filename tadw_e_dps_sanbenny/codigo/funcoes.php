@@ -79,7 +79,8 @@ function deletarCliente($conexao, $idcliente) {
     return $funcionou;
 };
 
-function pesquisarCliente($conexao, $idcliente) {
+
+function pesquisarClienteId($conexao, $idcliente) {
     $sql = "SELECT * FROM tb_cliente WHERE idcliente = ?";
     $comando = mysqli_prepare($conexao, $sql);
 
@@ -91,8 +92,10 @@ function pesquisarCliente($conexao, $idcliente) {
     $cliente = mysqli_fetch_assoc($resultado);
 
     mysqli_stmt_close($comando);
-    return $cliente;};
-//sandy  $identrega = 1;
+    return $cliente;
+};
+// funcionando
+//sandy 
 
 
 function salvarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un) {
@@ -240,7 +243,21 @@ function deletarCarrinho($conexao, $idcarrinho) {
 // funcionando
 
 
-function pesquisarCarrinho($conexao, $nome) {};
+function pesquisarCarrinhoId($conexao, $idcarrinho) {
+    $sql = "SELECT * FROM tb_carrinho WHERE idcarrinho = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idcarrinho);
+
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $carrinho = mysqli_fetch_assoc($resultado);
+
+    mysqli_stmt_close($comando);
+    return $carrinho;
+};
+// funcionando
 //toddy
 
 function calculoTotal ($conexao, $quantidade, $valor_un) {};

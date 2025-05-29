@@ -3,11 +3,10 @@
 require_once "../conexao.php";
 require_once "../funcoes.php";
 
-$idcliente = 1;
+$idcarrinho = 2;
 
 echo "<pre>";
-print_r(pesquisarClienteId($conexao, $idcliente));
+print_r(pesquisarCarrinhoId($conexao, $idcarrinho));
 echo "</pre>";
 ?>
-
 <!-- funcionando -->
