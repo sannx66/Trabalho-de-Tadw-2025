@@ -214,7 +214,17 @@ function listarItensCarrinho ($conexao, $id_venda, $id_produto, $quantidade) {
 
     return $funcionou;
 }
-function editarCarrinho($conexao, $valor_entrega, $valor_total, $valor_pago, $troco, $data_hora, $idcliente) {};
+function editarCarrinho($conexao, $idcliente, $valor_entrega, $valor_total, $valor_pago, $troco, $data_hora, $idcarrinho) {
+    $sql = "UPDATE tb_carrinho SET idcliente=?, valor_entrega=?, valor_total=?, valor_pago=?, troco=?, data_hora=? WHERE idcarrinho=?";
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($comando, 'iddddsi',$idcliente, $valor_entrega, $valor_total, $valor_pago, $troco, $data_hora, $idcarrinho);
+    $funcionou = mysqli_stmt_execute($comando);
+    mysqli_stmt_close($comando);
+    
+    return $funcionou;
+};
+// funcionando
+
 
 function deletarCarrinho($conexao, $idcarrinho) { 
     $sql = "DELETE FROM tb_carrinho WHERE idcarrinho = ?";
@@ -227,6 +237,7 @@ function deletarCarrinho($conexao, $idcarrinho) {
     
     return $funcionou;
 };
+// funcionando
 
 
 function pesquisarCarrinho($conexao, $nome) {};
