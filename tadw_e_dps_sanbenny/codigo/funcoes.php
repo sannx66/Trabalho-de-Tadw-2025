@@ -299,13 +299,13 @@ function calculoEntrega ($conexao, $idcarrinho, $valor_total) {
     return $valor_total + $valor_entrega;
 };
 
-function calculoTroco ($valor_pago, $valor_total) {
-    if ($valor_pago >= $valor_total) {
-        return $valor_pago - $valor_total;
-    } else {
-        return 0; 
-    }
-};
+//function calculoTroco ($valor_pago, $valor_total) {
+  //  if ($valor_pago >= $valor_total) {
+    //    return $valor_pago - $valor_total;
+    //} else {
+     //   return 0; 
+    //}
+//};
 
 function calculoTroco($conexao, $idcarrinho) {
     $sql = "SELECT valor_pago, valor_total FROM tb_carrinho WHERE idcarrinho = ?";
