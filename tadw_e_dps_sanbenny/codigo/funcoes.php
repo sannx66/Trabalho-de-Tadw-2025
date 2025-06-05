@@ -265,10 +265,64 @@ function salvarItemVenda($conexao, $idcarrinho, $idproduto, $quantidade) {
 };
 // funcionando
 
-function calculoTotal ($conexao, $quantidade, $valor_un){};
-    
-function calculoEntrega ($conexao, $valor_total, $entrega) {};
-function calculoTroco ($valor_pago, $valor_total) {};
+function calculoTotal ($conexao, $idproduto, $quantidade) {
+    $sql = "SELECT valor_un FROM tb_produto WHERE idproduto = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($comando, 'i', $idproduto);
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+    $produto = mysqli_fetch_assoc($resultado);
+    mysqli_stmt_close($comando);
+
+    if ($produto) {
+        return $quantidade * $produto['valor_un'];
+    } else {
+        return 0;
+    }
+
+};
+
+function calculoEntrega ($conexao, $idcarrinho, $valor_total) {
+    $sql = "SELECT valor_entrega FROM tb_carrinho WHERE idcarrinho = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($comando, 'i', $idcarrinho);
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+    $carrinho = mysqli_fetch_assoc($resultado);
+    mysqli_stmt_close($comando);
+
+    if ($carrinho) {
+        return $valor_total + $carrinho['valor_entrega'];
+    } else {
+        return $valor_total;
+    }
+    return $valor_total + $valor_entrega;
+};
+
+function calculoTroco ($valor_pago, $valor_total) {
+    if ($valor_pago >= $valor_total) {
+        return $valor_pago - $valor_total;
+    } else {
+        return 0; 
+    }
+};
+
+function calculoTroco($conexao, $idcarrinho) {
+    $sql = "SELECT valor_pago, valor_total FROM tb_carrinho WHERE idcarrinho = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($comando, 'i', $idcarrinho);
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+    $carrinho = mysqli_fetch_assoc($resultado);
+    mysqli_stmt_close($comando);
+
+    if ($carrinho) {
+        return $carrinho['valor_pago'] - $carrinho['valor_total'];
+    } else {
+        return 0;
+    }
+};
+
 //sandy
 
 function salvarEntrega($conexao, $entregador, $idcarrinho) {
