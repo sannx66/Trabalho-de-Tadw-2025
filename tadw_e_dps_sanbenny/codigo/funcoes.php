@@ -307,6 +307,7 @@ function calculoTotal ($conexao, $idproduto, $quantidade) {
     }
 
 };
+// funcionou
 
 function calculoEntrega ($conexao, $idcarrinho, $valor_total) {
     $sql = "SELECT valor_entrega FROM tb_carrinho WHERE idcarrinho = ?";
@@ -318,20 +319,14 @@ function calculoEntrega ($conexao, $idcarrinho, $valor_total) {
     mysqli_stmt_close($comando);
 
     if ($carrinho) {
-        return $valor_total + $carrinho['valor_entrega'];
+        $soma= $valor_total + $carrinho['valor_entrega'];
     } else {
-        return $valor_total;
+        $soma = $valor_total;
     }
-    return $valor_total + $valor_entrega;
+    return $soma;
 };
+// funcionou
 
-//function calculoTroco ($valor_pago, $valor_total) {
-  //  if ($valor_pago >= $valor_total) {
-    //    return $valor_pago - $valor_total;
-    //} else {
-     //   return 0; 
-    //}
-//};
 
 function calculoTroco($conexao, $idcarrinho) {
     $sql = "SELECT valor_pago, valor_total FROM tb_carrinho WHERE idcarrinho = ?";
@@ -345,10 +340,10 @@ function calculoTroco($conexao, $idcarrinho) {
     if ($carrinho) {
         return $carrinho['valor_pago'] - $carrinho['valor_total'];
     } else {
-        return 0;
+        return 'nao tem carrinho';
     }
 };
-
+// Funcionou
 //sandy
 
 function salvarEntrega($conexao, $entregador, $idcarrinho) {

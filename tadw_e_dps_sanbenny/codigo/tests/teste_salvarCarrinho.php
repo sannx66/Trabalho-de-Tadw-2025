@@ -3,7 +3,7 @@ require_once "../conexao.php";
 require_once "../funcoes.php";
 
 $idcliente = 1;
-$valor_entrega = 0;
+$valor_entrega = 10;
 $valor_total = 47;
 $valor_pago = 50;
 $troco = 3;
