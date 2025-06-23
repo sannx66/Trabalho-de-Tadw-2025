@@ -1,7 +1,7 @@
 <?php
 
 function salvarLogin($conexao, $nome, $email, $senha) {
-    $sql = "INSERT INTO login (nome, email, senha) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO tb_login (nome, email, senha) VALUES (?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($comando, 'sss', $nome, $email, $senha);
