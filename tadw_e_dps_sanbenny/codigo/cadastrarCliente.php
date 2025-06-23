@@ -29,7 +29,7 @@
 
         <input type="submit" value="Entrar">
 
-        //$nome =$_POST['nome']_
+        <!-- exemplo do pq existe name nos formulários//$nome =$_POST['nome']_ -->
     </form>
 </body>
 </html>

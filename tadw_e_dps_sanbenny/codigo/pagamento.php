@@ -13,20 +13,17 @@ require_once "./funcoes.php";
 <body>
     PAGAMENTO <br><br>
 
-    <input type="checkbox" name="checkbox_delivery">
-    <label for="meuCheckbox">Delivery</label> <br>
+    <a href="delivery.php">Delivery?</a> <br>
     + 5 golds <br><br>
-     
-<?php
 
 
-        $Total = calculoTotal($conexao, $idproduto, $quantidade);
-?>
-
-
-     <form>
+     <form action="retirada.php">
     <label><input type="radio" name="opcao" value="opcao1">Cartão</label><br>
-  <label><input type="radio" name="opcao" value="opcao2">Dinheiro</label><br>
+  <label><input type="radio" name="opcao" value="opcao2">Dinheiro</label><br> <br>
+
+          <input type="submit" value="Salvar"> <br><br><br>
+
+<!-- n esquecer do troco -->
 </form>
   
 

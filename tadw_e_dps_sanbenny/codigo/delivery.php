@@ -11,7 +11,7 @@
     Obs: Taxa de entrega = 5 golds <br><br>
 
     <!-- formulário sem action -->
-    <form action=carrinho.php method="post"> 
+    <form action=pagamento.php method="post"> 
         Nome: <br>
         <input type="text" name="nome"> <br><br>
         Telefone: <br>
