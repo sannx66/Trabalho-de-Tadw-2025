@@ -54,6 +54,7 @@ function verificarLogado($conexao) {
 };
 
 
+//funcionou
 function listarLogin($conexao) {
     $sql = "SELECT * FROM tb_login";
     $comando = mysqli_prepare($conexao, $sql);
@@ -70,6 +71,7 @@ function listarLogin($conexao) {
     return $lista_login;
 };
 
+//funcionou
 function deletarLogin($conexao, $idlogin) {
     $sql = "DELETE FROM tb_login WHERE idlogin = ?";
     $comando = mysqli_prepare($conexao, $sql);
@@ -82,6 +84,7 @@ function deletarLogin($conexao, $idlogin) {
     return $funcionou;
 };
 
+//funcionou
 function pesquisarLogin($conexao, $idlogin) {
     $sql = "SELECT * FROM tb_login WHERE idlogin = ?";
     $comando = mysqli_prepare($conexao, $sql);
