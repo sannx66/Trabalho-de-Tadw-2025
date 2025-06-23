@@ -1,7 +1,7 @@
 <?php
 
 function salvarLogin($conexao, $nome, $email, $senha) {
-    $sql = "INSERT INTO login (nome, email, senha) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO tb_login (nome, email, senha) VALUES (?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($comando, 'sss', $nome, $email, $senha);
@@ -79,7 +79,21 @@ function deletarLogin($conexao, $idlogin) {
     
     return $funcionou;
 };
-function pesquisarLogin($conexao, $idlogin) {};
+
+function pesquisarLogin($conexao, $idlogin) {
+    $sql = "SELECT * FROM tb_login WHERE idlogin = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idlogin);
+
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $login = mysqli_fetch_assoc($resultado);
+
+    mysqli_stmt_close($comando);
+    return $login;
+}
 //toddy
 
 function cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco) { 
