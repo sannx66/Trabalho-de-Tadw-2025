@@ -13,6 +13,7 @@
 
     <!-- formulário sem action -->
     <form action="pagamento.php"> 
+        <!-- cliente oculto -->
         Cliente (id): <br>
         <input type="number" name="clienteId"> <br><br>
         Valor_total: <br>
@@ -27,9 +28,6 @@
         <input type="submit" value="Salvar pedido"> <br><br><br>
 
         <!-- pagamento -->
-
-<a href="delivery.php">Delivery</a> <br><br>
-<a href="retirada.php">Retirar no local</a>
 
 
     
