@@ -28,6 +28,8 @@
         <!-- <a href="formUsuario.php">Primeiro acesso</a> <br><br> n sei pra q isso mas deve ser útil-->
 
         <input type="submit" value="Entrar">
+
+        //$nome =$_POST['nome']_
     </form>
 </body>
 </html>

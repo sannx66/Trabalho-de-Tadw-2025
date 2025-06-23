@@ -30,7 +30,7 @@
 <!-- Colocar um link para cada botão -->
         <input type="submit" value="Pronto"> <br><br><br>
 
-        <a href="carrinho.php">Voltar</a>
+        <a href="pagamento.php">Voltar</a>
         
     </form>
 </body>
