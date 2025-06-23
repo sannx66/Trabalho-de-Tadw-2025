@@ -13,8 +13,44 @@ function salvarLogin($conexao, $nome, $email, $senha) {
 };
 
 
-function verificarLogin($conexao, $email, $senha) {};
-function verificarLogado($conexao) {};
+function verificarLogin($conexao, $email, $senha) {
+        require_once "conexao.php";
+
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    $sql = "SELECT * FROM tb_login WHERE email = '$email'";
+
+    $resultado = mysqli_query($conexao, $sql);
+
+    if (mysqli_num_rows($resultado) == 0) {
+        header("Location: index.php");
+    }
+    else {
+        $linha = mysqli_fetch_array($resultado);
+        $senha_banco = $linha['senha'];
+        $tipo = $linha['tipo'];
+
+        if (password_verify($senha, $senha_banco)) {
+            session_start();
+            $_SESSION['logado'] = 'sim';
+            $_SESSION['tipo'] = $tipo;
+            header("Location: home.php");
+            }
+        else {
+            header("Location: index.php");
+            }
+    }
+
+
+};
+
+function verificarLogado($conexao) {
+        session_start();
+    if (!isset($_SESSION['logado'])) {
+        header("Location: index.php");
+    }
+};
 
 function listarLogin($conexao) {
     $sql = "SELECT * FROM tb_login";
