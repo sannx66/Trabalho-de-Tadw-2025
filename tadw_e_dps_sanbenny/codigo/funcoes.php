@@ -1,5 +1,6 @@
 <?php
 
+//funcionou
 function salvarLogin($conexao, $nome, $email, $senha) {
     $sql = "INSERT INTO tb_login (nome, email, senha) VALUES (?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
@@ -51,6 +52,7 @@ function verificarLogado($conexao) {
         header("Location: index.php");
     }
 };
+
 
 function listarLogin($conexao) {
     $sql = "SELECT * FROM tb_login";
