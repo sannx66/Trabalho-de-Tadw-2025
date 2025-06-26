@@ -37,7 +37,7 @@ function verificarLogin($conexao, $email, $senha) {
 
 };
 
-function verificarLogado($conexao) 
+//function verificarLogado($conexao) 
  
 //};
 
