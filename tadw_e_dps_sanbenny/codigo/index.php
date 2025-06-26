@@ -8,7 +8,7 @@
 <body>
     <h1>Acesso ao sistema</h1>
 
-    <form action="verificarLogin.php" method="post">
+    <form action="cardapio.php" method="post">
         E-mail: <br>
         <input type="text" name="email"> <br><br>
         Senha: <br>
