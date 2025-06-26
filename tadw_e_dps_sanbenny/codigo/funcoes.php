@@ -98,7 +98,7 @@ function listarClientes($conexao) {
 
     return $lista_clientes;
 };
-
+// funcionando
 
 function editarCliente($conexao, $email, $senha, $nome, $telefone, $endereco, $idcliente) {
     $sql = "UPDATE tb_cliente SET email=?, senha=?, nome=?, telefone=?, endereco=? WHERE idcliente=?";
