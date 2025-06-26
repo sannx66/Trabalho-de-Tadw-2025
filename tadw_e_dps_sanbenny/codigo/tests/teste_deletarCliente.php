@@ -5,3 +5,4 @@
     deletarCliente($conexao, 1);
 
 ?>
+<!-- Funcionando -->
