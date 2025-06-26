@@ -13,7 +13,7 @@ $data_hora = "2025-06-15 18:37:32";
 $produtos = [
     //  produto, quantidade
         [1, 3], 
-        [3, 5], 
+        [6, 5], 
         [2, 1],
     ];
 
