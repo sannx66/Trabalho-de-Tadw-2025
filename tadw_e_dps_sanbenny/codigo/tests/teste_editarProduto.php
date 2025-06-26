@@ -9,8 +9,9 @@
     $nome = "Chocolate";
     $ingredientes = "Sorvete de morango, leite, calda de morango, pedaços de morango e chantilly";
     $valor_un = 22;
+    $observacoes= "olala";
     
 
-    editarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un, $idproduto);
+    editarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un, $observacoes, $idproduto);
 ?>
 <!-- funcionando -->

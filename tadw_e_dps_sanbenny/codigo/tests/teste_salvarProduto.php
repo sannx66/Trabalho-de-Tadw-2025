@@ -8,9 +8,10 @@
     $nome = "Sensação";
     $ingredientes = "Sorvete de morango, leite, calda de chocolate, brigadeiro, cereja, pedaços de morango, granulados e chantilly";
     $valor_un = 25;
+    $observacoes = "sem morango";
     
 
-    salvarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un);
+    salvarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un, $observacoes);
 ?>
  
 <!-- funcionando -->

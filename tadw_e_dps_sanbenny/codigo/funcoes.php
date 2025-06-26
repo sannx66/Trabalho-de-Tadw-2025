@@ -146,11 +146,11 @@ function pesquisarClienteId($conexao, $idcliente) {
 //sandy 
 
 
-function salvarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un) {
-    $sql = "INSERT INTO tb_produto (disponivel, tipo, nome, ingredientes, valor_un) VALUES (?, ?, ?, ?, ?)";
+function salvarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un, $observacoes) {
+    $sql = "INSERT INTO tb_produto (disponivel, tipo, nome, ingredientes, valor_un, observacoes) VALUES (?, ?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
    
-   mysqli_stmt_bind_param($comando, 'isssd', $disponivel, $tipo, $nome, $ingredientes, $valor_un);
+   mysqli_stmt_bind_param($comando, 'isssds', $disponivel, $tipo, $nome, $ingredientes, $valor_un, $observacoes);
    
    mysqli_stmt_execute($comando);
    mysqli_stmt_close($comando);
@@ -176,10 +176,10 @@ function listarProdutos($conexao) {
 
 // funcionando
 
-function editarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un, $idproduto){
-    $sql = "UPDATE tb_produto SET disponivel=?, tipo=?, nome=?, ingredientes=?, valor_un=? WHERE idproduto=?";
+function editarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un, $observacoes, $idproduto){
+    $sql = "UPDATE tb_produto SET disponivel=?, tipo=?, nome=?, ingredientes=?, valor_un=?, observacoes=? WHERE idproduto=?";
     $comando = mysqli_prepare($conexao, $sql);
-    mysqli_stmt_bind_param($comando, 'isssdi',$disponivel, $tipo, $nome, $ingredientes, $valor_un, $idproduto);
+    mysqli_stmt_bind_param($comando, 'isssdsi',$disponivel, $tipo, $nome, $ingredientes, $valor_un, $observacoes, $idproduto);
     $funcionou = mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
     
