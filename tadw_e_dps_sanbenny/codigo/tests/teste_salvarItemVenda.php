@@ -12,3 +12,4 @@ salvarItemVenda($conexao, $idcarrinho, $idproduto, $quantidade);
 ?>
 
 <!-- funcionando -->
+ <!-- githb -->
