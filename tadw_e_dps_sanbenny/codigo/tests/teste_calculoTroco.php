@@ -2,7 +2,7 @@
     require_once "../funcoes.php";
     require_once "../conexao.php";
 
-    $idcarrinho = 3;
+    $idcarrinho = 5;
     
 
     echo "<pre>";
