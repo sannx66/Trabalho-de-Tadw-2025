@@ -5,3 +5,4 @@
     deletarLogin($conexao, 1);
 
 ?>
+<!-- funcionou -->

@@ -7,3 +7,4 @@ echo "<pre>";
 print_r(listarLogin($conexao));
 echo "</pre>";
 ?>
+<!-- funcionou -->

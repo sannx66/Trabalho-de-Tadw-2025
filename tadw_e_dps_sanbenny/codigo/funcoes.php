@@ -14,44 +14,9 @@ function salvarLogin($conexao, $nome, $email, $senha) {
 };
 
 
-function verificarLogin($conexao, $email, $senha) {
-        require_once "conexao.php";
+function verificarLogin($conexao, $email, $senha) {};
 
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-
-    $sql = "SELECT * FROM tb_login WHERE email = '$email'";
-
-    $resultado = mysqli_query($conexao, $sql);
-
-    if (mysqli_num_rows($resultado) == 0) {
-        header("Location: index.php");
-    }
-    else {
-        $linha = mysqli_fetch_array($resultado);
-        $senha_banco = $linha['senha'];
-        $tipo = $linha['tipo'];
-
-        if (password_verify($senha, $senha_banco)) {
-            session_start();
-            $_SESSION['logado'] = 'sim';
-            $_SESSION['tipo'] = $tipo;
-            header("Location: home.php");
-            }
-        else {
-            header("Location: index.php");
-            }
-    }
-
-
-};
-
-function verificarLogado($conexao) {
-        session_start();
-    if (!isset($_SESSION['logado'])) {
-        header("Location: index.php");
-    }
-};
+function verificarLogado($conexao) {};
 
 
 //funcionou
@@ -99,8 +64,8 @@ function pesquisarLogin($conexao, $idlogin) {
     mysqli_stmt_close($comando);
     return $login;
 }
-//toddy
 
+//funcionou
 function cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco) { 
     $sql = "INSERT INTO tb_cliente (email, senha, nome, telefone, endereco) VALUES (?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
@@ -113,10 +78,11 @@ function cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco)
     return $funcionou;
 };
 
-// funcionando
 
-// function verificarLogin_cliente($conexao, $email, $senha) {}; dps
-// function verificarLogado_cliente($conexao) {};dps
+
+function verificarLogin_cliente($conexao, $email, $senha) {};
+function verificarLogado_cliente($conexao) {};
+
 function listarClientes($conexao) { 
     $sql = "SELECT * FROM tb_cliente";
     $comando = mysqli_prepare($conexao, $sql);
@@ -132,7 +98,7 @@ function listarClientes($conexao) {
 
     return $lista_clientes;
 };
-
+// funcionando
 
 function editarCliente($conexao, $email, $senha, $nome, $telefone, $endereco, $idcliente) {
     $sql = "UPDATE tb_cliente SET email=?, senha=?, nome=?, telefone=?, endereco=? WHERE idcliente=?";
