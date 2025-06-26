@@ -14,9 +14,32 @@ function salvarLogin($conexao, $nome, $email, $senha) {
 };
 
 
-function verificarLogin($conexao, $email, $senha) {};
+function verificarLogin($conexao, $email, $senha) {
+    $sql = " SELECT * from tb_login where email = '$email' and senha = '$senha'";
+    $comando = mysqli_prepare($conexao, $sql);
 
-function verificarLogado($conexao) {};
+    mysqli_stmt_execute($comando);
+    $resultados = mysqli_stmt_get_result($comando);
+    
+    //$login = [];
+    //$id = mysqli_fetch_assoc($resultados);
+    $login = mysqli_fetch_assoc($resultados);
+
+    if ($resultados->num_rows > 0) {
+        session_start();
+        $_SESSION['Logado'] = 1;
+        return "Logado";
+    }
+    else{
+        return "não logado";
+    }
+    //return $login;
+
+};
+
+function verificarLogado($conexao) 
+ 
+//};
 
 
 //funcionou
