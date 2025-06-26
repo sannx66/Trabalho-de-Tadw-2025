@@ -125,7 +125,7 @@ function deletarCliente($conexao, $idcliente) {
     
     return $funcionou;
 };
-
+// funcionando
 
 function pesquisarClienteId($conexao, $idcliente) {
     $sql = "SELECT * FROM tb_cliente WHERE idcliente = ?";
