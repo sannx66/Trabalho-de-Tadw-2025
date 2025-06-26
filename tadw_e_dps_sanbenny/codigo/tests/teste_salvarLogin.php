@@ -4,7 +4,7 @@
 
     $nome = "joao";
     $email = "joao@gmail.com";
-    $senha = "1234";
+    $senha = "ias";
 
     salvarLogin($conexao, $nome, $email, $senha);
 ?>

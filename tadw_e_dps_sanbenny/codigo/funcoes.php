@@ -81,6 +81,7 @@ function cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco)
 
 
 function verificarLogin_cliente($conexao, $email, $senha) {};
+
 function verificarLogado_cliente($conexao) {};
 
 function listarClientes($conexao) { 
