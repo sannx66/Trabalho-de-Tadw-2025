@@ -3,7 +3,7 @@
 require_once "../conexao.php";
 require_once "../funcoes.php";
 
-$idproduto = 6;
+$idproduto = 1;
 
 echo "<pre>";
 print_r(pesquisarProdutoId($conexao, $idproduto));

@@ -2,7 +2,7 @@
     require_once "../conexao.php";
     require_once "../funcoes.php";
 
-    $idproduto = 3;
+    $idproduto = 1;
 
     $disponivel= 6;
     $tipo = "Milkshake";
