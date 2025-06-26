@@ -9,3 +9,4 @@ echo "<pre>";
 print_r(pesquisarLogin($conexao, $idlogin));
 echo "</pre>";
 ?>
+<!-- funcionou -->

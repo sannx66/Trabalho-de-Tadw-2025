@@ -8,3 +8,4 @@
 
     salvarLogin($conexao, $nome, $email, $senha);
 ?>
+<!-- funcionou -->
