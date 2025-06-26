@@ -2,11 +2,11 @@
     require_once "../conexao.php";
     require_once "../funcoes.php";
 
-    $idproduto = 4;
+    $idproduto = 3;
 
     $disponivel= 6;
     $tipo = "Milkshake";
-    $nome = "Morango";
+    $nome = "Chocolate";
     $ingredientes = "Sorvete de morango, leite, calda de morango, pedaços de morango e chantilly";
     $valor_un = 22;
     

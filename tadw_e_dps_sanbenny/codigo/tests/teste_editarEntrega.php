@@ -4,7 +4,7 @@
 
  
     $entregador= "Iasminny";
-    $idcarrinho= 1;
+    $idcarrinho= 2;
     $identrega = 1;
     
 

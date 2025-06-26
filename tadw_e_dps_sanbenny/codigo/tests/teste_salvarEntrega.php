@@ -3,7 +3,7 @@
     require_once "../funcoes.php";
     
     $entregador= "Jin Woo";
-    $idcarrinho = 2;
+    $idcarrinho = 3;
 
     salvarEntrega($conexao, $entregador, $idcarrinho);
 ?>
