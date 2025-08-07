@@ -16,7 +16,11 @@
 
         <a href="formCliente.php">Primeiro acesso</a> <br><br>
 
-        <input type="submit" value="Acessar">
+        <input type="submit" value="Acessar"> <br> <br>
+    
+
     </form>
+
+    <a href="deslogar.php">Deslogar</a> <br><br>
 </body>
 </html>
