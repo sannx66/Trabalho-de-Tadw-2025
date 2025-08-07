@@ -7,9 +7,19 @@
 </head>
 <body>
     <form action="cardapio.php">
-
-    hellloooooooooo <br><br><br>
-            <input type="submit" value="Cadastrar">
+      
+        Email: <br>
+        <input type="text" name="email"> <br><br>
+        Senha: <br>
+        <input type="text" name="senha"> <br><br>
+         Nome: <br>
+        <input type="text" name="nome"> <br><br>
+        Telefone: <br>
+        <input type="text" name="telefone"> <br><br>
+        Endereço: <br>
+        <input type="text" name="endereco"> <br><br>
+       
+        <input type="submit" value="Cadastrar">
 
 
 
