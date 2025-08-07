@@ -14,7 +14,7 @@
         Senha: <br>
         <input type="text" name="senha"> <br><br>
 
-        <a href="formUsuario.php">Primeiro acesso</a> <br><br>
+        <a href="formCliente.php">Primeiro acesso</a> <br><br>
 
         <input type="submit" value="Acessar">
     </form>
