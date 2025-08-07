@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="cardapio.php">
+    <form action="index.php">
       
         Email: <br>
         <input type="text" name="email"> <br><br>

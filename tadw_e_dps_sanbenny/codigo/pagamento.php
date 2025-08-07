@@ -19,7 +19,10 @@ require_once "./funcoes.php";
 
      <form action="retirada.php">
     <label><input type="radio" name="opcao" value="opcao1">Cartão</label><br>
-  <label><input type="radio" name="opcao" value="opcao2">Dinheiro</label><br> <br>
+
+  <label><input type="radio" name="opcao" value="opcao2">Golds</label> <br>
+   Troco?: <br>
+        <input type="number" name="troco"> <br><br>
 
           <input type="submit" value="Salvar"> <br><br><br>
 
