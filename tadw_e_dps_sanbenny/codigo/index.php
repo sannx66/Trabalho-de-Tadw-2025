@@ -6,21 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Acesso ao sistema</h1>
 
-    <form action="cardapio.php" method="post">
-        E-mail: <br>
-        <input type="text" name="email"> <br><br>
-        Senha: <br>
-        <input type="text" name="senha"> <br><br>
+    <h1>Doceria</h1>
+ <h3>Le Douce Amoux</h3>
 
-        <a href="formCliente.php">Primeiro acesso</a> <br><br>
+        <a href="cadastrarCliente.php">Cadastrar</a> <br><br>
+        <a href="formCliente.php">Entrar</a> <br><br>
 
-        <input type="submit" value="Acessar"> <br> <br>
     
 
-    </form>
-
-    <a href="deslogar.php">Deslogar</a> <br><br>
 </body>
 </html>

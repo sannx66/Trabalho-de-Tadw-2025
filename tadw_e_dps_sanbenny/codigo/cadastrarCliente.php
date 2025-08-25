@@ -10,7 +10,7 @@
     <h1>L O G I N</h1>
 
     <!-- formulário sem action -->
-    <form action=cadastrarCliente.php method="post"> 
+    <form action=index.php method="post"> 
         E-mail: <br>
         <input type="text" name="email"> <br><br>
         Senha: <br>
@@ -27,7 +27,7 @@
 
         <!-- <a href="formUsuario.php">Primeiro acesso</a> <br><br> n sei pra q isso mas deve ser útil-->
 
-        <input type="submit" value="Entrar">
+        <input type="submit" value="Cadastrar">
 
         <!-- exemplo do pq existe name nos formulários//$nome =$_POST['nome']_ -->
     </form>
