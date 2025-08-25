@@ -7,7 +7,7 @@
 </head>
 <body>
     <!-- login do cliente -->
-    <h1>L O G I N</h1>
+    <h1>C A D A S T R O</h1>
 
     <!-- formulário sem action -->
     <form action=index.php method="post"> 
