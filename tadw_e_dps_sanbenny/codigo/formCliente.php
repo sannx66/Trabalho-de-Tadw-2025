@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="categoria.php">
+    <form action="categorias.php">
       
         Email: <br>
         <input type="text" name="email"> <br><br>
