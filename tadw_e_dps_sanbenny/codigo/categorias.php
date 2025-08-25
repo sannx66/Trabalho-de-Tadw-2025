@@ -15,7 +15,10 @@
     <a href="trufas.php">Trufas</a> <br> 
     <a href="cafe.php">Cafés</a> <br> 
     <a href="cha.php">Chás</a> <br> 
-    <a href="milkshake.php">Milshake</a> <br> 
+    <a href="milkshake.php">Milshake</a> <br> <br><br>
+
+    <a href="carrinho.php">Carrinho</a> <br> 
+
 
 
 
