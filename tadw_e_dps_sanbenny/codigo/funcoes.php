@@ -37,11 +37,6 @@ function cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco,
 };
 
 
-
-function verificarLogin_cliente($conexao, $email, $senha) {};
-
-function verificarLogado_cliente($conexao) {};
-
 function listarClientes($conexao) { 
     $sql = "SELECT * FROM tb_cliente";
     $comando = mysqli_prepare($conexao, $sql);
