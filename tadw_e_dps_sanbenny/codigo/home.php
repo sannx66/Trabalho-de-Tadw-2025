@@ -20,6 +20,8 @@
                 echo "<li>";
                 echo "<a href='listarClientes.php'>Lista de clientes cadastrados</a>";
                 echo "</li>";
+
+                echo "<a href='cadastrarProduto.php'>Cadastrar produto</a>";
             }
         ?>
         <li>
