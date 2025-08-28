@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,19 +6,16 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="categorias.php">
-      
-        Email: <br>
+    <h1>Acesso ao sistema</h1>
+
+    <form action="verificarlogin.php" method="post">
+        E-mail: <br>
         <input type="text" name="email"> <br><br>
         Senha: <br>
-        <input type="password" name="senha"> <br><br>
-      
-       
-        <input type="submit" value="Entrar">
+        <input type="text" name="senha"> <br><br>
 
-
-
+        <input type="submit" value="Acessar">
     </form>
-
 </body>
 </html>
+

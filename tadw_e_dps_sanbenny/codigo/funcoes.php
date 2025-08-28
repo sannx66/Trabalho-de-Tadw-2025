@@ -1,16 +1,12 @@
 <?php
 
-function verificarLogin($conexao, $email) {
-    $sql = "SELECT * FROM tb_cliente WHERE email = ?";
+function verificarLogin($conexao, $email, $senha) {
+    $sql = "SELECT * FROM tb_cliente WHERE email = ?, senha =?";
    
     $comando = mysqli_prepare($conexao, $sql);
 
     mysqli_stmt_execute($comando);
     $resultados = mysqli_stmt_get_result($comando);
-    
-    //$login = [];
-    //$id = mysqli_fetch_assoc($resultados);
-    $login = mysqli_fetch_assoc($resultados);
 
 
 }

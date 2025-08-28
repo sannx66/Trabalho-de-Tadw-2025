@@ -4,9 +4,10 @@
 
 
     $email = $_POST['email'];
+    $senha = $_POST['senha'];
 
 
-    verificarLogin($conexao, $email); 
+    verificarLogin($conexao, $email, $senha); 
 
     if (mysqli_num_rows($resultado) == 0) {
         header("Location: nao_logado.php");
@@ -23,7 +24,7 @@
             header("Location: home.php");
         }
         else {
-            header("Location: index.php");
+            header("Location: nao_logado.php");
         }
     }
 ?>

@@ -1,4 +1,6 @@
-
+<?php
+    require_once "./verificarlogado.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,22 +9,19 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Página inicial</h1>
 
-    <p>Olá, <?php echo $nome_usuario . "."; ?></p>
     <ul>
         <li>
         <a href="formCliente.php">Cadastrar novo cliente</a>
         </li>
 
         <?php
-            if ($tipo_usuario == 'g') {
+            if ($_SESSION['tipo'] == 'g') {
                 echo "<li>";
                 echo "<a href='listarClientes.php'>Lista de clientes cadastrados</a>";
                 echo "</li>";
             }
         ?>
-
         <li>
             <a href="formProduto.php">Cadastrar novo produto</a>
         </li>
