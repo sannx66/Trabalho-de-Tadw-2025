@@ -1,5 +1,5 @@
 <?php
-    require_once "conexao.php";
+    require_once "./conexao.php";
 
     $email = $_POST['email'];
     $senha = $_POST['senha'];
@@ -20,7 +20,7 @@
             session_start();
             $_SESSION['logado'] = 'sim';
             $_SESSION['tipo'] = $tipo;
-            header("Location: home.php");
+            header("Location: categorias.php");
         }
         else {
             header("Location: index.php");
