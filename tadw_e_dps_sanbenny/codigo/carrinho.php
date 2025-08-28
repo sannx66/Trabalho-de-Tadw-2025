@@ -1,10 +1,10 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['logado'])) {
+    require_once "./verificarlogado.php";
+
+    if ($_SESSION['tipo'] == 'c') {
         header("Location: index.php");
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

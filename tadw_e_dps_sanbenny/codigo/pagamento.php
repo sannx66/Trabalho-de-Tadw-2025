@@ -1,4 +1,11 @@
 <?php
+    require_once "./verificarlogado.php";
+
+    if ($_SESSION['tipo'] == 'c') {
+        header("Location: index.php");
+    }
+?>
+<?php
 require_once "./conexao.php";
 require_once "./funcoes.php";
 ?>

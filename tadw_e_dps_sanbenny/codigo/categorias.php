@@ -1,5 +1,5 @@
 <?php
-    require_once "verificarLogado.php";
+    require_once "./verificarlogado.php";
 
     if ($_SESSION['tipo'] == 'c') {
         header("Location: index.php");
