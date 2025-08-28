@@ -1,7 +1,8 @@
 <?php
 
-function verificarLogin($conexao, $email, $senha) {
-    $sql = " SELECT * from tb_login where email = '$email' and senha = '$senha'";
+function verificarLogin($conexao, $email) {
+    $sql = "SELECT * FROM tb_cliente WHERE email = ?";
+   
     $comando = mysqli_prepare($conexao, $sql);
 
     mysqli_stmt_execute($comando);
@@ -11,15 +12,6 @@ function verificarLogin($conexao, $email, $senha) {
     //$id = mysqli_fetch_assoc($resultados);
     $login = mysqli_fetch_assoc($resultados);
 
-    if ($resultados->num_rows > 0) {
-        session_start();
-        $_SESSION['Logado'] = 1;
-        return "Logado";
-    }
-    else{
-        return "não logado";
-    }
-    //return $login;
 
 }
 

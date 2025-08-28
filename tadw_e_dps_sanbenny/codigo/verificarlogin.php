@@ -1,18 +1,18 @@
 <?php
     require_once "./conexao.php";
+    require_once "./funcoes.php";
+
 
     $email = $_POST['email'];
-    $senha = $_POST['senha'];
 
-    $sql = "SELECT * FROM tb_cliente WHERE email = '$email'";
 
-    $resultado = mysqli_query($conexao, $sql);
+    verificarLogin($conexao, $email); 
 
     if (mysqli_num_rows($resultado) == 0) {
-        header("Location: index.php");
+        header("Location: nao_logado.php");
     }
     else {
-        $linha = mysqli_fetch_array($resultado);
+        $linha = mysqli_fetch_assoc($resultado);
         $senha_banco = $linha['senha'];
         $tipo = $linha['tipo'];
 
@@ -20,7 +20,7 @@
             session_start();
             $_SESSION['logado'] = 'sim';
             $_SESSION['tipo'] = $tipo;
-            header("Location: categorias.php");
+            header("Location: home.php");
         }
         else {
             header("Location: index.php");
