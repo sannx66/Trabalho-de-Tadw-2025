@@ -1,19 +1,5 @@
 <?php
 
-//funcionou
-function salvarLogin($conexao, $nome, $email, $senha) {
-    $sql = "INSERT INTO tb_login (nome, email, senha) VALUES (?, ?, ?)";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'sss', $nome, $email, $senha);
-    
-    $funcionou = mysqli_stmt_execute($comando);
-    mysqli_stmt_close($comando);
-    
-    return $funcionou;
-};
-
-
 function verificarLogin($conexao, $email, $senha) {
     $sql = " SELECT * from tb_login where email = '$email' and senha = '$senha'";
     $comando = mysqli_prepare($conexao, $sql);
@@ -35,65 +21,14 @@ function verificarLogin($conexao, $email, $senha) {
     }
     //return $login;
 
-};
-
-//function verificarLogado($conexao) 
- 
-//};
-
-
-//funcionou
-function listarLogin($conexao) {
-    $sql = "SELECT * FROM tb_login";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_execute($comando);
-    $resultados = mysqli_stmt_get_result($comando);
-    
-    $lista_login = [];
-    while ($login = mysqli_fetch_assoc($resultados)) {
-        $lista_login[] = $login;
-    }
-    mysqli_stmt_close($comando);
-
-    return $lista_login;
-};
-
-//funcionou
-function deletarLogin($conexao, $idlogin) {
-    $sql = "DELETE FROM tb_login WHERE idlogin = ?";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'i', $idlogin);
-
-    $funcionou = mysqli_stmt_execute($comando);
-    mysqli_stmt_close($comando);
-    
-    return $funcionou;
-};
-
-//funcionou
-function pesquisarLogin($conexao, $idlogin) {
-    $sql = "SELECT * FROM tb_login WHERE idlogin = ?";
-    $comando = mysqli_prepare($conexao, $sql);
-
-    mysqli_stmt_bind_param($comando, 'i', $idlogin);
-
-    mysqli_stmt_execute($comando);
-    $resultado = mysqli_stmt_get_result($comando);
-
-    $login = mysqli_fetch_assoc($resultado);
-
-    mysqli_stmt_close($comando);
-    return $login;
 }
 
-//funcionou
-function cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco) { 
-    $sql = "INSERT INTO tb_cliente (email, senha, nome, telefone, endereco) VALUES (?, ?, ?, ?, ?)";
+
+function cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco, $status, $tipo) { 
+    $sql = "INSERT INTO tb_cliente (email, senha, nome, telefone, endereco, status, tipo) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
 
-    mysqli_stmt_bind_param($comando, 'sisis', $email, $senha, $nome, $telefone, $endereco);
+    mysqli_stmt_bind_param($comando, 'sisisss', $email, $senha, $nome, $telefone, $endereco, $status, $tipo);
 
     $funcionou = mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
@@ -124,11 +59,11 @@ function listarClientes($conexao) {
 };
 // funcionando
 
-function editarCliente($conexao, $email, $senha, $nome, $telefone, $endereco, $idcliente) {
-    $sql = "UPDATE tb_cliente SET email=?, senha=?, nome=?, telefone=?, endereco=? WHERE idcliente=?";
+function editarCliente($conexao, $email, $senha, $nome, $telefone, $endereco, $status, $tipo, $idcliente) {
+    $sql = "UPDATE tb_cliente SET email=?, senha=?, nome=?, telefone=?, endereco=?, status=?, tipo=? WHERE idcliente=?";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'sisisi', $email, $senha, $nome, $telefone, $endereco, $idcliente);
+    mysqli_stmt_bind_param($comando, 'sisisssi', $email, $senha, $nome, $telefone, $endereco, $status, $tipo, $idcliente);
     
     $funcionou = mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
@@ -165,7 +100,7 @@ function pesquisarClienteId($conexao, $idcliente) {
     mysqli_stmt_close($comando);
     return $cliente;
 };
-// funcionando
+
 //sandy 
 
 
