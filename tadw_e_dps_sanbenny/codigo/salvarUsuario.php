@@ -1,19 +1,16 @@
 <?php
 
-require_once "conexao.php";
+require_once "./conexao.php";
+require_once "./funcoes.php";
 
-$email = $_POST['nome'];
-$senha = $_POST['email'];
-$nome = $_POST['senha'];
-$telefone = $_POST['senha'];
-$endereco = $_POST['senha'];
+$email = $_POST['email'];
+$senha = $_POST['senha'];
+$nome = $_POST['nome'];
+$telefone = $_POST['telefone'];
+$endereco = $_POST['endereco'];
 
 
-$senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco);
 
-$sql = "INSERT INTO tb_cliente (email, senha, nome, telefone, endereco, status, tipo) VALUES ('$email', '$senha', '$senha_hash', '$nome', '$telefone', 'd', 'c')";
 
-mysqli_query($conexao, $sql);
-
-header("Location: categorias.php");
 ?>

@@ -21,6 +21,6 @@
 
         <input type="submit" value="Cadastrar">
     </form>
-    <button>Teste</button>
+    
 </body>
 </html>

@@ -1,10 +1,4 @@
 
-<?php
-    require_once "verificaLogado.php";
-
-    $nome_usuario = $_SESSION['nome'];
-    $tipo_usuario = $_SESSION['tipo'];
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

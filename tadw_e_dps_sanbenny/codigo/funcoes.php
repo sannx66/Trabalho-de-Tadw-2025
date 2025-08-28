@@ -24,11 +24,11 @@ function verificarLogin($conexao, $email, $senha) {
 }
 
 
-function cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco, $status, $tipo) { 
-    $sql = "INSERT INTO tb_cliente (email, senha, nome, telefone, endereco, status, tipo) VALUES (?, ?, ?, ?, ?, ?, ?)";
+function cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco) { 
+    $sql = "INSERT INTO tb_cliente (email, senha, nome, telefone, endereco, status, tipo) VALUES (?, ?, ?, ?, ?, 'd', 'c')";
     $comando = mysqli_prepare($conexao, $sql);
 
-    mysqli_stmt_bind_param($comando, 'sisisss', $email, $senha, $nome, $telefone, $endereco, $status, $tipo);
+    mysqli_stmt_bind_param($comando, 'sisis', $email, $senha, $nome, $telefone, $endereco);
 
     $funcionou = mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
