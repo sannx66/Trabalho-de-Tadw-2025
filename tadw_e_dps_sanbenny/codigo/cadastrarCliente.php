@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <!-- login do cliente -->
-    <h1>C A D A S T R O</h1>
+<?php
+require_once "./conexao.php";
+require_once "./funcoes.php";
 
-    <!-- formulário sem action -->
-    <form action=index.php method="post"> 
+
         E-mail: <br>
         <input type="text" name="email"> <br><br>
         Senha: <br>
@@ -21,8 +13,14 @@
         <input type="text" name="telefone"> <br><br>
         Endereço: <br>
         <input type="text" name="endereco"> <br><br>
+        Status: <br>
+        <input type="text" name="status"> <br><br>
+        Tipo: <br>
+        <input type="text" name="tipo"> <br><br>
 
-
+        
+    cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco, $status, $tipo);
+?>
 
 
         <!-- <a href="formUsuario.php">Primeiro acesso</a> <br><br> n sei pra q isso mas deve ser útil-->
