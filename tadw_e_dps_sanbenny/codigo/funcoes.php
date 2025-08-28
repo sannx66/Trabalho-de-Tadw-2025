@@ -1,17 +1,5 @@
 <?php
 
-function verificarLogin($conexao, $email, $senha) {
-    $sql = "SELECT * FROM tb_cliente WHERE email = ?, senha =?";
-   
-    $comando = mysqli_prepare($conexao, $sql);
-
-    mysqli_stmt_execute($comando);
-    $resultados = mysqli_stmt_get_result($comando);
-
-
-}
-
-
 function cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco) { 
     $sql = "INSERT INTO tb_cliente (email, senha, nome, telefone, endereco, status, tipo) VALUES (?, ?, ?, ?, ?, 'd', 'c')";
     $comando = mysqli_prepare($conexao, $sql);
