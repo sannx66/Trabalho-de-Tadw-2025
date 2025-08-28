@@ -14,13 +14,14 @@
          Nome: <br>
         <input type="text" name="nome"> <br><br>
          Telefone: <br>
-        <input type="text" name="senha"> <br><br>
+        <input type="text" name="telefone"> <br><br>
          Endereço: <br>
-        <input type="text" name="senha"> <br><br>
+        <input type="text" name="endereco"> <br><br>
         
 
         <input type="submit" value="Cadastrar">
     </form>
-    
+
+
 </body>
 </html>

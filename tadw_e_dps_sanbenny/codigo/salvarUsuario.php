@@ -12,5 +12,6 @@ $endereco = $_POST['endereco'];
 
 cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco);
 
+ header("Location: index.php");
 
 ?>
