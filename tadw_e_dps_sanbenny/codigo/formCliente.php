@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,7 @@
         Email: <br>
         <input type="text" name="email"> <br><br>
         Senha: <br>
-        <input type="text" name="senha"> <br><br>
+        <input type="password" name="senha"> <br><br>
       
        
         <input type="submit" value="Entrar">

@@ -58,12 +58,12 @@
             echo "<tr>";
             echo "<td>$idcliente</td>";
             // echo "<td><img src='fotos/$foto'></td>";
+            echo "<td>$email</td>";
             echo "<td>$nome</td>";
             echo "<td>$cpf</td>";
             echo "<td>$endereco</td>";
-            echo "<td>$email</td>";
             echo "<td>$telefone</td>";
-            echo "<td><a href='formCliente.php?id=$idcliente'>Editar</a></td>";
+            // echo "<td><a href='formCliente.php?id=$idcliente'>Editar</a></td>";
             echo "<td><a href='deletarCliente.php?id=$idcliente'>Excluir</a></td>";
             echo "</tr>";
         }
