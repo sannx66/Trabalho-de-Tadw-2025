@@ -9,8 +9,12 @@
     $resultado = mysqli_query($conexao, $sql);
 
     if (mysqli_num_rows($resultado) == 0) {
-        header("Location: index.php");
-    }
+
+    echo '<script>alert("Usuário não cadastrado");';
+    echo 'location.href="formCliente.php"; </script>';  
+        // local para ir depois que aparecer o alert
+     }
+
     else {
         $linha = mysqli_fetch_array($resultado);
         $senha_banco = $linha['senha'];
@@ -23,7 +27,11 @@
             header("Location: categorias.php");
         }
         else {
-            header("Location: index.php");
+            echo '<script>alert("Senha incorreta");';
+            echo 'location.href="formCliente.php"; </script>';  
+                // local para ir depois que aparecer o alert
+
+
         }
     }
 ?>
