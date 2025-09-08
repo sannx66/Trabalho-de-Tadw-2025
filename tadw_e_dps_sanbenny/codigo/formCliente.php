@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Acesso ao sistema</h1>
+    <h1>Le Douce Amoux</h1>
 
     <form action="verificarlogin.php" method="post">
         E-mail: <br>
