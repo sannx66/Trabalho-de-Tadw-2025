@@ -17,9 +17,9 @@
         Senha: <br>
         <input type="text" name="senha"> <br><br>
 
-        <!-- <input type="submit" value="Acessar"> -->
+        <input type="submit" value="Acessar">
 
-              <button id="botao1">Acessar</button>
+            
 
 
     </form>

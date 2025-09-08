@@ -7,44 +7,28 @@
     <script src="./jquery-3.7.1.min.js"></script>
 </head>
 <body>
-    <form id="meuForm" action="salvarUsuario.php" method="post">
-    
-  E-mail     <input type="text" id="email" name="email" required><br>
-  Senha     <input type="text" id="senha" name="senha" required> <br>
-  Nome      <input type="text" id="nome" name="nome" required> <br>
-  Telefone  <input type="text" id="telefone" name="telefone" required><br>
-  Endereço  <input type="text" id="endereco" name="endereco" required><br><br>
+  
+  <form onsubmit="return validarFormulario()">
+  <label for="email">E-mail:</label>
+  <input type="email" id="email" name="email"> <br>
 
-  <button id="meuBotao">Cadastrar</button>
+  <label for="senha">Senha:</label>
+  <input type="text" id="senha" name="senha"> <br>
 
-    </form>
-    <div id="mensagem"></div>
+  <label for="nome">Nome</label>
+  <input type="text" id="nome" name="nome"> <br>
 
-    <script>
+  <label for="telefone">Telefone</label>
+  <input type="text" id="telefone" name="telefone"> <br>
 
-    $(document).ready(function() {
-  $("#meuBotao").click(function(event) {
-    event.preventDefault(); // Impede o envio padrão do formulário
+  <label for="endereco">Endereço</label>
+  <input type="text" id="endereco" name="endereco"> <br>
+  
 
-    let camposPreenchidos = true;
-    $("#meuForm input[required]").each(function() {
-      if ($(this).val() === "") {
-        camposPreenchidos = false;
-        return false; // Sai do loop 'each' se encontrar um campo vazio
-      }
-    });
+  <button type="submit">Enviar</button>
+</form>
 
-    if (camposPreenchidos) {
-      $("#mensagem").text("Todos os campos foram preenchidos.").css("color", "green");
-      // Aqui você pode adicionar o código para enviar o formulário
-    } else {
-      $("#mensagem").text("Por favor, preencha todos os campos.").css("color", "red");
-    }
-  });
-});
-</script>
-
-
+<!-- fazer validação de campo -->
 
 </body>
 </html>
