@@ -375,3 +375,45 @@ function deletarEntrega($conexao, $identrega) {
 // izabella - produto e entrega
 // toddy - login e carrinho
 // sandy - calculo e clientes 
+
+function verificarlogin($conexao, $email, $senha) {
+    $sql = "SELECT * FROM tb_cliente WHERE email = ?";
+
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($comando, 's', $email);
+
+    mysqli_stmt_execute($comando);
+    
+    $resultado = mysqli_stmt_get_result($comando);
+    $quantidade = mysqli_num_rows($resultado);
+    
+    $iduser = 0;
+    if ($quantidade != 0) {
+        $usuario = mysqli_fetch_assoc($resultado);
+        $senha_banco = $usuario['senha'];
+
+        if (password_verify($senha, $senha_banco)) {
+            $iduser = $usuario['idusuario'];
+        }
+    }
+    return $iduser;
+}
+
+function pegarDadosUsuario($conexao, $idcliente) {
+    $sql = "SELECT nome, tipo FROM tb_cliente WHERE idcliente = ?";
+
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($comando, 'i', $idcliente);
+
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+    $quantidade = mysqli_num_rows($resultado);
+    
+    if ($quantidade != 0) {
+        $usuario = mysqli_fetch_assoc($resultado);
+        return $usuario;
+    }
+    else {
+        return 0;
+    }
+}

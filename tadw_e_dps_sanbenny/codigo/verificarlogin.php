@@ -1,37 +1,28 @@
+
 <?php
     require_once "conexao.php";
+    require_once "funcoes.php";
 
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    $sql = "SELECT * FROM tb_cliente WHERE email = '$email'";
+    $idcliente = verificarlogin($conexao, $email, $senha);
 
-    $resultado = mysqli_query($conexao, $sql);
-
-    if (mysqli_num_rows($resultado) == 0) {
-
-    echo '<script>alert("Usuário não cadastrado");';
-    echo 'location.href="formCliente.php"; </script>';  
-        // local para ir depois que aparecer o alert
-     }
-
+    if ($idcliente == 0) {
+        header("Location: index.php");
+    }
     else {
-        $linha = mysqli_fetch_array($resultado);
-        $senha_banco = $linha['senha'];
-        $tipo = $linha['tipo'];
-
-        if (password_verify($senha, $senha_banco)) {
-            session_start();
-            $_SESSION['logado'] = 'sim';
-            $_SESSION['tipo'] = $tipo;
-            header("Location: categorias.php");
+        $usuario = pegarDadosUsuario($conexao, $idcliente);
+        
+        if ($usuario == 0) {
+            header("Location: index.php");
         }
         else {
-            echo '<script>alert("Senha incorreta");';
-            echo 'location.href="formCliente.php"; </script>';  
-                // local para ir depois que aparecer o alert
-
-
+            session_start();
+            $_SESSION['logado'] = 'sim';
+            $_SESSION['tipo'] = $usuario['tipo'];
+            $_SESSION['nome'] = $usuario['nome'];
+            header("Location: home.php");
         }
     }
 ?>
