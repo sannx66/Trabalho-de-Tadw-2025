@@ -1,59 +1,79 @@
-
-  <form onsubmit="return validarFormulario()">
-  <label for="email">E-mail:</label>
-  <input type="email" id="email" name="email"> <br>
-
-  <label for="senha">Senha:</label>
-  <input type="text" id="senha" name="senha"> <br>
-
-  <label for="nome">Nome</label>
-  <input type="text" id="nome" name="nome"> <br>
-
-  <label for="telefone">Telefone</label>
-  <input type="text" id="telefone" name="telefone"> <br>
-
-  <label for="endereco">Endereço</label>
-  <input type="text" id="endereco" name="endereco"> <br>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="../jquery-3.7.1.min.js"></script>
-    <script src="../jquery.validate.min.js"></script>
+    <script src="./jquery-3.7.1.min.js"></script>
+    <script src="./jquery.validate.min.js"></script>
     <script>
         $(document).ready(function () {
             $("#formulario").validate({
                 // regras para cada campo
                 rules: {
-                    nome: {
-                        required: true,
-                        minlength: 2,
-                    },
+                    
                     email: {
                         required: true,
                     },
                     email2: {
                         required: true,
                         equalTo: "#email",
+                    },
+
+                    senha: {
+                        required: true,
+                    },
+
+                    senha2: {
+                        required: true,
+                        equalTo: "#senha",
+                    },
+                    nome: {
+                        required: true,
+                        minlength: 2,
+                    },
+                    telefone: {
+                         required: true,
+                         phoneUS: true // se quiser validar telefone US, ou usar regex personalizada
+                    },
+
+                    endereco: {
+                         required: true,
+                         minlength: 5
                     }
                 },
                 // mensagens de erro para cada regra
                 messages: {
-                    nome: {
-                        required: "Esse campo deve ser preenchido",
-                        minlength: "O tamanho mínimo é 2.",
-                    },
+                    
                     email: {
                         required: "Você deve informar um e-mail",
                     },
                     email2: {
                         required: "Você deve confirmar seu e-mail",
                         equalTo: "Os e-mails informados devem ser iguais.",
-                    }
+                    },
+                    senha: {
+                        required: "Você deve informar um e-mail",
+                    },
+                     senha2: {
+                        required: "Você deve confirmar seu e-mail",
+                        equalTo: "Os e-mails informados devem ser iguais.",
+                    },
+                    nome: {
+                        required: "Esse campo deve ser preenchido",
+                        minlength: "O tamanho mínimo é 2.",
+                    },
+                      
+                    telefone: {
+                         required: "Informe seu telefone",
+                         phoneUS: "Informe um telefone válido"
+                    },
+
+                    endereco: {
+                        required: "Informe seu endereço",
+                        minlength: "O endereço deve ter no mínimo 5 caracteres"
+                     }
+
                 }
             })
         });
@@ -65,10 +85,8 @@
     </style>
 </head>
 <body>
-    <form id="formulario" action="saida.php">
-        Nome: <br>
-        <input type="text" name="nome" id="nome"> <br><br>
-
+    <form id="formulario" action="salvarUsuario.php" method="post">
+       
         E-mail: <br>
         <input type="text" name="email" id="email"> <br><br>
 
@@ -81,6 +99,15 @@
 
         Confirme sua senha: <br>
         <input type="password" name="senha2" id="senha2"> <br><br>
+
+        Nome: <br>
+        <input type="text" name="nome" id="nome"> <br><br>
+
+        Telefone: <br>
+        <input type="text" name="telefone" id="telefone"> <br><br>
+
+        Endereço: <br>
+        <input type="text" name="endereco" id="endereco"> <br><br>
 
         <input type="submit" value="Cadastrar">
     </form>

@@ -393,7 +393,7 @@ function verificarlogin($conexao, $email, $senha) {
         $senha_banco = $usuario['senha'];
 
         if (password_verify($senha, $senha_banco)) {
-            $iduser = $usuario['idusuario'];
+            $iduser = $usuario['idcliente'];
         }
     }
     return $iduser;
