@@ -41,7 +41,7 @@
 </style>
 </head>
 <body>
-    <form id="formulario_entrada" action="verificarlogin.php" method="post">
+    <form id="formulario_entrada" action="./verificarlogin.php" method="post">
         E-mail: <br>
         <input type="text" name="email_entrada" id="email_entrada"> <br><br>
 

@@ -1,5 +1,6 @@
 <?php
     require_once "./verificarlogado.php";
+    var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="en">
