@@ -1,34 +1,59 @@
+
+<?php
+    if (isset($_GET['id'])) {
+        // echo "editar";
+
+        require_once "conexao.php";
+        require_once "funcoes.php";
+
+        $id = $_GET['id'];
+        
+        $produto = pesquisarProdutoId($conexao, $id);
+       
+        $foto = $produto['foto'];
+        $disponivel= $produto['disponivel'];
+        $tipo = $produto ['tipo'];
+        $nome =  $produto['nome'];
+        $ingredientes = $produto['ingredientes'];
+        $valor_un = $produto['valor_un'];
+        $observacoes = $produto['observacoes'];
+
+        $botao = "Atualizar";
+    }
+    else {
+        // echo "novo";
+        $id = 0;
+        $disponivel = "";
+        $tipo = "";
+        $nome = "";
+        $ingredientes = "";
+        $valor_un = "";
+        $observacoes = "";
+        
+
+    }
+?>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro de Produto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
     <h1>Cadastro de Produto</h1>
-    <form action="/cadastrar_produto" method="post">
-        <label for="idproduto">ID do Produto:</label>
-        <input type="number" id="idproduto" name="idproduto" required><br><br>
+    <form action="salvarProduto.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
+        Foto: <br>
+        <input type="file" name="foto"> <br><br>
+<!-- precisa terminar isso,n ta pronto -->
+        Nome: <br>
+        <input type="text" name="nome" value="<?php echo $nome; ?>"> <br><br>
+        Disponivel: <br>
+        <input type="text" name="cpf" value="<?php echo $cpf; ?>"> <br><br>
+        Endereço: <br>
+        <input type="text" name="endereco" value="<?php echo $endereco; ?>"> <br><br>
 
-        <label for="disponivel">Disponível:</label>
-        <input type="number" id="disponivel" name="disponivel" min="0" max="1" required><br><br>
-
-        <label for="tipo">Tipo:</label>
-        <input type="text" id="tipo" name="tipo" maxlength="45" required><br><br>
-
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" maxlength="90" required><br><br>
-
-        <label for="ingredientes">Ingredientes:</label>
-        <input type="text" id="ingredientes" name="ingredientes" maxlength="300"><br><br>
-
-        <label for="valor_un">Valor Unitário:</label>
-        <input type="number" id="valor_un" name="valor_un" step="0.01" required><br><br>
-
-        <label for="observacoes">Observações:</label>
-        <input type="text" id="observacoes" name="observacoes" maxlength="45"><br><br>
-
-        <button type="submit">Cadastrar Produto</button>
+        <input type="submit" value="<?php echo $botao; ?>">
     </form>
 </body>
 </html>
