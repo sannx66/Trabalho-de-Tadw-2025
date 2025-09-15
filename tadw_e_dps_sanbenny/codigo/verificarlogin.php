@@ -1,28 +1,27 @@
-
 <?php
     require_once "conexao.php";
     require_once "funcoes.php";
 
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
+    $email = $_POST['email_entrada'];
+    $senha = $_POST['senha_entrada'];
 
     $idcliente = verificarlogin($conexao, $email, $senha);
 
     if ($idcliente == 0) {
-        header("Location: formCliente.php");
+        header("Location: index.php");
     }
     else {
-        $usuario = pegarDadosUsuario($conexao, $idcliente);
+        $cliente = pegarDadosCliente($conexao, $idcliente);
         
-        if ($usuario == 0) {
-            header("Location: formCliente.php");
+        if ($cliente == 0) {
+            header("Location: ola.php");
         }
         else {
             session_start();
             $_SESSION['logado'] = 'sim';
-            $_SESSION['tipo'] = $usuario['tipo'];
-            $_SESSION['nome'] = $usuario['nome'];
-            header("Location: categorias.php");
+            $_SESSION['tipo'] = $cliente['tipo'];
+            $_SESSION['nome'] = $cliente['nome'];
+            header("Location: home.php");
         }
     }
 ?>

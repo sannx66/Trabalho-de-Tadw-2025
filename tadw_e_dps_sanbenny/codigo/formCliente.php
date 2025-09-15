@@ -3,60 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="jquery-3.7.1.min.js"></script>
-    <script src="jquery.validate.min.js"></script>
-    <script>
+    <title>Login</title>
+    <script src="./jquery-3.7.1.min.js"></script>
+    <script src="./jquery.validate.min.js"></script>
+<script>
     $(document).ready(function () {
-        $("#formulario").validate({
-            // regras para cada campo
-            rules: {
-                email: {
-                    required: true,
-                    email: true
-                },
-               
-                senha: {
-                    required: true,
-                    minlength: 6
-                }
+    $("#formulario_entrada").validate({
+        // regras para cada campo
+        rules: {
+            email_entrada: {
+                required: true,
+                email: true // Adiciona uma validação para garantir que o campo seja um e-mail válido
             },
-            // mensagens de erro para cada regra
-            messages: {
-                email: {
-                    required: "Você deve informar um e-mail",
-                    email: "Por favor, informe um e-mail válido"
-                },
-               
-                senha: {
-                    required: "Você deve informar uma senha",
-                    minlength: "A senha deve ter pelo menos 6 caracteres"
-                }
+            senha_entrada: {
+                required: true,
+                minlength: 3 // Você pode ajustar o comprimento mínimo de caracteres para a senha, se necessário
             }
-        })
+        },
+        // mensagens de erro para cada regra
+        messages: {
+            email_entrada: {
+                required: "Você deve informar um e-mail",
+                email: "Por favor, insira um e-mail válido"
+            },
+            senha_entrada: {
+                required: "Você deve informar uma senha",
+                minlength: "A senha deve ter no mínimo 3 caracteres"
+            }
+        }
     });
+});
 </script>
 <style>
-  .error {
-  color: blue;
- }
+        .error {
+            color: blue;
+        }
 </style>
 </head>
 <body>
-    <h1>Le Douce Amoux</h1>
-
-    <form id="login" action="verificarlogin.php" method="post">
+    <form id="formulario_entrada" action="verificarlogin.php" method="post">
         E-mail: <br>
-        <input type="text" name="email" id="email"> <br><br>
+        <input type="text" name="email_entrada" id="email_entrada"> <br><br>
+
         Senha: <br>
-        <input type="text" name="senha" id="senha"> <br><br>
+        <input type="password" name="senha_entrada" id="senha_entrada"><br><br>
 
-        <input type="submit" value="Acessar">
-
-            
-
-
+        <input type="submit" value="Cadastrar">
     </form>
+
 </body>
 </html>
-

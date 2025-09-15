@@ -389,17 +389,17 @@ function verificarlogin($conexao, $email, $senha) {
     
     $iduser = 0;
     if ($quantidade != 0) {
-        $usuario = mysqli_fetch_assoc($resultado);
-        $senha_banco = $usuario['senha'];
+        $cliente = mysqli_fetch_assoc($resultado);
+        $senha_banco = $cliente['senha'];
 
         if (password_verify($senha, $senha_banco)) {
-            $iduser = $usuario['idcliente'];
+            $iduser = $cliente['idcliente'];
         }
     }
     return $iduser;
 }
 
-function pegarDadosUsuario($conexao, $idcliente) {
+function pegarDadosCliente($conexao, $idcliente) {
     $sql = "SELECT nome, tipo FROM tb_cliente WHERE idcliente = ?";
 
     $comando = mysqli_prepare($conexao, $sql);
@@ -410,8 +410,8 @@ function pegarDadosUsuario($conexao, $idcliente) {
     $quantidade = mysqli_num_rows($resultado);
     
     if ($quantidade != 0) {
-        $usuario = mysqli_fetch_assoc($resultado);
-        return $usuario;
+        $cliente = mysqli_fetch_assoc($resultado);
+        return $cliente;
     }
     else {
         return 0;

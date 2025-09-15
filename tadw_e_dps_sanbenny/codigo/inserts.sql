@@ -1,7 +1,5 @@
 use mydb;
 
-  INSERT INTO tb_cliente (email, senha, nome, telefone, endereco, status, tipo) 
-VALUES 
 INSERT INTO tb_cliente (email, senha, nome, telefone, endereco, status, tipo) 
 VALUES 
   ('Todyy@gmail.com', SHA2('toddy', 256), 'Iasmin', '123456789', 'rua 2314', 'd', 'c'),
@@ -18,4 +16,7 @@ VALUES
   ('andrea@admin.com', SHA2('adminpass1', 256), 'Andrea Silva', '6667778888', 'rua dos Gestores, 11', 'd', 'g'),
   ('rodrigo@manager.com', SHA2('rodpass', 256), 'Rodrigo Carvalho', '9998887777', 'av. Empresarial, 40', 'd', 'g'),
   ('patricia@corporate.com', SHA2('patriciapwd', 256), 'Patricia Gomes', '5557779999', 'rua Executiva, 78', 'd', 'g'),
-  ('alex@adminsite.com', SHA2('alexadmin', 256), 'Alex Ferreira', '4448887777', 'av. Liderança, 50', 'd', 'g');
+  ('alex@adminsite.com', SHA2('alexadmin', 256), 'Alex Ferreira', '4448887777', 'av. Liderança, 50', 'd', 'g'),
+  ('toddy@gmail.com', SHA2('toddy', 256), 'Iasminny', '4228887777', 'av. Onçinha, 59', 'd', 'g'),
+  ('sandy@gmail.com', SHA2('sandy', 256), 'Sandy', '444845377', 'av Barracão, 50', 'd', 'g'),
+  ('izabella@gmail.com', SHA2('izabella', 256), 'Izabella', '4446687777', 'rua itiopo, 50', 'd', 'g');
