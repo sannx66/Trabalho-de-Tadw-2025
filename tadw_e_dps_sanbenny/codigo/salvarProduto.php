@@ -2,7 +2,7 @@
     require_once "../conexao.php";
     require_once "../funcoes.php";
 
-    
+    $foto =  $_GET['foto'];
     $disponivel=  $_GET['disponivel'];
     $tipo =  $_GET['tipo'];
     $nome =  $_GET['nome'];
