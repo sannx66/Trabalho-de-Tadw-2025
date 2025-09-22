@@ -79,7 +79,7 @@ function salvarProduto($conexao, $foto,$disponivel, $tipo, $nome, $ingredientes,
     $sql = "INSERT INTO tb_produto (foto,disponivel, tipo, nome, ingredientes, valor_un, observacoes) VALUES (?, ?, ?, ?, ?, ?,?)";
     $comando = mysqli_prepare($conexao, $sql);
    
-   mysqli_stmt_bind_param($comando, 'sisssds',$foto $disponivel, $tipo, $nome, $ingredientes, $valor_un, $observacoes);
+   mysqli_stmt_bind_param($comando, 'sisssds',$foto ,$disponivel, $tipo, $nome, $ingredientes, $valor_un, $observacoes);
    
    mysqli_stmt_execute($comando);
    mysqli_stmt_close($comando);

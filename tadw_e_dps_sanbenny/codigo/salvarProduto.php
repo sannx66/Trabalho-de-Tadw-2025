@@ -1,18 +1,19 @@
 
 <?php
-require_once "../conexao.php";
-require_once "../funcoes.php";
+require_once "conexao.php";
+require_once "funcoes.php";
 
-    $foto =  $_GET['foto'];
-    $disponivel=  $_GET['disponivel'];
-    $tipo =  $_GET['tipo'];
-    $nome =  $_GET['nome'];
-    $ingredientes = $_GET['ingredientes'];
-    $valor_un = $_GET['valor_un'];
-    $observacoes = $_GET['observacoes'];
+    //$foto =  $_GET['foto'];
+    $disponivel=  $_POST['disponivel'];
+    $tipo =  $_POST['tipo'];
+    $nome =  $_POST['nome'];
+    $ingredientes = $_POST['ingredientes'];
+    $valor_un = $_POST['valor_un'];
+    $observacoes = $_POST['observacoes'];
 
-$nome_arquivo = $_FILES['foto']['name'];
+//$nome_arquivo = $_FILES['foto']['name'];
 $caminho_temporario = $_FILES['foto']['tmp_name'];
+
 
 //pega a extensão do arquivo
 $extensao = pathinfo($nome_arquivo, PATHINFO_EXTENSION);
@@ -28,9 +29,9 @@ $caminho_destino = "fotos/" . $novo_nome;
 move_uploaded_file($caminho_temporario, $caminho_destino);
 
 if ($id == 0) {
-    salvarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un, $observacoes);
+    salvarProduto($conexao, $foto,$disponivel, $tipo, $nome, $ingredientes, $valor_un, $observacoes);
 } else {
-    editarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un, $observacoes);
+    editarProduto($conexao,$foto, $disponivel, $tipo, $nome, $ingredientes, $valor_un, $observacoes);
 }
 
 header("Location: listarProduto.php");

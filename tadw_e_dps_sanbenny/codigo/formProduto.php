@@ -42,7 +42,7 @@
 </head>
 <body>
     <h1>Cadastro de Produtos</h1>
-    <form action="salvarProduto.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
+    <form action="salvarProduto.php?id=<?php echo $id; ?>" method="get" enctype="multipart/form-data">
         
         Foto: <br>
         <input type="file" name="foto"> <br><br>
@@ -65,7 +65,7 @@
         Observacoes: <br>
         <input type="text" name="observacoes" value="<?php echo $observacoes; ?>"> <br><br>
 
-        <input type="submit" value="<?php echo $botao; ?>">
+        <input type="submit">
     </form>
 </body>
 </html>
