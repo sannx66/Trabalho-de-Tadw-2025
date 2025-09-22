@@ -3,7 +3,7 @@
 require_once "conexao.php";
 require_once "funcoes.php";
 
-    //$foto =  $_GET['foto'];
+    $id=$_GET['id'];
     $disponivel=  $_POST['disponivel'];
     $tipo =  $_POST['tipo'];
     $nome =  $_POST['nome'];
@@ -11,7 +11,8 @@ require_once "funcoes.php";
     $valor_un = $_POST['valor_un'];
     $observacoes = $_POST['observacoes'];
 
-//$nome_arquivo = $_FILES['foto']['name'];
+
+$nome_arquivo = $_FILES['foto']['name'];
 $caminho_temporario = $_FILES['foto']['tmp_name'];
 
 
@@ -29,9 +30,9 @@ $caminho_destino = "fotos/" . $novo_nome;
 move_uploaded_file($caminho_temporario, $caminho_destino);
 
 if ($id == 0) {
-    salvarProduto($conexao, $foto,$disponivel, $tipo, $nome, $ingredientes, $valor_un, $observacoes);
+    salvarProduto($conexao, $nome_arquivo,$disponivel, $tipo, $nome, $ingredientes, $valor_un, $observacoes);
 } else {
-    editarProduto($conexao,$foto, $disponivel, $tipo, $nome, $ingredientes, $valor_un, $observacoes);
+    editarProduto($conexao,$nome_arquivo, $disponivel, $tipo, $nome, $ingredientes, $valor_un, $observacoes);
 }
 
-header("Location: listarProduto.php");
+header("Location: listarProdutos.php");

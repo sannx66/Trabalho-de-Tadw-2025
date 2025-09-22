@@ -30,7 +30,7 @@
         $valor_un = "";
         $observacoes = "";
         
-
+        $botao="Cadastrar";
     }
 ?>
 <!DOCTYPE html>
@@ -42,7 +42,7 @@
 </head>
 <body>
     <h1>Cadastro de Produtos</h1>
-    <form action="salvarProduto.php?id=<?php echo $id; ?>" method="get" enctype="multipart/form-data">
+    <form action="salvarProduto.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
         
         Foto: <br>
         <input type="file" name="foto"> <br><br>
