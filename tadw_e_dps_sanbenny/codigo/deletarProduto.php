@@ -5,8 +5,10 @@ require_once "funcoes.php";
 $id = $_GET['id'];
 
 if (deletarProduto($conexao, $id)) {
-    header("Location: listarProduto.php");
+    header("Location: listarProdutos.php");
+    exit; // <-garante que o PHP pare aqui
 } else {
-    header("Location: erro.php");
+    echo "Erro ao excluir produto. <a href='listaProdutos.php'>Voltar</a>";
+
 }
 ?>
