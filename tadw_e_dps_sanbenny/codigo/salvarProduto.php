@@ -3,9 +3,9 @@ require_once "conexao.php";
 require_once "funcoes.php";
 
 $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+$nome = $_POST['nome'];
 $disponivel = $_POST['disponivel'];
 $tipo = $_POST['tipo'];
-$nome = $_POST['nome'];
 $ingredientes = $_POST['ingredientes'];
 $valor_un = $_POST['valor_un'];
 $observacoes = $_POST['observacoes'];
@@ -23,7 +23,7 @@ $foto = $novo_nome;
 if ($id == 0) {
     salvarProduto($conexao, $foto, $nome,$disponivel, $tipo, $ingredientes, $valor_un, $observacoes);
 } else {
-    editarProduto($conexao, $id, $foto, $disponivel, $tipo, $nome, $ingredientes, $valor_un, $observacoes);
+    editarProduto($conexao, $id, $foto, $nome, $disponivel, $tipo, $ingredientes, $valor_un, $observacoes);
 }
 
 // Redireciona e encerra

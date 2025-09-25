@@ -1,6 +1,6 @@
 <?php
     if (isset($_GET['id'])) {
-        echo "editar";
+        // echo "editar";
 
         require_once "conexao.php";
         require_once "funcoes.php";

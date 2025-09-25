@@ -1,5 +1,5 @@
 <?php
-     require_once "./verificarlogado.php";
+    //  require_once "./verificarlogado.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,6 +70,7 @@
     }
         ?>
         </table>
+        <a href="formProduto.php">Voltar</a>
 </body>
 
 </html>
