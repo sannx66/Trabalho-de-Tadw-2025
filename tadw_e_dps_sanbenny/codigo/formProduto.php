@@ -41,8 +41,10 @@
 </head>
 <body>
     <h1>Cadastro de Produtos</h1>
-    <form action="salvarProduto.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
-        
+    
+    <form action="salvarProduto.php" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="<?php echo $id; ?>">
+  
         Foto: <br>
         <input type="file" name="foto"> <br><br>
 
