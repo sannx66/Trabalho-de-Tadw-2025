@@ -11,9 +11,9 @@
         $produto = pesquisarProdutoId($conexao, $id);
        
         $foto = $produto['foto'];
+        $nome =  $produto['nome'];
         $disponivel= $produto['disponivel'];
         $tipo = $produto ['tipo'];
-        $nome =  $produto['nome'];
         $ingredientes = $produto['ingredientes'];
         $valor_un = $produto['valor_un'];
         $observacoes = $produto['observacoes'];
@@ -23,9 +23,9 @@
     else {
         // echo "novo";
         $id = 0;
+        $nome = "";
         $disponivel = "";
         $tipo = "";
-        $nome = "";
         $ingredientes = "";
         $valor_un = "";
         $observacoes = "";

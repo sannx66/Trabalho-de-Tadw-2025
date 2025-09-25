@@ -1,12 +1,11 @@
-
 <?php
     session_start();
 
-    require_once "./verificarlogado.php";
+    //  require_once "./verificarlogado.php";
 
-    if ($_SESSION['tipo'] == 'c') {
-        header("Location: home.php");
-    }
+    // if ($_SESSION['tipo'] == 'c') {
+    //     header("Location: home.php");
+    // }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,12 +13,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista de produtos</title>
     <style>
-        /* img {
+         img {
             width: 50px;
             height: 50px;
-        } */
+        } 
     </style>
 </head>
 
@@ -40,12 +39,12 @@
             <tr> 
                 
                 <td>Id</td>
-                <td>Disponivel</td>
+                <td>Foto</td>
                 <td>Nome</td>
+                <td>Disponivel</td>
                 <td>Tipo</td>
                 <td>Ingredientes</td>
                 <td>Valor_un</td>
-                <td>Foto</td>
                 <td>Observacoes</td>
 
                 <td colspan="2">Ação</td>
@@ -53,18 +52,19 @@
         <?php
         foreach ($lista_produtos as $produto) {
             $idproduto = $produto['idproduto'];
-            $tipo = $produto['tipo'];
+            $foto = $produto['foto'];
             $nome = $produto['nome'];
+            $disponivel = $produto['disponivel'];
+            $tipo = $produto['tipo'];
             $ingredientes = $produto['ingredientes'];
             $valor_un = $produto['valor_un'];
-            $foto = $produto['foto'];
             $observacoes = $produto['observacoes'];
 
             echo "<tr>";
             echo "<td>$idproduto</td>";
             echo "<td><img src='fotos/$foto'></td>";
-            echo "<td>$disponivel</td>";
             echo "<td>$nome</td>";
+            echo "<td>$disponivel</td>";
             echo "<td>$tipo</td>";
             echo "<td>$ingredientes</td>";
             echo "<td>$valor_un</td>";
