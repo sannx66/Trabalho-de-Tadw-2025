@@ -103,6 +103,7 @@ function listarProdutos($conexao) {
     return $lista_produtos;
 }
 
+
 // funcionando
 
 function editarProduto($conexao, $disponivel, $tipo, $nome, $ingredientes, $valor_un, $observacoes, $idproduto){

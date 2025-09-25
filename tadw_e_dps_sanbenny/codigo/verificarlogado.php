@@ -1,8 +1,6 @@
 <?php
     session_start();
-    if ($_SESSION['logado'] = "sim") {
-        
-    }else{
+    if (!isset($_SESSION['logado'])) {
         header("Location: index.php");
     }
 ?>

@@ -3,15 +3,31 @@
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
+
 <body>
+       <?php
+            if ($_SESSION['tipo'] == 'g') {
+                echo "<li>";
+                echo "<a href='listarClientes.php'> Clientes cadastrados</a>";
+                echo "</li>";
+
+                echo "<a href='cadastrarProduto.php'>Cadastrar produto</a>";
+            }
+            else {
+                echo "Seja bem-vindo";
+            }
+            
+        ?>
+        <br>
+   
     <h1><i>Categorias</i></h1> <br>
 
     <a href="bolo.php">Bolos</a> <br> 
@@ -23,12 +39,10 @@
     <a href="cha.php">Chás</a> <br> 
     <a href="milkshake.php">Milshake</a> <br> <br><br>
 
-    <a href="carrinho.php">Carrinho</a> <br> 
+    <a href="carrinho.php">Carrinho</a> <br> <br><br>
 
 
-
-
-
+<a href="deslogar.php">Sair</a>
 
     
 

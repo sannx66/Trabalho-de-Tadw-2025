@@ -80,7 +80,7 @@
     </script>
     <style>
         .error {
-            color: blue;
+            color: red;
         }
     </style>
 </head>

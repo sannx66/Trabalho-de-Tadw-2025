@@ -36,7 +36,7 @@
 </script>
 <style>
         .error {
-            color: blue;
+            color: red;
         }
 </style>
 </head>
@@ -48,7 +48,7 @@
         Senha: <br>
         <input type="password" name="senha_entrada" id="senha_entrada"><br><br>
 
-        <input type="submit" value="Cadastrar">
+        <input type="submit" value="Entrar">
     </form>
 
 </body>
