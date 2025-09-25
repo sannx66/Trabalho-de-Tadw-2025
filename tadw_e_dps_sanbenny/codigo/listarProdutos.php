@@ -1,11 +1,5 @@
 <?php
-    session_start();
-
-    //  require_once "./verificarlogado.php";
-
-    // if ($_SESSION['tipo'] == 'c') {
-    //     header("Location: home.php");
-    // }
+     require_once "./verificarlogado.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

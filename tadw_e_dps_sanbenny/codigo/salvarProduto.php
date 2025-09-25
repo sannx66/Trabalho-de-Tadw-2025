@@ -23,7 +23,7 @@ $foto = $novo_nome;
 if ($id == 0) {
     salvarProduto($conexao, $foto, $nome,$disponivel, $tipo, $ingredientes, $valor_un, $observacoes);
 } else {
-    editarProduto($conexao, $foto, $nome, $disponivel, $tipo, $ingredientes, $valor_un, $observacoes);
+    editarProduto($conexao, $id, $foto, $disponivel, $tipo, $nome, $ingredientes, $valor_un, $observacoes);
 }
 
 // Redireciona e encerra
