@@ -55,8 +55,17 @@
         <input type="text" name="disponivel" value="<?php echo $disponivel; ?>"> <br><br>
         
         Tipo: <br>
-        <input type="text" name="tipo" value="<?php echo $tipo; ?>"> <br><br>
-        
+        <select name="tipo">
+            <option value="bolo" selected>Bolo</option>
+            <option value="churros" >Churros</option>
+            <option value="macorons">Macarons</option>
+            <option value="trufas">Trufas</option>
+            <option value="donuts">Donuts</option>
+            <option value="cafe">Café</option>
+            <option value="Milkshae">Milkshake</option>
+            <option value="cha">Cha</option>
+        </select>
+        <br><br>
         Ingredientes: <br>
         <input type="text" name="ingredientes" value="<?php echo $ingredientes; ?>"> <br><br>
         
