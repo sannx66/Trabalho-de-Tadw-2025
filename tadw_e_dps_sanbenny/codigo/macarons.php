@@ -1,94 +1,52 @@
 <?php
-    require_once "./verificarlogado.php";
+require_once "conexao.php";
+
+if ($conexao->connect_error) {
+    die("Falha na conexão: " . $conexao->connect_error);
+}
+
+$sql = "SELECT nome, ingredientes, valor_un, foto FROM tb_produto WHERE tipo = 'bolo' AND disponivel = 10";
+$resultado = $conexao->query($sql);
+
+if (!$resultado) {
+    die("Erro na consulta: " . $conexao->error);
+}
+
+if ($resultado->num_rows === 0) {
+    echo "<p>Nenhum bolo disponível encontrado.</p>";
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Menu de Bolos</title>
 </head>
 <body>
-    <h1>Bolos</h1>
-    <?php
-    //  require_once "./verificarlogado.php";
-?>
-<!DOCTYPE html>
-<html lang="en">
+    <h1>🍰 Bolos Disponíveis</h1>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de produtos</title>
-    <style>
-         img {
-            width: 70px;
-            height: 70px;
-        } 
-    </style>
-</head>
-
-<body>
-    <h1>Lista de produtos</h1>
-
-    <?php
-    require_once "conexao.php";
-    require_once "funcoes.php";
-
-    $lista_produtos = listarProdutos($conexao);
-
-    if (count($lista_produtos) == 0) {
-        echo "Não existem produtos cadastrados";
-    } else {
+    <?php 
+    while ($bolo = $resultado->fetch_assoc()): 
+        echo "<pre>";
+        print_r($bolo);
+        echo "</pre>";
     ?>
-        <table border="1">
-            <tr> 
-                
-                <td>Id</td>
-                <td>Foto</td>
-                <td>Nome</td>
-                <td>Disponivel</td>
-                <td>Tipo</td>
-                <td>Ingredientes</td>
-                <td>Valor_un</td>
-                <td>Observacoes</td>
+        <hr>
+        <h2><?= htmlspecialchars($bolo['nome']) ?></h2>
 
-                <td colspan="2">Ação</td>
-            </tr>
-        <?php
-        foreach ($lista_produtos as $produto) {
-            $idproduto = $produto['idproduto'];
-            $foto = $produto['foto'];
-            $nome = $produto['nome'];
-            $disponivel = $produto['disponivel'];
-            $tipo = $produto['tipo'];
-            $ingredientes = $produto['ingredientes'];
-            $valor_un = $produto['valor_un'];
-            $observacoes = $produto['observacoes'];
+        <?php 
+        $caminho_foto = "fotos/" . $bolo['foto'];
+        if (!empty($bolo['foto']) && file_exists($caminho_foto)): ?>
+            <img src="<?= htmlspecialchars($caminho_foto) ?>" alt="<?= htmlspecialchars($bolo['nome']) ?>" width="200"><br>
+        <?php else: ?>
+            <p>[Foto não disponível]</p>
+        <?php endif; ?>
 
-            echo "<tr>";
-            echo "<td>$idproduto</td>";
-            echo "<td><img src='fotos/$foto'></td>";
-            echo "<td>$nome</td>";
-            echo "<td>$disponivel</td>";
-            echo "<td>$tipo</td>";
-            echo "<td>$ingredientes</td>";
-            echo "<td>$valor_un</td>";
-            echo "<td>$observacoes</td>";
-            echo "<td><a href='deletarProduto.php?id=$idproduto'>Excluir</a></td>";
-            echo "<td><a href='formProduto.php?id=$idproduto'>Editar</a></td>";
-            echo "</tr>";
-        }
-    }
-        ?>
-        </table>
-        <a href="formProduto.php">Voltar</a>
-</body>
+        <p><?= nl2br(htmlspecialchars($bolo['ingredientes'])) ?></p>
+        <p><strong><?= number_format($bolo['valor_un'], 2, ',', '.') ?> golds</strong></p>
+    <?php endwhile; ?>
 
-</html>
-
-                <a href="categorias.php">Voltar</a> <br><br>
-
+    <p><a href="categorias.php">← Voltar para categorias</a></p>
 </body>
 </html>
