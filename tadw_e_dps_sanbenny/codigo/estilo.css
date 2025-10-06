@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: ('fotos/rosinha.png'); /* Caminho da imagem */
+    background-size: cover;       /* A imagem cobre toda a tela */
+    background-position: center;  /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita repetição */
+    height: 100vh;                /* Altura total da tela */
+    font-family: sans-serif;
+}
