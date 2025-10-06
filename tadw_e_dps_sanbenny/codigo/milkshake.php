@@ -32,6 +32,7 @@ $milkshakes = [
 <head>
     <meta charset="UTF-8" />
     <title>Menu de Milkshakes</title>
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
     <a href="categorias.php">Voltar</a> <br><br>
