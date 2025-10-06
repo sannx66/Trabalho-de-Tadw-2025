@@ -118,3 +118,13 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+INSERT INTO tb_produto (foto, disponivel, tipo, nome, ingredientes, valor_un, observacoes)
+VALUES
+('fotos/teste.png', '10', 'Bolo', 'Bolo de morango', 'Massa branca, mousse branca, morangos, creme gelado com morangos', 15.00, 'Item popular no cardápio'),
+
+('fotos/teste.png', '12', 'Bolo', 'Ganache de limão', 'Massa branca, mousse branco, creme gelado de limão', 15.00, 'Refrescante e cítrico'),
+
+('fotos/teste.png', '10', 'Bolo', 'Bolo de chocolate amargo', 'Massa de chocolate amargo, trufado de chocolate branco, chocolate 100% cacau', 15.00, 'Intenso e sofisticado'),
+
+('fotos/teste.png', '11', 'Bolo', 'Trufado de cereja', 'Massa de chocolate, mousse de chocolate com cereja, trufado de chocolate ao leite', 15.00, 'Com toque frutado e doce');

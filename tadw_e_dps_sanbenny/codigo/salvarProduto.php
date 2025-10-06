@@ -16,7 +16,11 @@ $extensao = pathinfo($nome_arquivo, PATHINFO_EXTENSION);
 $novo_nome = uniqid() . "." . $extensao;
 $caminho_destino = "fotos/" . $novo_nome;
 
+//var_dump($caminho_destino);
+//die;
+
 move_uploaded_file($caminho_temporario, $caminho_destino);
+
 
 $foto = $novo_nome;
 
