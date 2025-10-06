@@ -15,6 +15,7 @@
                     
                     email: {
                         required: true,
+                        email: true
                     },
                     email2: {
                         required: true,
@@ -48,6 +49,7 @@
                     
                     email: {
                         required: "Você deve informar um e-mail",
+                        email: "Por favor, insira um e-mail válido",
                     },
                     email2: {
                         required: "Você deve confirmar seu e-mail",
