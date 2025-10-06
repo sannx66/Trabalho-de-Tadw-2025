@@ -62,7 +62,7 @@
             <option value="trufas">Trufas</option>
             <option value="donuts">Donuts</option>
             <option value="cafe">Café</option>
-            <option value="Milkshae">Milkshake</option>
+            <option value="milkshake">Milkshake</option>
             <option value="cha">Cha</option>
         </select>
         <br><br>
