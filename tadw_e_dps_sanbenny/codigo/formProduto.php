@@ -38,6 +38,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Produtos</title>
+    <link rel="estilo.css" href="estilo.css">
 </head>
 <body>
     <h1>Cadastro de Produtos</h1>

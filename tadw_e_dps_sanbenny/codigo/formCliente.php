@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="estilo.css">
     <script src="./jquery-3.7.1.min.js"></script>
     <script src="./jquery.validate.min.js"></script>
 <script>
