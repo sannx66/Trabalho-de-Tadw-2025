@@ -1,47 +1,52 @@
 <?php
-    require_once "./verificarlogado.php";
+require_once "conexao.php";
+
+if ($conexao->connect_error) {
+    die("Falha na conexão: " . $conexao->connect_error);
+}
+
+$sql = "SELECT nome, ingredientes, valor_un, foto FROM tb_produto WHERE tipo = 'bolo' AND disponivel = 10";
+$resultado = $conexao->query($sql);
+
+if (!$resultado) {
+    die("Erro na consulta: " . $conexao->error);
+}
+
+if ($resultado->num_rows === 0) {
+    echo "<p>Nenhum bolo disponível encontrado.</p>";
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="funcoes.js"></script>
-    <a href="categorias.php">Voltar</a> <br><br>
-
-    <h1><i>Bolos</i></h1>
+    <title>Menu de Bolos</title>
 </head>
 <body>
+    <h1>🍰 Bolos Disponíveis</h1>
 
-foto   Bolo de morango
+    <?php 
+    while ($bolo = $resultado->fetch_assoc()): 
+        echo "<pre>";
+        print_r($bolo);
+        echo "</pre>";
+    ?>
+        <hr>
+        <h2><?= htmlspecialchars($bolo['nome']) ?></h2>
 
-    <form action="salvarVenda.php">
-        
-    
-       Produtos: <br>
-        <?php
-            $lista_produtos = listarProdutos($conexao);
-            
-            foreach ($lista_produtos as $produto) {
-                $idproduto = $produto['idproduto'];
-                $nome = $produto['nome'];
-                $preco = $produto['preco_venda'];
-                
-                echo "<input type='checkbox' id='marcado[$idproduto]' value='$idproduto' name='idproduto[]'>R$ <span id='preco[$idproduto]'>$preco</span> - $nome ";
-                echo "<input type='text' value='0' name='quantidade[$idproduto]' id='quantidade[$idproduto]' onchange='calcular()'><br>";
-            }
-            ?>
-        <br>
-        
-        Valor Total: <br>
-        <input type="text" name="valor_total" id="valor_total" disabled><br><br>
-        <span id='total'></span>
+        <?php 
+        $caminho_foto = "fotos/" . $bolo['foto'];
+        if (!empty($bolo['foto']) && file_exists($caminho_foto)): ?>
+            <img src="<?= htmlspecialchars($caminho_foto) ?>" alt="<?= htmlspecialchars($bolo['nome']) ?>" width="200"><br>
+        <?php else: ?>
+            <p>[Foto não disponível]</p>
+        <?php endif; ?>
 
-        <input type="submit" value="Registrar Venda">
-    </form>
-    <button onclick="aviso()">Teste</button>
+        <p><?= nl2br(htmlspecialchars($bolo['ingredientes'])) ?></p>
+        <p><strong><?= number_format($bolo['valor_un'], 2, ',', '.') ?> golds</strong></p>
+    <?php endwhile; ?>
+
+    <p><a href="categorias.php">← Voltar para categorias</a></p>
 </body>
 </html>
-
