@@ -30,9 +30,14 @@ if ($resultado->num_rows === 0) {
 
     <?php 
     while ($bolo = $resultado->fetch_assoc()): 
-        echo "<pre>";
-        print_r($bolo);
-        echo "</pre>";
+      
+        echo $bolo['nome'];
+        echo $bolo['ingredientes'];
+        echo $bolo['valor_un']  
+        
+        // echo "<pre>";
+        // print_r($bolo);
+        // echo "</pre>";
     ?>
         <hr>
         <h2><?= htmlspecialchars($bolo['nome']) ?></h2>
