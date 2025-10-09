@@ -22,6 +22,7 @@ if ($resultado->num_rows === 0) {
 <head>
     <meta charset="UTF-8">
     <title>Menu de Bolos</title>
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
     <h1>🍰 Bolos Disponíveis</h1>
