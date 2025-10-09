@@ -129,6 +129,15 @@ VALUES
 
 ('fotos/teste.png', '11', 'Bolo', 'Trufado de cereja', 'Massa de chocolate, mousse de chocolate com cereja, trufado de chocolate ao leite', 15.00, 'Com toque frutado e doce');
 
+INSERT INTO tb_produto (foto, disponivel, tipo, nome, ingredientes, valor_un, observacoes) 
+VALUES
+('trufa_bolodeaniversario.png', 12, 'Trufa', 'Bolo de aniversário', 'Bolo de baunilha com casca de chocolate branco', 5.00, NULL),
+('trufa_chocolateaoleite.png', 13, 'Trufa', 'Chocolate ao leite', 'Ganache cremoso de chocolate ao leite com pedaços de chocolate ao leite', 5.00, NULL),
+('trufa_amendoim.png', 11, 'Trufa', 'Amendoim', 'Purê de amendoim com ganache de chocolate, envolto de casca de chocolate', 5.00, NULL),
+('trufa_morangocomcreme.png', 12, 'Trufa', 'Morango', 'Mousse de morango e mousse de baunilha em uma casca de chocolate branco', 5.00, NULL),
+('trufa_creme.png', 10, 'Trufa', 'Creme', 'Ganache de chocolate amargo e baunilha em uma casca de chocolate branco', 5.00, NULL),
+('trufa_chocolateamargo.png', 14, 'Trufa', 'Chocolate amargo', 'Ganache de chocolate amargo com 72% de cacau em uma casca de chocolate amargo', 5.00, NULL);
+
 
 INSERT INTO tb_cliente (email, senha, nome, telefone, endereco, status, tipo) 
 VALUES 

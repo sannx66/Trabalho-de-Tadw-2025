@@ -87,10 +87,10 @@ function salvarProduto($conexao, $foto, $nome,$disponivel, $tipo, $ingredientes,
 
 // funcionando
 
-function listarProdutos($conexao) {
-    $sql = "SELECT * FROM tb_produto";
+function listarProdutos($conexao, $tipo) {
+    $sql = "SELECT * FROM tb_produto WHERE tipo = ?";
     $comando = mysqli_prepare($conexao, $sql);
-
+    mysqli_stmt_bind_param($comando, 's', $tipo);
     mysqli_stmt_execute($comando);
     $resultados = mysqli_stmt_get_result($comando);
 

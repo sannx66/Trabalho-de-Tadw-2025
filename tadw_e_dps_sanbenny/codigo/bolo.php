@@ -2,7 +2,6 @@
 require_once "conexao.php";
 require_once "funcoes.php";
 
-// Chama a função que retorna os produtos tipo 'bolo'
 $bolos = listarProdutos($conexao, 'bolo');
 ?>
 
