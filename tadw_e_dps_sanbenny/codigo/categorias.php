@@ -40,10 +40,10 @@
     <a href="cha.php">Chás</a> <br> 
     <a href="milkshake.php">Milshake</a> <br> <br><br>
 
-    <a href="carrinho.php">Carrinho</a> <br> <br><br>
+    <a href="carrinho.php"><img src="../fotos/carrinho.png"></a> <br><br>
 
 
-<a href="deslogar.php">Sair</a>
+<a href="deslogar.php">Deslogar</a>
 
     
 
