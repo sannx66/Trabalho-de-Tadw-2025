@@ -1,0 +1,6 @@
+.cadastro-container {
+  color: #ffe6f0; /* rosa claro */
+  width: fit-content;        /* largura apenas do conteúdo */
+  margin-left: 989px;         /* empurra a div para a direita */
+  padding: 20px;             /* espaço interno */    
+}
