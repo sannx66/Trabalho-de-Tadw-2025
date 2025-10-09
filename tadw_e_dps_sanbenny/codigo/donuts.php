@@ -12,6 +12,7 @@
 </head>
 <body>
                 <a href="categorias.php">Voltar</a> <br><br>
+                <img src="./fotos/cha_laranja.png" class="img-thumbnail">
 
 </body>
 </html>
