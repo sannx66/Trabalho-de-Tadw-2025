@@ -1,48 +1,46 @@
 <?php
-    require_once "./verificarlogado.php";
+require_once "conexao.php";
+require_once "funcoes.php";
+
+
+$macarons = listarProdutos($conexao, 'Macarons');
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Menu de Macarons</title>
     <link rel="stylesheet" href="estilo.css">
-    <script src="funcoes.js"></script>
-    <a href="categorias.php">Voltar</a> <br><br>
-
-    <h1><i>Bolos</i></h1>
 </head>
 <body>
+    <h1>Macarons Disponíveis</h1>
 
-foto   Bolo de morango
+    <?php if (empty($macarons)): ?>
+        <p>Nenhum macaron disponível encontrado.</p>
+    <?php else: ?>
+        <?php foreach ($macarons as $macaron): ?>
+            <hr>
+            <h2><?= htmlspecialchars($macaron['nome']) ?></h2>
 
-    <form action="salvarVenda.php">
-        
-    
-       Produtos: <br>
-        <?php
-            $lista_produtos = listarProdutos($conexao);
-            
-            foreach ($lista_produtos as $produto) {
-                $idproduto = $produto['idproduto'];
-                $nome = $produto['nome'];
-                $preco = $produto['preco_venda'];
-                
-                echo "<input type='checkbox' id='marcado[$idproduto]' value='$idproduto' name='idproduto[]'>R$ <span id='preco[$idproduto]'>$preco</span> - $nome ";
-                echo "<input type='text' value='0' name='quantidade[$idproduto]' id='quantidade[$idproduto]' onchange='calcular()'><br>";
-            }
-            ?>
-        <br>
-        
-        Valor Total: <br>
-        <input type="text" name="valor_total" id="valor_total" disabled><br><br>
-        <span id='total'></span>
+            <?php 
+            $caminho_foto = "fotos/" . $macaron['foto'];
+            if (!empty($macaron['foto']) && file_exists($caminho_foto)): ?>
+                <img src="<?= htmlspecialchars($caminho_foto) ?>" alt="<?= htmlspecialchars($macaron['nome']) ?>" width="200"><br>
+            <?php else: ?>
+                <p>[Foto não disponível]</p>
+            <?php endif; ?>
 
-        <input type="submit" value="Registrar Venda">
-    </form>
-    <button onclick="aviso()">Teste</button>
+            <p><?= nl2br(htmlspecialchars($macaron['ingredientes'])) ?></p>
+            <p><strong><?= number_format($macaron['valor_un'], 2, ',', '.') ?> golds</strong></p>
+
+            <form action="adicionar_carrinho.php" method="post" style="display:inline;">
+                <input type="hidden" name="id" value="<?= htmlspecialchars($macaron['idproduto']) ?>">
+                <button type="submit" class="btn-comprar">Adicionar ao carrinho</button>
+            </form>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+    <p><a href="categorias.php">← Voltar para categorias</a></p>
 </body>
 </html>
-

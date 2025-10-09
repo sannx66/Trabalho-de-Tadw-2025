@@ -138,6 +138,14 @@ VALUES
 ('trufa_creme.png', 10, 'Trufa', 'Creme', 'Ganache de chocolate amargo e baunilha em uma casca de chocolate branco', 5.00, NULL),
 ('trufa_chocolateamargo.png', 14, 'Trufa', 'Chocolate amargo', 'Ganache de chocolate amargo com 72% de cacau em uma casca de chocolate amargo', 5.00, NULL);
 
+INSERT INTO tb_produto (foto, disponivel, tipo, nome, ingredientes, valor_un, observacoes) VALUES
+('macarons_pistachecomcreme.png', 10, 'Macarons', 'Pistache com creme', 'Massa de pistache com recheio de creme', 6.00, NULL),
+('macarons_morangocomcreme.png', 12, 'Macarons', 'Morango com creme', 'Massa de morango com recheio de chocolate branco', 6.00, NULL),
+('macarons_baunilha.png', 10, 'Macarons', 'Baunilha', 'Massa de baunilha com creme de baunilha', 6.00, NULL),
+('macarons_uva.png', 11, 'Macarons', 'Uva', 'Massa de uva com recheio de mousse de uva', 6.00, NULL),
+('macarons_misto.png', 14, 'Macarons', 'Misto', 'Massa de chocolate ao leite com recheio de chocolate branco', 6.00, NULL),
+('macarons_limao.png', 10, 'Macarons', 'Limão', 'Massa de limão com recheio de mousse de limão', 6.00, NULL);
+
 
 INSERT INTO tb_cliente (email, senha, nome, telefone, endereco, status, tipo) 
 VALUES 
