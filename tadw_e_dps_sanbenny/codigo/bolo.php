@@ -1,20 +1,9 @@
 <?php
 require_once "conexao.php";
+require_once "funcoes.php";
 
-if ($conexao->connect_error) {
-    die("Falha na conexão: " . $conexao->connect_error);
-}
-
-$sql = "SELECT idproduto, nome, ingredientes, valor_un, foto FROM tb_produto WHERE tipo = 'bolo' AND disponivel > 0";
-$resultado = $conexao->query($sql);
-
-if (!$resultado) {
-    die("Erro na consulta: " . $conexao->error);
-}
-
-if ($resultado->num_rows === 0) {
-    echo "<p>Nenhum bolo disponível encontrado.</p>";
-}
+// Chama a função que retorna os produtos tipo 'bolo'
+$bolos = listarProdutos($conexao, 'bolo');
 ?>
 
 <!DOCTYPE html>
@@ -27,35 +16,30 @@ if ($resultado->num_rows === 0) {
 <body>
     <h1>🍰 Bolos Disponíveis</h1>
 
-    
-    <?php while ($bolo = $resultado->fetch_assoc()): ?>
-        <hr>
-        <h2><?= htmlspecialchars($bolo['nome']) ?></h2>
+    <?php if (empty($bolos)): ?>
+        <p>Nenhum bolo disponível encontrado.</p>
+    <?php else: ?>
+        <?php foreach ($bolos as $bolo): ?>
+            <hr>
+            <h2><?= htmlspecialchars($bolo['nome']) ?></h2>
 
-    <?php 
+            <?php 
+            $caminho_foto = "fotos/" . $bolo['foto'];
+            if (!empty($bolo['foto']) && file_exists($caminho_foto)): ?>
+                <img src="<?= htmlspecialchars($caminho_foto) ?>" alt="<?= htmlspecialchars($bolo['nome']) ?>" width="200"><br>
+            <?php else: ?>
+                <p>[Foto não disponível]</p>
+            <?php endif; ?>
 
-        
-        $caminho_foto = "fotos/" . $bolo['foto'];
-        if (!empty($bolo['foto']) && file_exists($caminho_foto)): ?>
-            <img src="<?= htmlspecialchars($caminho_foto) ?>" alt="<?= htmlspecialchars($bolo['nome']) ?>" width="200"><br>
-        <?php else: ?>
-            <p>[Foto não disponível]</p>
-        <?php endif; ?>
+            <p><?= nl2br(htmlspecialchars($bolo['ingredientes'])) ?></p>
+            <p><strong><?= number_format($bolo['valor_un'], 2, ',', '.') ?> golds</strong></p>
 
-        <p><?= nl2br(htmlspecialchars($bolo['ingredientes'])) ?></p>
-        <p><strong><?= number_format($bolo['valor_un'], 2, ',', '.') ?> golds</strong></p>
-        
-        <p>
-        <form action="adicionar_carrinho.php" method="post" style="display:inline;">
-        <input type="hidden" name="id" value="<?= htmlspecialchars($bolo['idproduto']) ?>">
-        <button type="submit" class="btn-comprar">Adicionar ao carrinho</button>
-        </form>
-        </p>
-
-        
-        
-    <?php endwhile; ?>
-
+            <form action="adicionar_carrinho.php" method="post" style="display:inline;">
+                <input type="hidden" name="id" value="<?= htmlspecialchars($bolo['idproduto']) ?>">
+                <button type="submit" class="btn-comprar">Adicionar ao carrinho</button>
+            </form>
+        <?php endforeach; ?>
+    <?php endif; ?>
 
     <p><a href="categorias.php">← Voltar para categorias</a></p>
 </body>

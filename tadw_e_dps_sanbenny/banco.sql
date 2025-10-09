@@ -121,7 +121,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 INSERT INTO tb_produto (foto, disponivel, tipo, nome, ingredientes, valor_un, observacoes)
 VALUES
-('fotos/teste.png', '10', 'Bolo', 'Bolo de morango', 'Massa branca, mousse branca, morangos, creme gelado com morangos', 15.00, 'Item popular no cardápio'),
+('/fotos/cha_laranja.png', '10', 'Bolo', 'Bolo de morango', 'Massa branca, mousse branca, morangos, creme gelado com morangos', 15.00, 'Item popular no cardápio'),
 
 ('fotos/teste.png', '12', 'Bolo', 'Ganache de limão', 'Massa branca, mousse branco, creme gelado de limão', 15.00, 'Refrescante e cítrico'),
 
