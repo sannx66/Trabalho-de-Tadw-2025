@@ -146,6 +146,14 @@ INSERT INTO tb_produto (foto, disponivel, tipo, nome, ingredientes, valor_un, ob
 ('macarons_misto.png', 14, 'Macarons', 'Misto', 'Massa de chocolate ao leite com recheio de chocolate branco', 6.00, NULL),
 ('macarons_limao.png', 10, 'Macarons', 'Limão', 'Massa de limão com recheio de mousse de limão', 6.00, NULL);
 
+INSERT INTO tb_produto (foto, disponivel, tipo, nome, ingredientes, valor_un, observacoes) 
+VALUES
+('donuts_amendoim.png', 15, 'Donuts', 'Amendoim', 'Rosquinha frita com cobertura de caramelo salgado com amendoins.', 7.00, NULL),
+('donuts_chocolatecommorango.png', 15, 'Donut', 'Chocolate com Morango', 'Rosquinha frita com cobertura de brigadeiro e morangos.', 7.00, NULL),
+('donuts_laranja.png', 15, 'Donuts', 'Donuts de Laranja', 'Rosquinha frita com cobertura de geleia de laranja com rodelas de laranja.', 7.00, NULL),
+('donuts_leitecondensado.png', 15, 'Donut', 'Leite Condensado', 'Rosquinha frita com cobertura de leite condensado com amoras.', 7.00, NULL),
+('donuts_limao.png', 15, 'Donuts', 'Limão', 'Rosquinha frita com cobertura de mousse de limão com rodelas de limão.', 7.00, NULL),
+('donuts_uva.png', 15, 'Donuts', 'Uva', 'Rosquinha frita com cobertura de creme de uva com blueberry.', 7.00, NULL);
 
 INSERT INTO tb_cliente (email, senha, nome, telefone, endereco, status, tipo) 
 VALUES 
