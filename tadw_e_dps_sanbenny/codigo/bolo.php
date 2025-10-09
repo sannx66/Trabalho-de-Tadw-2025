@@ -5,7 +5,7 @@ if ($conexao->connect_error) {
     die("Falha na conexão: " . $conexao->connect_error);
 }
 
-$sql = "SELECT nome, ingredientes, valor_un, foto FROM tb_produto WHERE tipo = 'bolo' AND disponivel > 0";
+$sql = "SELECT idproduto, nome, ingredientes, valor_un, foto FROM tb_produto WHERE tipo = 'bolo' AND disponivel > 0";
 $resultado = $conexao->query($sql);
 
 if (!$resultado) {
@@ -44,7 +44,18 @@ if ($resultado->num_rows === 0) {
 
         <p><?= nl2br(htmlspecialchars($bolo['ingredientes'])) ?></p>
         <p><strong><?= number_format($bolo['valor_un'], 2, ',', '.') ?> golds</strong></p>
+        
+        <p>
+        <form action="adicionar_carrinho.php" method="post" style="display:inline;">
+        <input type="hidden" name="id" value="<?= htmlspecialchars($bolo['idproduto']) ?>">
+        <button type="submit" class="btn-comprar">Adicionar ao carrinho</button>
+        </form>
+        </p>
+
+        
+        
     <?php endwhile; ?>
+
 
     <p><a href="categorias.php">← Voltar para categorias</a></p>
 </body>

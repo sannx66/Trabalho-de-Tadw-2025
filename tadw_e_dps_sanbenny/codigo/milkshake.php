@@ -1,51 +1,59 @@
 <?php
-   // require_once "./verificarlogado.php";
-?>
+require_once "conexao.php";
 
+if ($conexao->connect_error) {
+    die("Falha na conexão: " . $conexao->connect_error);
+}
 
-<?php
+$sql = "SELECT nome, ingredientes, valor_un, foto FROM tb_produto WHERE tipo = 'milkshake' AND disponivel > 0";
+$resultado = $conexao->query($sql);
 
-$milkshakes = [
-    [
-        "nome" => "Milkshake de Chocolate",
-        "descricao" => "Milkshake cremoso com chocolate.",
-        "imagem" => "https://via.placeholder.com/250x180.png?text=Chocolate",
-        "preco" => "R$ 12,00"
-    ],
-    [
-        "nome" => "Milkshake de Morango",
-        "descricao" => "Feito com morangos frescos.",
-        "imagem" => "https://via.placeholder.com/250x180.png?text=Morango",
-        "preco" => "R$ 13,00"
-    ],
-    [
-        "nome" => "Milkshake de Oreo",
-        "descricao" => "Sorvete com biscoito Oreo triturado.",
-        "imagem" => "https://via.placeholder.com/250x180.png?text=Oreo",
-        "preco" => "R$ 15,00"
-    ],
-];
+if (!$resultado) {
+    die("Erro na consulta: " . $conexao->error);
+}
+
+if ($resultado->num_rows === 0) {
+    echo "<p>Nenhum milkshake disponível encontrado.</p>";
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
-    <meta charset="UTF-8" />
-    <title>Menu de Milkshakes</title>
+    <meta charset="UTF-8">
+    <title>Menu de milkshake </title>
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-    <a href="categorias.php">Voltar</a> <br><br>
-    <h1>Menu de Milkshakes</h1>
+    <h1> Milkshakes Disponíveis</h1>
 
-    <?php foreach ($milkshakes as $milkshake): ?>
-        <div>
-            <img src="<?php echo $milkshake['imagem']; ?>" alt="<?php echo $milkshake['nome']; ?>" width="250" height="180" />
-            <h3><?php echo $milkshake['nome']; ?></h3>
-            <p><?php echo $milkshake['descricao']; ?></p>
-            <p><strong>Preço:</strong> <?php echo $milkshake['preco']; ?></p>
-            <hr>
-        </div>
-    <?php endforeach; ?>
+    
+    <?php while ($milkshake = $resultado->fetch_assoc()): ?>
+        <hr>
+        <h2><?= htmlspecialchars($milkshake['nome']) ?></h2>
+
+    <?php 
+
+        
+        $caminho_foto = "fotos/" . $bolo['foto'];
+        if (!empty($bolo['foto']) && file_exists($caminho_foto)): ?>
+            <img src="<?= htmlspecialchars($caminho_foto) ?>" alt="<?= htmlspecialchars($bolo['nome']) ?>" width="200"><br>
+        <?php else: ?>
+            <p>[Foto não disponível]</p>
+        <?php endif; ?>
+
+        <p><?= nl2br(htmlspecialchars($milkshake['ingredientes'])) ?></p>
+        <p><strong><?= number_format($bolo['valor_un'], 2, ',', '.') ?> golds</strong></p>
+
+        <p>
+        <form action="adicionar_carrinho.php" method="post" style="display:inline;">
+        <input type="hidden" name="id" value="<?= htmlspecialchars($bolo['idproduto']) ?>">
+        <button type="submit" class="btn-comprar">Adicionar ao carrinho</button>
+        </form>
+        </p>
+        
+    <?php endwhile; ?>
+
+    <p><a href="categorias.php">← Voltar para categorias</a></p>
 </body>
-</html> 
+</html>
