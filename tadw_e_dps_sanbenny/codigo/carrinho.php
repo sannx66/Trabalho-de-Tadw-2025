@@ -1,8 +1,9 @@
 <?php
-session_start();
 
-require_once "../conexao.php";
-require_once "../funcoes.php";
+require_once "./verificarlogado.php";
+require_once "./conexao.php";
+require_once "./funcoes.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +45,7 @@ require_once "../funcoes.php";
             $total += $total_unitario;
 
             echo "<td> R$ <span class='total_unitario'>$total_unitario</span></td>";
-            echo "<td><a href='remover.php?id=$id'>[remover]</a></td>";
+            echo "<td><a href='remover_carrinho.php?id=$id'>[remover]</a></td>";
             echo "</tr>";
         }
         echo "</table>";
