@@ -5,7 +5,7 @@ if ($conexao->connect_error) {
     die("Falha na conexão: " . $conexao->connect_error);
 }
 
-$sql = "SELECT nome, ingredientes, valor_un, foto FROM tb_produto WHERE tipo = 'bolo' AND disponivel = 10";
+$sql = "SELECT nome, ingredientes, valor_un, foto FROM tb_produto WHERE tipo = 'bolo' AND disponivel > 0";
 $resultado = $conexao->query($sql);
 
 if (!$resultado) {
@@ -27,22 +27,14 @@ if ($resultado->num_rows === 0) {
 <body>
     <h1>🍰 Bolos Disponíveis</h1>
 
-    <?php 
-    while ($bolo = $resultado->fetch_assoc()): 
-        
-        echo $bolo['nome'];
-        echo $bolo['ingredientes'];
-        echo $bolo['valor_un']
-        
-
-        //echo "<pre>";
-        //print_r($bolo);
-        //echo "</pre>";
-    ?>
+    
+    <?php while ($bolo = $resultado->fetch_assoc()): ?>
         <hr>
         <h2><?= htmlspecialchars($bolo['nome']) ?></h2>
 
-        <?php 
+    <?php 
+
+        
         $caminho_foto = "fotos/" . $bolo['foto'];
         if (!empty($bolo['foto']) && file_exists($caminho_foto)): ?>
             <img src="<?= htmlspecialchars($caminho_foto) ?>" alt="<?= htmlspecialchars($bolo['nome']) ?>" width="200"><br>
