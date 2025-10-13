@@ -87,6 +87,9 @@ function salvarProduto($conexao, $foto, $nome,$disponivel, $tipo, $ingredientes,
 
 // funcionando
 
+// precisa fazer outro listar produto,q vai listar todos os produtos e arrumar nos arquivo 
+
+
 function listarProdutos($conexao, $tipo) {
     $sql = "SELECT * FROM tb_produto WHERE tipo = ?";
     $comando = mysqli_prepare($conexao, $sql);

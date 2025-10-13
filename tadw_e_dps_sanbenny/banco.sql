@@ -155,6 +155,28 @@ VALUES
 ('donuts_limao.png', 15, 'Donuts', 'Limão', 'Rosquinha frita com cobertura de mousse de limão com rodelas de limão.', 7.00, NULL),
 ('donuts_uva.png', 15, 'Donuts', 'Uva', 'Rosquinha frita com cobertura de creme de uva com blueberry.', 7.00, NULL);
 
+INSERT INTO tb_produto (foto, disponivel, tipo, nome, ingredientes, valor_un, observacoes) 
+VALUES
+('cafe_latte.png', 10, 'Café', 'Latte', 'Café expresso com leite vaporizado e uma fina camada de espuma', 7.00, NULL),
+('cafe_flatwhite.png', 10, 'Café', 'Flat White', 'Café forte e expresso com leite vaporizado e uma fina camada de espuma', 7.00, NULL),
+('cafe_capuccino.png', 10, 'Café', 'Capuccino', 'Café expresso com uma quantidade pequena de leite vaporizado e uma fina camada de espuma', 7.00, NULL),
+('cafe_americano.png', 10, 'Café', 'Americano', 'Café preto e forte', 7.00, NULL),
+('cafe_mocha.png', 10, 'Café', 'Mocha', 'Café expresso com leite vaporizado, chocolate e uma fina camada de espuma', 7.00, NULL),
+('cafe_caramelmachiatto.png', 10, 'Café', 'Caramel Macchiato', 'Xarope de baunilha, leite vaporizado, calda de caramelo e chantilly', 7.00, NULL);
+
+INSERT INTO tb_produto (foto, disponivel, tipo, nome, ingredientes, valor_un, observacoes) 
+VALUES
+('churros_caramelo.png', 10, 'Churros', 'Caramelo', 'Massa tradicional, recheado com caramelo e cobertura de caramelo com castanhas', 12.00, NULL),
+('churros_cafe.png', 10, 'Churros', 'Café', 'Massa tradicional, recheado com cappuccino e cobertura de doce de leite com gotas de café', 12.00, NULL),
+('churros_aoleite.png', 10, 'Churros', 'Ao leite', 'Massa tradicional, com recheio e cobertura de brigadeiro com pedaços de barra de chocolate', 12.00, NULL),
+('churros_chocolatebranco.png', 10, 'Churros', 'Chocolate Branco', 'Massa tradicional, recheado com creme e cobertura de chocolate branco e coco', 12.00, NULL),
+('churros_limao.png', 10, 'Churros', 'Limão', 'Massa tradicional, recheado com mousse de limão e cobertura de geleia de limão com farelo de bolo de limão', 12.00, NULL),
+('churros_chocolateamargo.png', 10, 'Churros', 'Choc. Amargo', 'Massa tradicional, com recheio e cobertura de brigadeiro 50% com pedaços de barra de chocolate 70%', 12.00, NULL),
+('churros_caramelosalgado.png', 10, 'Churros', 'Caramelo Salgado', 'Massa tradicional, recheado com caramelo salgado e cobertura de chocolate ao leite com nozes', 12.00, NULL),
+('churros_pistache.png', 10, 'Churros', 'Pistache', 'Massa tradicional, recheado com creme de pistache e cobertura de creme de pistache com pistache', 12.00, NULL),
+('churros_morango.png', 10, 'Churros', 'Morango', 'Massa tradicional, com recheio e cobertura de morango com farelos de bolo de morango', 12.00, NULL);
+
+
 INSERT INTO tb_cliente (email, senha, nome, telefone, endereco, status, tipo) 
 VALUES 
   ('Todyy@gmail.com', SHA2('todyy', 256), 'Iasmin', '123456789', 'rua 2314', 'd', 'c'),

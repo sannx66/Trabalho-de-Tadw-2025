@@ -22,8 +22,8 @@
     <?php
     require_once "conexao.php";
     require_once "funcoes.php";
-
-    $lista_produtos = listarProdutos($conexao);
+$tipo = $_GET['tipo'] ?? '';
+    $lista_produtos = listarProdutos($conexao,$tipo);
 
     if (count($lista_produtos) == 0) {
         echo "Não existem produtos cadastrados";
