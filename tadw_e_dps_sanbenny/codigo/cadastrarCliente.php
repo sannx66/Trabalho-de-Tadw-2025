@@ -12,7 +12,7 @@
             $("#formulario").validate({
                 // regras para cada campo
                 rules: {
-                    
+
                     email: {
                         required: true,
                         email: true
@@ -46,7 +46,7 @@
                 },
                 // mensagens de erro para cada regra
                 messages: {
-                    
+
                     email: {
                         required: "Você deve informar um e-mail",
                         email: "Por favor, insira um e-mail válido",
@@ -66,7 +66,7 @@
                         required: "Esse campo deve ser preenchido",
                         minlength: "O tamanho mínimo é 2.",
                     },
-                      
+
                     telefone: {
                          required: "Informe seu telefone",
                          phoneUS: "Informe um telefone válido"
@@ -89,7 +89,7 @@
 </head>
 <body>
     <form id="formulario" action="salvarUsuario.php" method="post">
-       
+
         E-mail: <br>
         <input type="text" name="email" id="email"> <br><br>
 
