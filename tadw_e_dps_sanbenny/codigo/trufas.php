@@ -23,7 +23,7 @@ $trufas = listarProdutostipo($conexao, 'trufa');
             <hr>
             <h2><?= htmlspecialchars($trufa['nome']) ?></h2>
 
-            <?php 
+            <?php
             $caminho_foto = "fotos/" . $trufa['foto'];
             if (!empty($trufa['foto']) && file_exists($caminho_foto)): ?>
                 <img src="<?= htmlspecialchars($caminho_foto) ?>" alt="<?= htmlspecialchars($trufa['nome']) ?>" width="200"><br>
@@ -38,6 +38,12 @@ $trufas = listarProdutostipo($conexao, 'trufa');
                 <input type="hidden" name="id" value="<?= htmlspecialchars($trufa['idproduto']) ?>">
                 <button type="submit" class="btn-comprar">Adicionar ao carrinho</button>
             </form>
+
+            <?php if ($quantidade > 0): // Só mostra o botão se houver estoque ?>
+            <button type="submit" class="btn-comprar">Adicionar ao carrinho</button>
+        <?php else: ?>
+            <button type="button" class="btn-esgotado" disabled>Esgotado</button>
+            
         <?php endforeach; ?>
     <?php endif; ?>
 
