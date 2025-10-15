@@ -3,7 +3,7 @@ require_once "conexao.php";
 require_once "funcoes.php";
 // require_once "./verificarlogado.php";
 
-$donuts = listarProdutos($conexao, 'donut');
+$donuts = listarProdutostipo($conexao, 'donut');
 ?>
 
 <!DOCTYPE html>
