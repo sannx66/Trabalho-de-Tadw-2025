@@ -18,7 +18,7 @@
 
 <body>
     <h1>Lista de produtos</h1>
-
+                                                          
     <?php
     require_once "conexao.php";
     require_once "funcoes.php";
