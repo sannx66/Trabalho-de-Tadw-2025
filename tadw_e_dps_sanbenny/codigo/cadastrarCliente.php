@@ -99,9 +99,47 @@
 
         Senha: <br>
         <input type="password" name="senha" id="senha"><br><br>
+       
 
+<button type="button" onclick="toggleSenha()">Mostrar</button>
+
+<script>
+  function toggleSenha() {
+    const senhaInput = document.getElementById('senha');
+    const btn = event.target;
+
+    if (senhaInput.type === 'password') {
+      senhaInput.type = 'text';
+      btn.innerHTML = '<img src="../fotos/olho_aberto.png" alt="Ocultar senha" width="20">';
+    } else {
+      senhaInput.type = 'password';
+      btn.innerHTML = '<img src="../fotos/olho_fechado.png" alt="Mostrar senha" width="20">';
+    }
+  }
+</script>
+<br><br>
         Confirme sua senha: <br>
         <input type="password" name="senha2" id="senha2"> <br><br>
+
+
+      <button type="button" onclick="toggleSenha()">Mostrar</button>
+
+<script>
+  function toggleSenha() {
+    const senhaInput = document.getElementById('senha2');
+    const btn = event.target;
+
+    if (senhaInput.type === 'password') {
+      senhaInput.type = 'text';
+      btn.innerHTML = '<img src="../fotos/olho_aberto.png" alt="Ocultar senha" width="20">';
+    } else {
+      senhaInput.type = 'password';
+      btn.innerHTML = '<img src="../fotos/olho_fechado.png" alt="Mostrar senha" width="20">';
+    }
+  }
+</script>
+<br><br>
+
 
         Nome: <br>
         <input type="text" name="nome" id="nome"> <br><br>
