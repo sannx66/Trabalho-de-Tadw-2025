@@ -14,20 +14,7 @@
 </head>
 
 <body>
-       <?php
-            if ($_SESSION['tipo'] == 'g') {
-                echo "<li>";
-                echo "<a href='listarClientes.php'> Clientes cadastrados</a>";
-                echo "</li>";
-
-                echo "<a href='cadastrarProduto.php'>Cadastrar produto</a>";
-            }
-            else {
-                echo "Seja bem-vindo";
-            }
-            
-        ?>
-        <br>
+      
    
     <h1><i>Categorias</i></h1> <br>
 
@@ -41,7 +28,7 @@
     <a href="milkshake.php">Milshake</a> <br> <br><br>
 
     <a href="carrinho.php"><img src="../fotos/carrinho.png"></a> <br><br>
-
+    <a href="home.php"><img src="../fotos/bolo.png"></a> <br><br>
 
 <a href="deslogar.php">Deslogar</a>
 
