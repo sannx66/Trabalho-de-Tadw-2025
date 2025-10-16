@@ -184,6 +184,15 @@ VALUES
 ('cha_limaolaranja.png', 10, 'Chá', 'Limão com laranja', 'Chá cítrico com cascas de limão e laranja', 5.00, NULL),
 ('cha_maracuja.png', 11, 'Chá', 'Maracujá', 'Gosto suave de maracujá com propriedades calmantes', 5.00, NULL);
 
+INSERT INTO tb_produto (foto, disponivel, tipo, nome, ingredientes, valor_un, observacoes) 
+VALUES
+('milkshake_morango.png', 10, 'Milkshake', 'Morango', 'Sorvete de creme, calda de morango e leite', 10.00, NULL),
+('milkshake_chocolatecookie.png', 10, 'Milkshake', 'Chocolate Cookie', 'Sorvete de chocolate, pedaços de cookie e leite', 10.00, NULL),
+('milkshake_oreo.png', 10, 'Milkshake', 'Oreo', 'Sorvete de baunilha, biscoito Oreo triturado e leite', 10.00, NULL),
+('milkshake_caramelo.png', 10, 'Milkshake', 'Caramelo', 'Sorvete de creme, calda de caramelo e leite', 10.00, NULL),
+('milkshake_sensacao.png', 10, 'Milkshake', 'Sensação', 'Sorvete de morango, calda de chocolate e leite', 10.00, NULL),
+('milkshake_pudim.png', 10, 'Milkshake', 'Pudim', 'Sorvete de creme, pedaços de pudim e calda de caramelo', 10.00, NULL);
+
 
 INSERT INTO tb_cliente (email, senha, nome, telefone, endereco, status, tipo) 
 VALUES 
