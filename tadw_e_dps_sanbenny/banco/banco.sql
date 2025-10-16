@@ -119,15 +119,14 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
+
 INSERT INTO tb_produto (foto, disponivel, tipo, nome, ingredientes, valor_un, observacoes)
 VALUES
-('/fotos/cha_laranja.png', '10', 'Bolo', 'Bolo de morango', 'Massa branca, mousse branca, morangos, creme gelado com morangos', 15.00, 'Item popular no cardápio'),
+('bolo_bolodemorango.png', 10, 'Bolo', 'Bolo de morango', 'Massa branca, mousse branca, morangos, creme gelado com morangos', 15.00, 'Item popular no cardápio'),
+('bolo_ganachelimao.png', 12, 'Bolo', 'Ganache de limão', 'Massa branca, mousse branco, creme gelado de limão', 15.00, 'Refrescante e cítrico'),
+('bolo_chocolateamargo.png', 10, 'Bolo', 'Bolo de chocolate amargo', 'Massa de chocolate amargo, trufado de chocolate branco, chocolate 100% cacau', 15.00, 'Intenso e sofisticado'),
+('bolo_trufadocereja.png', 11, 'Bolo', 'Trufado de cereja', 'Massa de chocolate, mousse de chocolate com cereja, trufado de chocolate ao leite', 15.00, 'Com toque frutado e doce');
 
-('fotos/teste.png', '12', 'Bolo', 'Ganache de limão', 'Massa branca, mousse branco, creme gelado de limão', 15.00, 'Refrescante e cítrico'),
-
-('fotos/teste.png', '10', 'Bolo', 'Bolo de chocolate amargo', 'Massa de chocolate amargo, trufado de chocolate branco, chocolate 100% cacau', 15.00, 'Intenso e sofisticado'),
-
-('fotos/teste.png', '11', 'Bolo', 'Trufado de cereja', 'Massa de chocolate, mousse de chocolate com cereja, trufado de chocolate ao leite', 15.00, 'Com toque frutado e doce');
 
 INSERT INTO tb_produto (foto, disponivel, tipo, nome, ingredientes, valor_un, observacoes) 
 VALUES
@@ -175,6 +174,15 @@ VALUES
 ('churros_caramelosalgado.png', 10, 'Churros', 'Caramelo Salgado', 'Massa tradicional, recheado com caramelo salgado e cobertura de chocolate ao leite com nozes', 12.00, NULL),
 ('churros_pistache.png', 10, 'Churros', 'Pistache', 'Massa tradicional, recheado com creme de pistache e cobertura de creme de pistache com pistache', 12.00, NULL),
 ('churros_morango.png', 10, 'Churros', 'Morango', 'Massa tradicional, com recheio e cobertura de morango com farelos de bolo de morango', 12.00, NULL);
+
+INSERT INTO tb_produto (foto, disponivel, tipo, nome, ingredientes, valor_un, observacoes)
+VALUES
+('cha_graviola.png', 10, 'Chá', 'Graviola', 'Gosto natural de folhas de graviola', 5.00, NULL),
+('cha_laranja.png', 11, 'Chá', 'Laranja', 'Chá de casca de laranja com leve toque cítrico', 5.00, NULL),
+('cha_hibiscocafe.png', 12, 'Chá', 'Hibisco com café', 'Mistura de hibisco com café torrado, sabor marcante', 5.00, NULL),
+('cha_limaohortela.png', 12, 'Chá', 'Limão com hortelã', 'Chá refrescante de limão com folhas de hortelã', 5.00, NULL),
+('cha_limaolaranja.png', 10, 'Chá', 'Limão com laranja', 'Chá cítrico com cascas de limão e laranja', 5.00, NULL),
+('cha_maracuja.png', 11, 'Chá', 'Maracujá', 'Gosto suave de maracujá com propriedades calmantes', 5.00, NULL);
 
 
 INSERT INTO tb_cliente (email, senha, nome, telefone, endereco, status, tipo) 
