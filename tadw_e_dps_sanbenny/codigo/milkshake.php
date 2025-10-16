@@ -17,7 +17,7 @@ $milkshakes = listarProdutostipo($conexao, 'milkshake');
     <h1> Milkshakes Disponíveis</h1>
 
     <?php if (empty($milkshakes)): ?>
-        <p>Nenhum milkshake disponível encontrado.</p>
+        <p>Nenhum Milkshake disponível encontrado.</p>
     <?php else: ?>
         <?php foreach ($milkshakes as $milkshake): ?>
             <hr>

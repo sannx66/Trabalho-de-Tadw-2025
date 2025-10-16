@@ -141,11 +141,11 @@ function editarProduto($conexao,$idproduto, $foto, $nome,$disponivel, $tipo, $in
 // funcionando
 
 
-function pesquisarProdutoId($conexao, $idproduto) {
-    $sql = "SELECT * FROM tb_produto WHERE idproduto = ?";
+function pesquisarProdutoNome($conexao, $nome) {
+    $sql = "SELECT * FROM tb_produto WHERE nome = ?";
     $comando = mysqli_prepare($conexao, $sql);
 
-    mysqli_stmt_bind_param($comando, 'i', $idproduto);
+    mysqli_stmt_bind_param($comando, 's', $nome);  
 
     mysqli_stmt_execute($comando);
     $resultado = mysqli_stmt_get_result($comando);
