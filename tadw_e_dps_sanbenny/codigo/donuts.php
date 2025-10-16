@@ -17,7 +17,7 @@ $donuts = listarProdutostipo($conexao, 'donut');
     <h1>Donuts Disponíveis</h1>
 
     <?php if (empty($donuts)): ?>
-        <p>Nenhum donut disponível encontrado.</p>
+        <p>Nenhum donuts disponível encontrado.</p>
     <?php else: ?>
         <?php foreach ($donuts as $donut): ?>
             <hr>

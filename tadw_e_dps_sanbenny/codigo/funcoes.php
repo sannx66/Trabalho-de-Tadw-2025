@@ -87,7 +87,7 @@ function salvarProduto($conexao, $foto, $nome,$disponivel, $tipo, $ingredientes,
 
 // funcionando
 
-// precisa fazer outro listar produto,q vai listar todos os produtos e arrumar nos arquivo 
+
 
 
 function listarProdutostipo($conexao, $tipo) {
