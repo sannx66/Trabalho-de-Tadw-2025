@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="estilo.css">
     <script src="./jquery-3.7.1.min.js"></script>
     <script src="./jquery.validate.min.js"></script>
+    <script src="./jquery.mask.min.js"></script>
+</head>
     <script>
         $(document).ready(function () {
             $("#formulario").validate({
@@ -41,7 +43,6 @@
 
                     endereco: {
                          required: true,
-                         minlength: 5
                     }
                 },
                 // mensagens de erro para cada regra
@@ -69,12 +70,11 @@
 
                     telefone: {
                          required: "Informe seu telefone",
-                         phoneUS: "Informe um telefone válido"
+                         phoneUS: "Informe um telefone válido",
                     },
 
                     endereco: {
                         required: "Informe seu endereço",
-                        minlength: "O endereço deve ter no mínimo 5 caracteres"
                      }
 
                 }
@@ -83,9 +83,9 @@
     </script>
     <style>
         .error {
-            color: red;
+            color: white;
         }
-    </style>
+    </style> 
 </head>
 <body>
     <form id="formulario" action="salvarUsuario.php" method="post">
@@ -114,5 +114,11 @@
 
         <input type="submit" value="Cadastrar">
     </form>
+
+      <script>
+        $(document).ready(function() {
+            $('#telefone').mask('(00) 00000-0000');
+        });
+    </script>
 </body>
 </html>
