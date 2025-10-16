@@ -1,6 +1,11 @@
 .cadastro-container {
-  color: #ffe6f0; /* rosa claro */
-  width: fit-content;        /* largura apenas do conteúdo */
-  margin-left: 989px;         /* empurra a div para a direita */
-  padding: 20px;             /* espaço interno */    
+  color: #ffe6f0;      /* rosa claro */
+  width: 300px;        /* largura maior */
+  margin: 940px auto 7px auto; /* cima, horizontal, baixo */
+  padding: 200px;       /* espaço interno maior */
+  text-align: center;  /* texto centralizado */
+}
+
+.ledoux-container {
+  color:#ffe6f0;
 }

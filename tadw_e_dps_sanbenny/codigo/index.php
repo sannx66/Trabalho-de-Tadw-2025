@@ -10,10 +10,12 @@
 <body>
 
 <div class="cadastro-container">
-  <h2><i><b>Doceria</b></i></h2>
+  <h1><b>Doceria</b></h1>
 </div>
 
-    <h3>Le Douce Amoux</h3>
+<div class="ledoux-container">
+    <h3>Le Doux Amour</h3>
+</div>
     
         <a href="cadastrarCliente.php">Cadastrar</a> <br><br>
         <a href="formCliente.php">Entrar</a> <br><br>
