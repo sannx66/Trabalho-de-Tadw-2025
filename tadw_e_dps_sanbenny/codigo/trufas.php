@@ -39,10 +39,7 @@ $trufas = listarProdutostipo($conexao, 'trufa');
                 <button type="submit" class="btn-comprar">Adicionar ao carrinho</button>
             </form>
 
-            <?php if ($quantidade > 0): // Só mostra o botão se houver estoque ?>
-            <button type="submit" class="btn-comprar">Adicionar ao carrinho</button>
-        <?php else: ?>
-            <button type="button" class="btn-esgotado" disabled>Esgotado</button>
+            
             
         <?php endforeach; ?>
     <?php endif; ?>

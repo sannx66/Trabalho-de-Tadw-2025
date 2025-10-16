@@ -3,7 +3,7 @@ require_once "conexao.php";
 require_once "funcoes.php";
 // require_once "./verificarlogado.php";
 
-$milkshakes = listarProdutos($conexao, 'milkshake');
+$milkshakes = listarProdutostipo($conexao, 'milkshake');
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +19,7 @@ $milkshakes = listarProdutos($conexao, 'milkshake');
     <?php if (empty($milkshakes)): ?>
         <p>Nenhum milkshake disponível encontrado.</p>
     <?php else: ?>
-        <?php foreach ($milkshakes as $milshake): ?>
+        <?php foreach ($milkshakes as $milkshake): ?>
             <hr>
             <h2><?= htmlspecialchars($milkshake['nome']) ?></h2>
 
