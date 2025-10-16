@@ -40,7 +40,7 @@ require_once "./verificarlogado.php";
             <?php endforeach; ?>
         </table>
         <h3>Total da compra: R$ <span id="total"><?= number_format($total, 2, ',', '.') ?></span></h3>
-        <button type="submit">Atualizar Carrinho</button>
+        
     </form>
 
     <form action="finalizar_carrinho.php" method="post" style="margin-top: 20px;">
