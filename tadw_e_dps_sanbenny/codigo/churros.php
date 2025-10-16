@@ -3,7 +3,7 @@ require_once "conexao.php";
 require_once "funcoes.php";
 // require_once "./verificarlogado.php";
 
-$trufas = listarProdutostipo($conexao, 'churro');
+$churros = listarProdutostipo($conexao, 'churros');
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@ $trufas = listarProdutostipo($conexao, 'churro');
 <body>
     <h1> Churros Disponíveis</h1>
 
-    <?php if (empty($trufas)): ?>
+    <?php if (empty($churros)): ?>
         <p>Nenhum churro disponível encontrado.</p>
     <?php else: ?>
         <?php foreach ($churros as $churro): ?>
@@ -26,7 +26,7 @@ $trufas = listarProdutostipo($conexao, 'churro');
             <?php 
             $caminho_foto = "fotos/" . $churro['foto'];
             if (!empty($churro['foto']) && file_exists($caminho_foto)): ?>
-                <img src="<?= htmlspecialchars($caminho_foto) ?>" alt="<?= htmlspecialchars($trufa['nome']) ?>" width="200"><br>
+                <img src="<?= htmlspecialchars($caminho_foto) ?>" alt="<?= htmlspecialchars($churro['nome']) ?>" width="200"><br>
             <?php else: ?>
                 <p>[Foto não disponível]</p>
             <?php endif; ?>
@@ -35,7 +35,7 @@ $trufas = listarProdutostipo($conexao, 'churro');
             <p><strong><?= number_format($churro['valor_un'], 2, ',', '.') ?> golds</strong></p>
 
             <form action="adicionar_carrinho.php" method="post" style="display:inline;">
-                <input type="hidden" name="id" value="<?= htmlspecialchars($trufa['idproduto']) ?>">
+                <input type="hidden" name="id" value="<?= htmlspecialchars($churro['idproduto']) ?>">
                 <button type="submit" class="btn-comprar">Adicionar ao carrinho</button>
             </form>
         <?php endforeach; ?>
