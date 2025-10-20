@@ -128,6 +128,10 @@ VALUES
 
 INSERT INTO tb_produto (foto, disponivel, tipo, nome, ingredientes, valor_un, observacoes) 
 VALUES
+('trufa_bolodeaniversario.png', 12, 'Trufa', 'Trufa sabor bolo de aniversário', 'Bolo de baunilha com casca de chocolate branco', 5.00, NULL),
+('trufa_chocolateaoleite.png', 13, 'Trufa', 'Trufa sabor chocolate ao leite', 'Ganache cremoso de chocolate ao leite com pedaços de chocolate ao leite', 5.00, NULL),
+('trufa_amendoim.png', 11, 'Trufa', 'Trufa sabor amendoim', 'Purê de amendoim com ganache de chocolate, envolto de casca de chocolate', 5.00, NULL),
+('trufa_morangocomcreme.png', 12, 'Trufa', 'Trufa sabor morango com creme', 'Mousse de morango e mousse de baunilha em uma casca de chocolate branco', 5.00, NULL),
 ('trufa_creme.png', 10, 'Trufa', 'Trufa sabor creme', 'Ganache de chocolate amargo e baunilha em uma casca de chocolate branco', 5.00, NULL),
 ('trufa_chocolateamargo.png', 14, 'Trufa', 'Trufa sabor chocolate amargo', 'Ganache de chocolate amargo com 72% de cacau em uma casca de chocolate amargo', 5.00, NULL);
 
