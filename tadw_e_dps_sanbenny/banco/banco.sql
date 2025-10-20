@@ -119,79 +119,75 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-
 INSERT INTO tb_produto (foto, disponivel, tipo, nome, ingredientes, valor_un, observacoes)
 VALUES
-('bolo_bolodemorango.png', 10, 'Bolo', 'Bolo de morango', 'Massa branca, mousse branca, morangos, creme gelado com morangos', 15.00, 'Item popular no cardápio'),
-('bolo_ganachelimao.png', 12, 'Bolo', 'Ganache de limão', 'Massa branca, mousse branco, creme gelado de limão', 15.00, 'Refrescante e cítrico'),
-('bolo_chocolateamargo.png', 10, 'Bolo', 'Bolo de chocolate amargo', 'Massa de chocolate amargo, trufado de chocolate branco, chocolate 100% cacau', 15.00, 'Intenso e sofisticado'),
-('bolo_trufadocereja.png', 11, 'Bolo', 'Trufado de cereja', 'Massa de chocolate, mousse de chocolate com cereja, trufado de chocolate ao leite', 15.00, 'Com toque frutado e doce');
-
+('bolo_bolodemorango.png', 10, 'Bolo', 'Bolo sabor morango', 'Massa branca, mousse branca, morangos, creme gelado com morangos', 15.00, 'Item popular no cardápio'),
+('bolo_ganachelimao.png', 12, 'Bolo', 'Bolo sabor ganache de limão', 'Massa branca, mousse branco, creme gelado de limão', 15.00, 'Refrescante e cítrico'),
+('bolo_chocolateamargo.png', 10, 'Bolo', 'Bolo sabor chocolate amargo', 'Massa de chocolate amargo, trufado de chocolate branco, chocolate 100% cacau', 15.00, 'Intenso e sofisticado'),
+('bolo_trufadocereja.png', 11, 'Bolo', 'Bolo sabor trufado de cereja', 'Massa de chocolate, mousse de chocolate com cereja, trufado de chocolate ao leite', 15.00, 'Com toque frutado e doce');
 
 INSERT INTO tb_produto (foto, disponivel, tipo, nome, ingredientes, valor_un, observacoes) 
 VALUES
-('trufa_bolodeaniversario.png', 12, 'Trufa', 'Bolo de aniversário', 'Bolo de baunilha com casca de chocolate branco', 5.00, NULL),
-('trufa_chocolateaoleite.png', 13, 'Trufa', 'Chocolate ao leite', 'Ganache cremoso de chocolate ao leite com pedaços de chocolate ao leite', 5.00, NULL),
-('trufa_amendoim.png', 11, 'Trufa', 'Amendoim', 'Purê de amendoim com ganache de chocolate, envolto de casca de chocolate', 5.00, NULL),
-('trufa_morangocomcreme.png', 12, 'Trufa', 'Morango', 'Mousse de morango e mousse de baunilha em uma casca de chocolate branco', 5.00, NULL),
-('trufa_creme.png', 10, 'Trufa', 'Creme', 'Ganache de chocolate amargo e baunilha em uma casca de chocolate branco', 5.00, NULL),
-('trufa_chocolateamargo.png', 14, 'Trufa', 'Chocolate amargo', 'Ganache de chocolate amargo com 72% de cacau em uma casca de chocolate amargo', 5.00, NULL);
+('trufa_creme.png', 10, 'Trufa', 'Trufa sabor creme', 'Ganache de chocolate amargo e baunilha em uma casca de chocolate branco', 5.00, NULL),
+('trufa_chocolateamargo.png', 14, 'Trufa', 'Trufa sabor chocolate amargo', 'Ganache de chocolate amargo com 72% de cacau em uma casca de chocolate amargo', 5.00, NULL);
 
 INSERT INTO tb_produto (foto, disponivel, tipo, nome, ingredientes, valor_un, observacoes) VALUES
-('macarons_pistachecomcreme.png', 10, 'Macarons', 'Pistache com creme', 'Massa de pistache com recheio de creme', 6.00, NULL),
-('macarons_morangocomcreme.png', 12, 'Macarons', 'Morango com creme', 'Massa de morango com recheio de chocolate branco', 6.00, NULL),
-('macarons_baunilha.png', 10, 'Macarons', 'Baunilha', 'Massa de baunilha com creme de baunilha', 6.00, NULL),
-('macarons_uva.png', 11, 'Macarons', 'Uva', 'Massa de uva com recheio de mousse de uva', 6.00, NULL),
-('macarons_misto.png', 14, 'Macarons', 'Misto', 'Massa de chocolate ao leite com recheio de chocolate branco', 6.00, NULL),
-('macarons_limao.png', 10, 'Macarons', 'Limão', 'Massa de limão com recheio de mousse de limão', 6.00, NULL);
+('macarons_pistachecomcreme.png', 10, 'Macarons', 'Macaron sabor pistache com creme', 'Massa de pistache com recheio de creme', 6.00, NULL),
+('macarons_morangocomcreme.png', 12, 'Macarons', 'Macaron sabor morango com creme', 'Massa de morango com recheio de chocolate branco', 6.00, NULL),
+('macarons_baunilha.png', 10, 'Macarons', 'Macaron sabor baunilha', 'Massa de baunilha com creme de baunilha', 6.00, NULL),
+('macarons_uva.png', 11, 'Macarons', 'Macaron sabor uva', 'Massa de uva com recheio de mousse de uva', 6.00, NULL),
+('macarons_misto.png', 14, 'Macarons', 'Macaron sabor misto', 'Massa de chocolate ao leite com recheio de chocolate branco', 6.00, NULL),
+('macarons_limao.png', 10, 'Macarons', 'Macaron sabor limão', 'Massa de limão com recheio de mousse de limão', 6.00, NULL);
 
 INSERT INTO tb_produto (foto, disponivel, tipo, nome, ingredientes, valor_un, observacoes) 
 VALUES
-('donuts_amendoim.png', 15, 'Donuts', 'Amendoim', 'Rosquinha frita com cobertura de caramelo salgado com amendoins.', 7.00, NULL),
-('donuts_chocolatecommorango.png', 15, 'Donut', 'Chocolate com Morango', 'Rosquinha frita com cobertura de brigadeiro e morangos.', 7.00, NULL),
-('donuts_laranja.png', 15, 'Donuts', 'Donuts de Laranja', 'Rosquinha frita com cobertura de geleia de laranja com rodelas de laranja.', 7.00, NULL),
-('donuts_leitecondensado.png', 15, 'Donut', 'Leite Condensado', 'Rosquinha frita com cobertura de leite condensado com amoras.', 7.00, NULL),
-('donuts_limao.png', 15, 'Donuts', 'Limão', 'Rosquinha frita com cobertura de mousse de limão com rodelas de limão.', 7.00, NULL),
-('donuts_uva.png', 15, 'Donuts', 'Uva', 'Rosquinha frita com cobertura de creme de uva com blueberry.', 7.00, NULL);
+('donuts_amendoim.png', 15, 'Donuts', 'Donuts sabor amendoim', 'Rosquinha frita com cobertura de caramelo salgado com amendoins.', 7.00, NULL),
+('donuts_chocolatecommorango.png', 15, 'Donuts', 'Donuts sabor chocolate com morango', 'Rosquinha frita com cobertura de brigadeiro e morangos.', 7.00, NULL),
+('donuts_laranja.png', 15, 'Donuts', 'Donuts sabor laranja', 'Rosquinha frita com cobertura de geleia de laranja com rodelas de laranja.', 7.00, NULL),
+('donuts_leitecondensado.png', 15, 'Donuts', 'Donuts sabor leite condensado', 'Rosquinha frita com cobertura de leite condensado com amoras.', 7.00, NULL),
+('donuts_limao.png', 15, 'Donuts', 'Donuts sabor limão', 'Rosquinha frita com cobertura de mousse de limão com rodelas de limão.', 7.00, NULL),
+('donuts_uva.png', 15, 'Donuts', 'Donuts sabor uva', 'Rosquinha frita com cobertura de creme de uva com blueberry.', 7.00, NULL);
 
 INSERT INTO tb_produto (foto, disponivel, tipo, nome, ingredientes, valor_un, observacoes) 
 VALUES
-('cafe_latte.png', 10, 'Café', 'Latte', 'Café expresso com leite vaporizado e uma fina camada de espuma', 7.00, NULL),
-('cafe_flatwhite.png', 10, 'Café', 'Flat White', 'Café forte e expresso com leite vaporizado e uma fina camada de espuma', 7.00, NULL),
-('cafe_capuccino.png', 10, 'Café', 'Capuccino', 'Café expresso com uma quantidade pequena de leite vaporizado e uma fina camada de espuma', 7.00, NULL),
-('cafe_americano.png', 10, 'Café', 'Americano', 'Café preto e forte', 7.00, NULL),
-('cafe_mocha.png', 10, 'Café', 'Mocha', 'Café expresso com leite vaporizado, chocolate e uma fina camada de espuma', 7.00, NULL),
-('cafe_caramelmachiatto.png', 10, 'Café', 'Caramel Macchiato', 'Xarope de baunilha, leite vaporizado, calda de caramelo e chantilly', 7.00, NULL);
+('cafe_latte.png', 10, 'Café', 'Café sabor latte', 'Café expresso com leite vaporizado e uma fina camada de espuma', 7.00, NULL),
+('cafe_flatwhite.png', 10, 'Café', 'Café sabor flat white', 'Café forte e expresso com leite vaporizado e uma fina camada de espuma', 7.00, NULL),
+('cafe_capuccino.png', 10, 'Café', 'Café sabor cappuccino', 'Café expresso com uma quantidade pequena de leite vaporizado e uma fina camada de espuma', 7.00, NULL),
+('cafe_americano.png', 10, 'Café', 'Café sabor americano', 'Café preto e forte', 7.00, NULL),
+('cafe_mocha.png', 10, 'Café', 'Café sabor mocha', 'Café expresso com leite vaporizado, chocolate e uma fina camada de espuma', 7.00, NULL),
+('cafe_caramelmachiatto.png', 10, 'Café', 'Café sabor caramel macchiato', 'Xarope de baunilha, leite vaporizado, calda de caramelo e chantilly', 7.00, NULL);
 
 INSERT INTO tb_produto (foto, disponivel, tipo, nome, ingredientes, valor_un, observacoes) 
 VALUES
-('churros_caramelo.png', 10, 'Churros', 'Caramelo', 'Massa tradicional, recheado com caramelo e cobertura de caramelo com castanhas', 12.00, NULL),
-('churros_cafe.png', 10, 'Churros', 'Café', 'Massa tradicional, recheado com cappuccino e cobertura de doce de leite com gotas de café', 12.00, NULL),
-('churros_aoleite.png', 10, 'Churros', 'Ao leite', 'Massa tradicional, com recheio e cobertura de brigadeiro com pedaços de barra de chocolate', 12.00, NULL),
-('churros_chocolatebranco.png', 10, 'Churros', 'Chocolate Branco', 'Massa tradicional, recheado com creme e cobertura de chocolate branco e coco', 12.00, NULL),
-('churros_limao.png', 10, 'Churros', 'Limão', 'Massa tradicional, recheado com mousse de limão e cobertura de geleia de limão com farelo de bolo de limão', 12.00, NULL),
-('churros_chocolateamargo.png', 10, 'Churros', 'Choc. Amargo', 'Massa tradicional, com recheio e cobertura de brigadeiro 50% com pedaços de barra de chocolate 70%', 12.00, NULL),
-('churros_caramelosalgado.png', 10, 'Churros', 'Caramelo Salgado', 'Massa tradicional, recheado com caramelo salgado e cobertura de chocolate ao leite com nozes', 12.00, NULL),
-('churros_pistache.png', 10, 'Churros', 'Pistache', 'Massa tradicional, recheado com creme de pistache e cobertura de creme de pistache com pistache', 12.00, NULL),
-('churros_morango.png', 10, 'Churros', 'Morango', 'Massa tradicional, com recheio e cobertura de morango com farelos de bolo de morango', 12.00, NULL);
+('churros_caramelo.png', 10, 'Churros', 'Churros sabor caramelo', 'Massa tradicional, recheado com caramelo e cobertura de caramelo com castanhas', 12.00, NULL),
+('churros_cafe.png', 10, 'Churros', 'Churros sabor café', 'Massa tradicional, recheado com cappuccino e cobertura de doce de leite com gotas de café', 12.00, NULL),
+('churros_aoleite.png', 10, 'Churros', 'Churros sabor ao leite', 'Massa tradicional, com recheio e cobertura de brigadeiro com pedaços de barra de chocolate', 12.00, NULL),
+('churros_chocolatebranco.png', 10, 'Churros', 'Churros sabor chocolate branco', 'Massa tradicional, recheado com creme e cobertura de chocolate branco e coco', 12.00, NULL),
+('churros_limao.png', 10, 'Churros', 'Churros sabor limão', 'Massa tradicional, recheado com mousse de limão e cobertura de geleia de limão com farelo de bolo de limão', 12.00, NULL),
+('churros_chocolateamargo.png', 10, 'Churros', 'Churros sabor chocolate amargo', 'Massa tradicional, com recheio e cobertura de brigadeiro 50% com pedaços de barra de chocolate 70%', 12.00, NULL),
+('churros_caramelosalgado.png', 10, 'Churros', 'Churros sabor caramelo salgado', 'Massa tradicional, recheado com caramelo salgado e cobertura de chocolate ao leite com nozes', 12.00, NULL),
+('churros_pistache.png', 10, 'Churros', 'Churros sabor pistache', 'Massa tradicional, recheado com creme de pistache e cobertura de creme de pistache com pistache', 12.00, NULL),
+('churros_morango.png', 10, 'Churros', 'Churros sabor morango', 'Massa tradicional, com recheio e cobertura de morango com farelos de bolo de morango', 12.00, NULL);
 
 INSERT INTO tb_produto (foto, disponivel, tipo, nome, ingredientes, valor_un, observacoes)
 VALUES
-('cha_graviola.png', 10, 'Chá', 'Graviola', 'Gosto natural de folhas de graviola', 5.00, NULL),
-('cha_laranja.png', 11, 'Chá', 'Laranja', 'Chá de casca de laranja com leve toque cítrico', 5.00, NULL),
-('cha_hibiscocafe.png', 12, 'Chá', 'Hibisco com café', 'Mistura de hibisco com café torrado, sabor marcante', 5.00, NULL),
-('cha_limaohortela.png', 12, 'Chá', 'Limão com hortelã', 'Chá refrescante de limão com folhas de hortelã', 5.00, NULL),
-('cha_limaolaranja.png', 10, 'Chá', 'Limão com laranja', 'Chá cítrico com cascas de limão e laranja', 5.00, NULL),
-('cha_maracuja.png', 11, 'Chá', 'Maracujá', 'Gosto suave de maracujá com propriedades calmantes', 5.00, NULL);
+('cha_graviola.png', 10, 'Chá', 'Chá sabor graviola', 'Gosto natural de folhas de graviola', 5.00, NULL),
+('cha_laranja.png', 11, 'Chá', 'Chá sabor laranja', 'Chá de casca de laranja com leve toque cítrico', 5.00, NULL),
+('cha_hibiscocafe.png', 12, 'Chá', 'Chá sabor hibisco com café', 'Mistura de hibisco com café torrado, sabor marcante', 5.00, NULL),
+('cha_limaohortela.png', 12, 'Chá', 'Chá sabor limão com hortelã', 'Chá refrescante de limão com folhas de hortelã', 5.00, NULL),
+('cha_limaolaranja.png', 10, 'Chá', 'Chá sabor limão com laranja', 'Chá cítrico com cascas de limão e laranja', 5.00, NULL),
+('cha_maracuja.png', 11, 'Chá', 'Chá sabor maracujá', 'Gosto suave de maracujá com propriedades calmantes', 5.00, NULL);
 
 INSERT INTO tb_produto (foto, disponivel, tipo, nome, ingredientes, valor_un, observacoes) 
 VALUES
-('milkshake_morango.png', 10, 'Milkshake', 'Morango', 'Sorvete de creme, calda de morango e leite', 10.00, NULL),
-('milkshake_chocolatecookie.png', 10, 'Milkshake', 'Chocolate Cookie', 'Sorvete de chocolate, pedaços de cookie e leite', 10.00, NULL),
-('milkshake_oreo.png', 10, 'Milkshake', 'Oreo', 'Sorvete de baunilha, biscoito Oreo triturado e leite', 10.00, NULL),
-('milkshake_caramelo.png', 10, 'Milkshake', 'Caramelo', 'Sorvete de creme, calda de caramelo e leite', 10.00, NULL),
-('milkshake_sensacao.png', 10, 'Milkshake', 'Sensação', 'Sorvete de morango, calda de chocolate e leite', 10.00, NULL),
-('milkshake_pudim.png', 10, 'Milkshake', 'Pudim', 'Sorvete de creme, pedaços de pudim e calda de caramelo', 10.00, NULL);
+('milkshake_morango.png', 10, 'Milkshake', 'Milkshake sabor morango', 'Sorvete de creme, calda de morango e leite', 10.00, NULL),
+('milkshake_chocolatecookie.png', 10, 'Milkshake', 'Milkshake sabor chocolate cookie', 'Sorvete de chocolate, pedaços de cookie e leite', 10.00, NULL),
+('milkshake_oreo.png', 10, 'Milkshake', 'Milkshake sabor Oreo', 'Sorvete de baunilha, biscoito Oreo triturado e leite', 10.00, NULL),
+('milkshake_caramelo.png', 10, 'Milkshake', 'Milkshake sabor caramelo', 'Sorvete de creme, calda de caramelo e leite', 10.00, NULL),
+('milkshake_sensacao.png', 10, 'Milkshake', 'Milkshake sabor sensação', 'Sorvete de morango, calda de chocolate e leite', 10.00, NULL),
+('milkshake_pudim.png', 10, 'Milkshake', 'Milkshake sabor pudim', 'Sorvete de creme, pedaços de pudim e calda de caramelo', 10.00, NULL);
+
+
 
 
 INSERT INTO tb_cliente (email, senha, nome, telefone, endereco, status, tipo) 

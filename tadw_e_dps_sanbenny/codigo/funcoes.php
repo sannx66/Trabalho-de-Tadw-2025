@@ -141,20 +141,26 @@ function editarProduto($conexao,$idproduto, $foto, $nome,$disponivel, $tipo, $in
 // funcionando
 
 
-function pesquisarProdutoNome($conexao, $nome) {
-    $sql = "SELECT * FROM tb_produto WHERE nome = ?";
+function pesquisarProdutoNome($conexao, $nome)
+{
+    $sql = "SELECT * FROM tb_produto WHERE nome LIKE ?";
     $comando = mysqli_prepare($conexao, $sql);
 
-    mysqli_stmt_bind_param($comando, 's', $nome);  
+    $nome = "%" . $nome . "%";
+    mysqli_stmt_bind_param($comando, 's', $nome);
 
     mysqli_stmt_execute($comando);
-    $resultado = mysqli_stmt_get_result($comando);
 
-    $produto = mysqli_fetch_assoc($resultado);
+    $resultados = mysqli_stmt_get_result($comando);
 
+    $lista_produtos = [];
+    while ($produto = mysqli_fetch_assoc($resultados)) {
+        $lista_produtos[] = $produto;
+    }
     mysqli_stmt_close($comando);
-    return $produto;
-}
+
+    return $lista_produtos;
+};
 
 // funcionando
 

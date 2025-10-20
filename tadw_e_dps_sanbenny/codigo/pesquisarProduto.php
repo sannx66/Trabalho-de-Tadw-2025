@@ -9,12 +9,12 @@
 </head>
 
 <body>
-  <form action="pesquisarProdutoNome.php">
+  <form action="pesquisarProduto.php">
     Nome do produto: <br>
     <input type="text" name="valor"> <br><br>
 
     <input type="submit" value="Pesquisar">
-  </form>
+    </form>
   <?php
   if (isset($_GET["valor"]) && !empty($_GET["valor"])) {
     $valor = $_GET["valor"];
