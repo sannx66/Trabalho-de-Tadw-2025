@@ -6,6 +6,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pesquisar Produto</title>
+  <link rel="stylesheet" href="estilo.css">
+
 </head>
 
 <body>
@@ -29,12 +31,24 @@
     } else {
       echo "<br><table border='1'>";
       echo "<tr>";
+      echo "<th>Foto</th>";
       echo "<th>Nome</th>";
+      echo "<th>Disponível</th>";
+      echo "<th>Tipo</th>";
+      echo "<th>Ingredientes</th>";
+      echo "<th>Valor_un</th>";
+
+
     //   depois colocar os trem de foto
       echo "</tr>";
       foreach ($produtos as $produto) {
         echo "<tr>";
+        echo "<td><img src='fotos/" . htmlspecialchars($produto["foto"]) . "' width='80'></td>";
         echo "<td>" . $produto["nome"] . "</td>";
+        echo "<td>" . intval($produto["disponivel"]) . "</td>";
+        echo "<td>" . htmlspecialchars($produto["tipo"]) . "</td>";
+        echo "<td>" . htmlspecialchars($produto["ingredientes"]) . "</td>";
+        echo "<td>R$ " . number_format($produto["valor_un"], 2, ',', '.') . "</td>";
         echo "</tr>";
       }
     }
