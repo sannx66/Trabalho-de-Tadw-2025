@@ -44,7 +44,7 @@ require_once "./verificarlogado.php";
     </form>
 
     <form action="./finalizar_carrinho.php" method="post" style="margin-top: 20px;">
-        <button type="submit">Finalizar Compra</button>
+        <button type="submit">Comprar</button>
     </form>
 <?php endif; ?>
 

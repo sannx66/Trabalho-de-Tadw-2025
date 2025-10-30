@@ -1,9 +1,8 @@
-
 <?php
     require_once "verificarlogado.php";
 
-    if ($_SESSION['tipo'] != 'g') {
-        header("Location: home.php");
+    if ($_SESSION['tipo'] == 'c') {
+        header("Location: index.php");
     }
 ?>
 <!DOCTYPE html>
@@ -12,12 +11,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista de Clientes</title>
     <style>
-        /* img {
+        img {
             width: 50px;
             height: 50px;
-        } */
+        }
     </style>
 </head>
 
@@ -29,42 +28,36 @@
     require_once "funcoes.php";
 
     $lista_clientes = listarClientes($conexao);
-    
-    //verificar se encontrou clientes antes de imprimir.
+
     if (count($lista_clientes) == 0) {
-        echo "Não existem clientes cadastrados.";
+        echo "Não existem clientes cadastrados";
     } else {
     ?>
         <table border="1">
             <tr>
                 <td>Id</td>
-                <td>Email</td>
+                <td>Foto</td>
                 <td>Nome</td>
                 <td>CPF</td>
                 <td>Endereço</td>
-                <td>Telefone</td>
                 <td colspan="2">Ação</td>
             </tr>
-
         <?php
         foreach ($lista_clientes as $cliente) {
             $idcliente = $cliente['idcliente'];
+            $email = $cliente['email'];
             $nome = $cliente['nome'];
-            $cpf = $cliente['cpf'];
+            $telefone = $cliente['telefone'];
             $endereco = $cliente['endereco'];
-            $email = $cliente['email'];  
-            $telefone = $cliente['telefone'];  
-
+          
             echo "<tr>";
             echo "<td>$idcliente</td>";
-            // echo "<td><img src='fotos/$foto'></td>";
             echo "<td>$email</td>";
             echo "<td>$nome</td>";
-            echo "<td>$cpf</td>";
-            echo "<td>$endereco</td>";
             echo "<td>$telefone</td>";
-            // echo "<td><a href='formCliente.php?id=$idcliente'>Editar</a></td>";
+            echo "<td>$endereco</td>";
             echo "<td><a href='deletarCliente.php?id=$idcliente'>Excluir</a></td>";
+            echo "<td><a href='cadastrarCliente.php?id=$idcliente'>Editar</a></td>";
             echo "</tr>";
         }
     }

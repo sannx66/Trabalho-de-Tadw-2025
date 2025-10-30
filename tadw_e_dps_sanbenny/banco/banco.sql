@@ -210,4 +210,4 @@ VALUES
   ('andrea@admin.com', '$2y$10$hBJ2R3qBWCh74W6hRJd10u40UUQtgpeT.FOvOLf7ZeBhFiCCAnSAG', 'Andrea Silva', '6667778888', 'rua dos Gestores, 11', 'd', 'g'),
   ('izabella@gmail.com', '$2y$10$ggCi30mzrHtWbKkZBVu9ausXWDxPMioVzuagSepzMvxy8GbIAJx1G', 'Izabella de Souza', '77777777', 'rua 7', 'd', 'g'),
   ('sandy@gmail.com', '$2y$10$PXQ6aFIXs4euBweyjQ2Ctu0aDG7Zvlf3CMLYhJ7eiMR/uU3OSQ3VS', 'Sandy Mirelle', '66666666', 'rua 6', 'd', 'g'),
-  ('toddy@gmail.com', '$2y$10$IF6V8Xqy/dWhisf2HsQuIe1k428oyDI.rd4h3vh9S1fRrVIlIf6Vq', 'Iasminny Mendes', '99999999', 'rua 9', 'd', 'g'),
+  ('toddy@gmail.com', '$2y$10$IF6V8Xqy/dWhisf2HsQuIe1k428oyDI.rd4h3vh9S1fRrVIlIf6Vq', 'Iasminny Mendes', '99999999', 'rua 9', 'd', 'g');

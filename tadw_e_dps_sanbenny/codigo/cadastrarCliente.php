@@ -1,3 +1,29 @@
+<?php
+    if (isset($_GET['id'])) {
+        // echo "editar";
+
+        require_once "conexao.php";
+        require_once "funcoes.php";
+
+        $id = $_GET['id'];
+        
+        $cliente = pesquisarClienteId($conexao, $id);
+        $nome = $cliente['nome'];
+        $telefone = $cliente['telefone'];
+        $endereco = $cliente['endereco'];
+
+        $botao = "Atualizar";
+    }
+    else {
+        // echo "novo";
+        $id = 0;
+        $nome = "";
+        $telefone = "";
+        $endereco = "";
+
+        $botao = "Cadastrar";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

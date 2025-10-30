@@ -43,4 +43,67 @@ $churros = listarProdutostipo($conexao, 'churros');
 
     <p><a href="categorias.php">← Voltar para categorias</a></p>
 </body>
+<button class="add-carrinho" data-id="202">Adicionar Macaron</button>
+
+<!-- Toast (mensagem flutuante) -->
+<div id="toast"></div>
+
+<style>
+/* Estilo do toast */
+#toast {
+  visibility: hidden;
+  min-width: 250px;
+  background-color: #28a745; /* verde */
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 12px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  font-weight: 500;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: opacity 0.5s, bottom 0.5s;
+}
+
+#toast.show {
+  visibility: visible;
+  opacity: 1;
+  bottom: 50px;
+}
+</style>
+
+<script>
+document.querySelectorAll('.add-carrinho').forEach(botao => {
+    botao.addEventListener('click', () => {
+        const id = botao.getAttribute('data-id');
+
+        fetch('adicionar_carrinho.php', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: 'id=' + encodeURIComponent(id)
+        })
+        .then(response => response.json())
+        .then(data => {
+            mostrarToast(data.message, data.status === 'ok' ? 'success' : 'error');
+        })
+        .catch(() => {
+            mostrarToast('❌ Erro ao adicionar item.', 'error');
+        });
+    });
+});
+
+function mostrarToast(mensagem, tipo) {
+    const toast = document.getElementById('toast');
+    toast.textContent = mensagem;
+    toast.style.backgroundColor = tipo === 'error' ? '#dc3545' : '#28a745'; // vermelho ou verde
+    toast.className = 'show';
+
+    setTimeout(() => {
+        toast.className = toast.className.replace('show', '');
+    }, 3000);
+}
+</script>
 </html>
