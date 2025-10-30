@@ -1,6 +1,6 @@
 
 <?php
-    require_once "verificalogado.php";
+    require_once "verificarlogado.php";
 
     if ($_SESSION['tipo'] != 'g') {
         header("Location: home.php");

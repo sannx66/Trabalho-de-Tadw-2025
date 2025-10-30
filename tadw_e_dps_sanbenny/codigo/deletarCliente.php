@@ -4,8 +4,8 @@ require_once "funcoes.php";
 
 $id = $_GET['id'];
 
-if (deletarCliente($conexao, $id)) {
-    header("Location: listarClientes.php");
+if (deletarEntrega($conexao, $id)) {
+    header("Location: listarEntregas.php");
 } else {
     header("Location: erro.php");
 }
