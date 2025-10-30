@@ -1,4 +1,9 @@
 <?php
+    require_once "verificarlogado.php";
+
+    if ($_SESSION['tipo'] != 'g') {
+        header("Location: home.php");
+    }
     if (isset($_GET['id'])) {
         // echo "editar";
 
@@ -7,7 +12,7 @@
 
         $id = $_GET['id'];
         
-        $produto = pesquisarProdutoId($conexao, $id);
+        $produto = pesquisarProdutoNome($conexao, $id);
        
         $foto = $produto['foto'];
         $nome =  $produto['nome'];

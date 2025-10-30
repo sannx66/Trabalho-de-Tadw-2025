@@ -1,6 +1,11 @@
 <?php
-    //  require_once "./verificarlogado.php";
+    require_once "verificarlogado.php";
+
+    if ($_SESSION['tipo'] != 'g') {
+        header("Location: home.php");
+    }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +27,7 @@
     <?php
     require_once "conexao.php";
     require_once "funcoes.php";
-$tipo = $_GET['tipo'] ?? '';
+    $tipo = $_GET['tipo'] ?? '';
     $lista_produtos = listarProdutos($conexao,$tipo);
 
     if (count($lista_produtos) == 0) {
