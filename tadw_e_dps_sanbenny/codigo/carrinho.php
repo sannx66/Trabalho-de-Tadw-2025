@@ -17,7 +17,7 @@ require_once "./verificarlogado.php";
 <?php if (empty($_SESSION['carrinho'])): ?>
     <p>Carrinho vazio</p>
 <?php else: ?>
-    <form action="atualizar_carrinho.php" method="post">
+    <form action="./atualizar_carrinho.php" method="post">
         <table border="1">
             <tr>
                 <th>Tipo</th><th>Nome</th><th>Preço</th><th>Quantidade</th><th>Total unitário</th><th>Remover</th>
@@ -43,12 +43,12 @@ require_once "./verificarlogado.php";
         
     </form>
 
-    <form action="finalizar_carrinho.php" method="post" style="margin-top: 20px;">
+    <form action="./finalizar_carrinho.php" method="post" style="margin-top: 20px;">
         <button type="submit">Finalizar Compra</button>
     </form>
 <?php endif; ?>
 
-<p><a href="categorias.php">Adicionar produtos</a></p>
+<p><a href="./categorias.php">Adicionar produtos</a></p>
 
 <script>
 function atualizar_total() {
@@ -61,6 +61,8 @@ function atualizar_total() {
 
     $('#total').text(total.toFixed(2).replace('.', ','));
 }
+
+
 
 function somar() {
     const linha = $(this).closest('tr');

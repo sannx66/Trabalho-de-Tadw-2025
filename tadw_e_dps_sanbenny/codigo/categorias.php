@@ -28,7 +28,13 @@
     <a href="milkshake.php">Milshake</a> <br> <br><br>
 
     <a href="carrinho.php"><img src="../fotos/carrinho.png"></a> <br><br>
-    <a href="home.php"><img src="../fotos/bolo.png"></a> <br><br>
+ 
+<?php
+if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'g') {
+    echo '<a href="home.php"><img src="../fotos/bolo.png" alt="Bolo"></a><br><br>';
+}
+?>
+
 
 <a href="deslogar.php">Deslogar</a>
 

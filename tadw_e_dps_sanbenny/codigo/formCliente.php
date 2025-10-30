@@ -18,7 +18,6 @@
             },
             senha_entrada: {
                 required: true,
-                minlength: 3 // Você pode ajustar o comprimento mínimo de caracteres para a senha, se necessário
             }
         },
         // mensagens de erro para cada regra
@@ -29,7 +28,6 @@
             },
             senha_entrada: {
                 required: "Você deve informar uma senha",
-                minlength: "A senha deve ter no mínimo 3 caracteres"
             }
         }
     });

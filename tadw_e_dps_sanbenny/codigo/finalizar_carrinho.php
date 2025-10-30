@@ -4,16 +4,19 @@ require_once "./conexao.php";
 require_once "./funcoes.php";
 require_once "./verificarlogado.php";
 
+// Verifica se o carrinho está vazio
 if (empty($_SESSION['carrinho'])) {
     echo "Carrinho vazio. Nada para salvar.";
     exit;
 }
 
-$idcliente = $_SESSION['idcliente'] ?? null;
-if (!$idcliente) {
-    echo "Você precisa estar logado para finalizar a compra.";
+// Verifica se o ID do cliente está definido (vem da sessão, provavelmente)
+if (!isset($_SESSION['idcliente'])) {
+    echo "Erro: cliente não identificado.";
     exit;
 }
+
+$idcliente = $_SESSION['idcliente'];
 
 // Calcula total do carrinho
 $total = 0;
@@ -43,7 +46,7 @@ foreach ($_SESSION['carrinho'] as $idproduto => $quantidade) {
 // Limpa o carrinho da sessão
 unset($_SESSION['carrinho']);
 
-// Redireciona para a página de confirmação, passando o id da venda
+// Redireciona para a página de confirmação
 header("Location: confirmacao.php?idvenda=$idcarrinho");
 exit;
 ?>

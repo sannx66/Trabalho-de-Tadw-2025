@@ -460,4 +460,37 @@ function pegarDadosCliente($conexao, $idcliente) {
     else {
         return 0;
     }
+};
+function calcularTotalCarrinho($conexao, $idcarrinho) {
+    // Soma dos produtos do carrinho
+    $sql = "
+        SELECT SUM(iv.quantidade * p.valor_un) AS total_produtos
+        FROM tb_item_venda iv
+        JOIN tb_produto p ON iv.idproduto = p.idproduto
+        WHERE iv.idcarrinho = ?
+    ";
+    $stmt = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($stmt, 'i', $idcarrinho);
+    mysqli_stmt_execute($stmt);
+    $res = mysqli_stmt_get_result($stmt);
+    $linha = mysqli_fetch_assoc($res);
+    mysqli_stmt_close($stmt);
+
+    $totalProdutos = $linha['total_produtos'] !== null ? floatval($linha['total_produtos']) : 0;
+
+    // Valor da entrega
+    $sqlEntrega = "SELECT valor_entrega FROM tb_carrinho WHERE idcarrinho = ?";
+    $stmtEntrega = mysqli_prepare($conexao, $sqlEntrega);
+    mysqli_stmt_bind_param($stmtEntrega, 'i', $idcarrinho);
+    mysqli_stmt_execute($stmtEntrega);
+    $resEntrega = mysqli_stmt_get_result($stmtEntrega);
+    $carrinho = mysqli_fetch_assoc($resEntrega);
+    mysqli_stmt_close($stmtEntrega);
+
+    $valorEntrega = floatval($carrinho['valor_entrega']);
+
+    // Total final
+    $totalFinal = $totalProdutos + $valorEntrega;
+
+    return $totalFinal;
 }

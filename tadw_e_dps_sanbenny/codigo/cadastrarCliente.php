@@ -101,7 +101,7 @@
         <input type="password" name="senha" id="senha"><br><br>
        
 
-<button type="button" onclick="toggleSenha()">Mostrar</button>
+<button type="button" onclick="toggleSenha()" id='senha'>Mostrar</button>
 
 <script>
   function toggleSenha() {
@@ -122,7 +122,7 @@
         <input type="password" name="senha2" id="senha2"> <br><br>
 
 
-      <button type="button" onclick="toggleSenha()">Mostrar</button>
+      <button type="button" onclick="toggleSenha()" id='senha2'>Mostrar</button>
 
 <script>
   function toggleSenha() {

@@ -12,7 +12,6 @@
     }
     else {
         $cliente = pegarDadosCliente($conexao, $idcliente);
-        
         if ($cliente == 0) {
             header("Location: index.php");
         }
