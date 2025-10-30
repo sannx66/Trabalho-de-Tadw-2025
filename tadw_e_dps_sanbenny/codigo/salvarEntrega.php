@@ -1,17 +1,17 @@
 <?php
-include_once("conexao.php");
-include_once("funcoes.php");
+require_once "conexao.php";
+require_once "funcoes.php";
 
+$id = $_GET['id'];
 $identrega = $_POST["identrega"];
 $entregador = $_POST["entregador"];
 $idcarrinho = $_POST["idcarrinho"];
 
-if ($identrega == "") {
-    salvarEntrega($conexao, $entregador, $idcarrinho);
+
+if ($id == 0) {
+    salvarEntrega($conexao, $identrega, $entregador, $idcarrinho);
 } else {
-    editarEntrega($conexao, $entregador, $idcarrinho, $identrega);
+    editarEntrega($conexao, $id, $identrega, $entregador, $idcarrinho);
 }
 
 header("Location: listarEntregas.php");
-exit;
-?>

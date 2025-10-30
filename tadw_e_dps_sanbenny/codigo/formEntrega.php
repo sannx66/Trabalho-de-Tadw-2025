@@ -1,42 +1,51 @@
 <?php
-require_once("conexao.php");
-require_once("funcoes.php");
+    if (isset($_GET['id'])) {
+        // echo "editar";
 
-$identrega = "";
-$entregador = "";
-$idcarrinho = "";
+        require_once "conexao.php";
+        require_once "funcoes.php";
 
-if (isset($_GET["identrega"])) {
-    $identrega = $_GET["identrega"];
-    $entrega = pesquisarEntregaId($conexao, $identrega);
+        $id = $_GET['id'];
+        
+        $entrega = pesquisarEntregaId($conexao, $id);
+        $identrega = $entrega['identrega'];
+        $entregador = $entrega['entregador'];
+        $idcarrinho = $entrega['idcarrinho'];
 
-    if ($entrega) {
-        $entregador = $entrega["entregador"];
-        $idcarrinho = $entrega["idcarrinho"];
+        $botao = "Atualizar";
     }
-}
-?>
+    else {
+        // echo "novo";
+        $id = 0;
+        $identrega = "";
+        $entregador = "";
+        $idcarrinho = "";
 
+        $botao = "Cadastrar";
+    }
+?>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro de Entregas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de entrega</title>
 </head>
 <body>
-    <h2>Cadastro de Entregas</h2>
+    <h1>Cadastro de entrega</h1>
+    <form action="salvarEntrega.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="<?php echo $id; ?>">
 
-    <form action="salvarEntrega.php" method="post">
-        <input type="hidden" name="identrega" value="<?php echo $identrega; ?>">
+        Id da entrega: <br>
+        <input type="number" name="identrega" value="<?php echo $identrega; ?>"> <br><br>
 
-        <label>Entregador:</label><br>
-        <input type="text" name="entregador" value="<?php echo $entregador; ?>" required><br><br>
+        Entregador: <br>
+        <input type="text" name="entregador" value="<?php echo $entregador; ?>"> <br><br>
 
-        <label>ID Carrinho:</label><br>
-        <input type="number" name="idcarrinho" value="<?php echo $idcarrinho; ?>" required><br><br>
+        Id do carrinho: <br>
+        <input type="number" name="idcarrinho" value="<?php echo $idcarrinho; ?>"> <br><br>
 
-        <input type="submit" value="Salvar">
-        <a href="listarEntregas.php">Voltar</a>
+        <input type="submit" value="<?php echo $botao; ?>">
     </form>
 </body>
 </html>

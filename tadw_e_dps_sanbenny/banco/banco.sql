@@ -211,3 +211,30 @@ VALUES
   ('izabella@gmail.com', '$2y$10$ggCi30mzrHtWbKkZBVu9ausXWDxPMioVzuagSepzMvxy8GbIAJx1G', 'Izabella de Souza', '77777777', 'rua 7', 'd', 'g'),
   ('sandy@gmail.com', '$2y$10$PXQ6aFIXs4euBweyjQ2Ctu0aDG7Zvlf3CMLYhJ7eiMR/uU3OSQ3VS', 'Sandy Mirelle', '66666666', 'rua 6', 'd', 'g'),
   ('toddy@gmail.com', '$2y$10$IF6V8Xqy/dWhisf2HsQuIe1k428oyDI.rd4h3vh9S1fRrVIlIf6Vq', 'Iasminny Mendes', '99999999', 'rua 9', 'd', 'g');
+  ('toddy@gmail.com', '$2y$10$IF6V8Xqy/dWhisf2HsQuIe1k428oyDI.rd4h3vh9S1fRrVIlIf6Vq', 'Iasminny Mendes', '99999999', 'rua 9', 'd', 'g'),
+
+INSERT INTO tb_entrega (identrega, entregador, idcarrinho) 
+VALUES
+  (1, 'Carlos Mendes', 1),
+  (2, 'Ana Pereira', 2),
+  (3, 'João Santos', 3),
+  (4, 'Marcos Lima', 4),
+  (5, 'Fernanda Oliveira', 5),
+  (6, 'Rafaela Souza', 6),
+  (7, 'Pedro Almeida', 7),
+  (8, 'Lucas Barbosa', 8),
+  (9, 'Juliana Costa', 9),
+  (10, 'Tiago Nunes', 10);
+
+INSERT INTO tb_carrinho (idcarrinho, idcliente, valor_entrega, valor_total, valor_pago, troco, data_hora) 
+VALUES
+(1, 1, 5.00, 45.00, 50.00, 5.00, '2025-10-25 18:30:00'),
+(2, 2, 7.00, 60.00, 70.00, 10.00, '2025-10-25 19:15:00'),
+(3, 3, 5.00, 30.00, 30.00, 0.00, '2025-10-26 12:45:00'),
+(4, 1, 6.00, 80.00, 100.00, 20.00, '2025-10-26 20:05:00'),
+(5, 4, 8.00, 55.00, 60.00, 5.00, '2025-10-27 13:50:00'),
+(6, 5, 5.00, 25.00, 30.00, 5.00, '2025-10-27 18:40:00'),
+(7, 2, 6.00, 90.00, 100.00, 10.00, '2025-10-28 14:10:00'),
+(8, 3, 7.00, 40.00, 50.00, 10.00, '2025-10-28 17:25:00'),
+(9, 4, 5.00, 65.00, 70.00, 5.00, '2025-10-29 11:55:00'),
+(10, 5, 8.00, 35.00, 40.00, 5.00, '2025-10-29 19:30:00');
