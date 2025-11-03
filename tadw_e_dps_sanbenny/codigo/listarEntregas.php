@@ -1,9 +1,9 @@
 <?php
-    // require_once "verificarLogado.php";
+    require_once "verificarLogado.php";
 
-    // if ($_SESSION['tipo'] == 'c') {
-    //     header("Location: home.php");
-    // }
+    if ($_SESSION['tipo'] == 'c') {
+        header("Location: home.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista de entregas</title>
+
+     <link rel="stylesheet" href="estilo.css">
+
     <style>
         img {
             width: 50px;
