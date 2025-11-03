@@ -79,5 +79,10 @@ function somar() {
 
 $("input.quantidade").on('change', somar);
 </script>
+
+<?php
+
+$_SESSION['total_carrinho'] = $total; // total sem delivery
+?>
 </body>
 </html>

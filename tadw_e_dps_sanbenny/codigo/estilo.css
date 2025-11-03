@@ -30,3 +30,38 @@ body {
     margin-left: 8px;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.troco-container {
+    display: none;
+    margin-top: 10px;
+}
+
+input[type="number"], input[type="text"] {
+    padding: 5px;
+    width: 150px;
+}
+
+label {
+    display: block;
+    margin: 5px 0;
+}
+
+input[type="submit"] {
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+
