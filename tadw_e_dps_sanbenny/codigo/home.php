@@ -19,8 +19,14 @@
                 echo "</li>";
 
                 echo "<li>";
+                echo "<a href='pesquisarCliente.php'>Pesquisar Cliente</a>";
+                echo "</li>";
+
+
+                echo "<li>";
                 echo "<a href='listarProdutos.php'>Lista de Produtos</a>";
                 echo "</li>";
+
 
                 echo "<li>";
                 echo "<a href='formProduto.php'>Formulário de  Produto</a>";
@@ -30,7 +36,20 @@
                 echo "<a href='pesquisarProduto.php'>Pesquisar Produto</a>";
                 echo "</li>";
 
-                
+                echo "<li>";
+                echo "<a href='formEntrega.php'>Formulário de Entrega</a>";
+                echo "</li>";
+
+                echo "<li>";
+                echo "<a href='listarEntrega.php'>Lista de Entrega</a>";
+                echo "</li>";
+
+                echo "<li>";
+                echo "<a href='pesquisarEntrega.php'>Pesquisar Entrega</a>";
+                echo "</li>";
+
+
+
             }
             else {
                 echo "Apenas para autorizados :)"; 

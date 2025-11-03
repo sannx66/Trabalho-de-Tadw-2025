@@ -1,6 +1,14 @@
 <?php
+    require_once "verificarLogado.php";
+
+    if ($_SESSION['tipo'] == 'c') {
+        header("Location: home.php");
+    }
+?>
+<?php
     if (isset($_GET['id'])) {
         // echo "editar";
+        
 
         require_once "conexao.php";
         require_once "funcoes.php";

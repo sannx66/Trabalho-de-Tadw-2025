@@ -39,21 +39,18 @@
     } else {
       echo "<br><table border='1'>";
       echo "<tr>";
-      echo "<th>ID</th>";
-      echo "<th>Cliente</th>";
-      echo "<th>Endereço</th>";
-      echo "<th>Data</th>";
-      echo "<th>Status</th>";
-      echo "<th>Observações</th>";
+      echo "<th>Id da entrega</th>";
+      echo "<th>Entregador</th>";
+      echo "<th>Id do carrinho</th>";
+      
+      
       echo "</tr>";
 
       echo "<tr>";
-      echo "<td>" . htmlspecialchars($entrega["id"]) . "</td>";
-      echo "<td>" . htmlspecialchars($entrega["cliente"]) . "</td>";
-      echo "<td>" . htmlspecialchars($entrega["endereco"]) . "</td>";
-      echo "<td>" . htmlspecialchars($entrega["data"]) . "</td>";
-      echo "<td>" . htmlspecialchars($entrega["status"]) . "</td>";
-      echo "<td>" . htmlspecialchars($entrega["observacoes"]) . "</td>";
+      echo "<td>" . htmlspecialchars($entrega["identrega"]) . "</td>";
+      echo "<td>" . htmlspecialchars($entrega["entregador"]) . "</td>";
+      echo "<td>" . htmlspecialchars($entrega["idcarrinho"]) . "</td>";
+      
       echo "</tr>";
 
       echo "</table>";
