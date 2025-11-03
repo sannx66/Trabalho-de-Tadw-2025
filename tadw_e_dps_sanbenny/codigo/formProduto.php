@@ -1,21 +1,18 @@
 <?php
-    // require_once "verificarlogado.php";
+    require_once "verificarlogado.php";
 
-    // if ($_SESSION['tipo'] != 'g') {
-    //     header("Location: home.php");
-    // }
+    if ($_SESSION['tipo'] != 'g') {
+        header("Location: home.php");
+    }
 
     require_once "conexao.php";
     require_once "funcoes.php";
 
-    if (isset($_GET['id'])) {   // ← Faltava abrir corretamente o if
-        // echo "editar";
+    if (isset($_GET['id'])) {   
 
         $id = $_GET['id'];
         
-        // Se você está buscando por ID, a função correta provavelmente é pesquisarProdutoId()
-        // Se a sua função pesquisarProdutoNome realmente aceita ID, pode deixar como está.
-        $produto = pesquisarProdutoNome($conexao, $id);
+        $produto = pesquisarProdutoId($conexao, $id);
        
         $foto = $produto['foto'];
         $nome =  $produto['nome'];
@@ -26,8 +23,7 @@
         $observacoes = $produto['observacoes'];
 
         $botao = "Atualizar";
-    } else {  // ← Corrigido: antes estava fora do if, gerando erro de sintaxe
-        // echo "novo";
+    } else {  
         $id = 0;
         $nome = "";
         $disponivel = "";
@@ -45,7 +41,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Produtos</title>
-    <!-- Corrigido o atributo rel -->
+    
+     <link rel="stylesheet" href="estilo.css">
+
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
@@ -67,12 +65,12 @@
         <select name="tipo">
             <option value="bolo" selected>Bolo</option>
             <option value="churros">Churros</option>
-            <option value="macarons">Macarons</option> <!-- Corrigido: antes estava "macorons" -->
+            <option value="macarons">Macarons</option> 
             <option value="trufas">Trufas</option>
             <option value="donuts">Donuts</option>
             <option value="cafe">Café</option>
             <option value="milkshake">Milkshake</option>
-            <option value="cha">Chá</option> <!-- Corrigido: "Cha" → "Chá" -->
+            <option value="cha">Chá</option> 
         </select>
         <br><br>
 
@@ -85,7 +83,7 @@
         Observações: <br>
         <input type="text" name="observacoes" value="<?php echo $observacoes; ?>"> <br><br>
 
-        <input type="submit" value="<?php echo $botao; ?>"> <!-- Agora o botão mostra Cadastrar/Atualizar -->
+        <input type="submit" value="<?php echo $botao; ?>"> 
     </form>
 </body>
 </html>

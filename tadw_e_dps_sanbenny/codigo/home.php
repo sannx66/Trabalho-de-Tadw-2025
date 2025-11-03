@@ -22,7 +22,15 @@
                 echo "<a href='listarProdutos.php'>Lista de Produtos</a>";
                 echo "</li>";
 
-                echo "<a href='cadastrarProduto.php'>Cadastrar Produto</a>";
+                echo "<li>";
+                echo "<a href='formProduto.php'>Formulário de  Produto</a>";
+                echo "</li>";
+
+                echo "<li>";
+                echo "<a href='pesquisarProduto.php'>Pesquisar Produto</a>";
+                echo "</li>";
+
+                
             }
             else {
                 echo "Apenas para autorizados :)"; 
