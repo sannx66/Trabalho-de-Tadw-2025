@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once "./conexao.php";
-require_once "./funcoes.php";
-require_once "./verificarlogado.php";
+require_once "conexao.php";
+require_once "funcoes.php";
+require_once "verificarlogado.php";
 ?>
 
 <!DOCTYPE html>
@@ -43,12 +43,12 @@ require_once "./verificarlogado.php";
         
     </form>
 
-    <form action="./finalizar_carrinho.php" method="post" style="margin-top: 20px;">
+    <form action="pagamento.php" method="post" style="margin-top: 20px;">
         <button type="submit">Comprar</button>
     </form>
 <?php endif; ?>
 
-<p><a href="./categorias.php">Adicionar produtos</a></p>
+<p><a href="categorias.php">Adicionar produtos</a></p>
 
 <script>
 function atualizar_total() {

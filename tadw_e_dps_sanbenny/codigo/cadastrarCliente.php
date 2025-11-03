@@ -126,44 +126,38 @@
         Senha: <br>
         <input type="password" name="senha" id="senha"><br><br>
        
+   <button id="mostrarSenha">Mostrar senha</button>
 
-<button type="button" onclick="toggleSenha()" id='senha'>Mostrar</button>
-
-<script>
-  function toggleSenha() {
-    const senhaInput = document.getElementById('senha');
-    const btn = event.target;
-
-    if (senhaInput.type === 'password') {
-      senhaInput.type = 'text';
-      btn.innerHTML = '<img src="../fotos/olho_aberto.png" alt="Ocultar senha" width="20">';
-    } else {
-      senhaInput.type = 'password';
-      btn.innerHTML = '<img src="../fotos/olho_fechado.png" alt="Mostrar senha" width="20">';
-    }
-  }
-</script>
+    <script>
+        $(document).ready(function() {
+            $('#mostrarSenha').click(function() {
+                let tipo = $('#senha').attr('type');
+                if (tipo == 'password') {
+                    $('#senha').attr('type', 'text');
+                } else {
+                    $('#senha').attr('type', 'password');
+                }
+            });
+        });
+    </script>
 <br><br>
         Confirme sua senha: <br>
         <input type="password" name="senha2" id="senha2"> <br><br>
 
+           <button id="mostrarSenha">Mostrar senha</button>
 
-      <button type="button" onclick="toggleSenha()" id='senha2'>Mostrar</button>
-
-<script>
-  function toggleSenha() {
-    const senhaInput = document.getElementById('senha2');
-    const btn = event.target;
-
-    if (senhaInput.type === 'password') {
-      senhaInput.type = 'text';
-      btn.innerHTML = '<img src="../fotos/olho_aberto.png" alt="Ocultar senha" width="20">';
-    } else {
-      senhaInput.type = 'password';
-      btn.innerHTML = '<img src="../fotos/olho_fechado.png" alt="Mostrar senha" width="20">';
-    }
-  }
-</script>
+    <script>
+        $(document).ready(function() {
+            $('#mostrarSenha').click(function() {
+                let tipo = $('#senha2').attr('type');
+                if (tipo == 'password') {
+                    $('#senha2').attr('type', 'text');
+                } else {
+                    $('#senha2').attr('type', 'password');
+                }
+            });
+        });
+    </script>
 <br><br>
 
 

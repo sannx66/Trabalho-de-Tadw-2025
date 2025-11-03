@@ -8,3 +8,25 @@ body {
 }
 
 
+/* Estilo do alerta flutuante */
+#alerta {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #fa63cc;
+    color: rgb(255, 255, 255);
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    font-family: Arial, sans-serif;
+    z-index: 1000;
+}
+
+/* Link dentro do alerta */
+#alerta a {
+    color: #ffffff;
+    text-decoration: underline;
+    margin-left: 8px;
+}
+

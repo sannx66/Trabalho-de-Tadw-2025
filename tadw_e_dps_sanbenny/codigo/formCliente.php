@@ -47,25 +47,25 @@
         Senha: <br>
         <input type="password" name="senha_entrada" id="senha_entrada"><br><br>
 
+           <button id="mostrarSenha">Mostrar senha</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#mostrarSenha').click(function() {
+                let tipo = $('#senha_entrada').attr('type');
+                if (tipo == 'password') {
+                    $('#senha_entrada').attr('type', 'text');
+                } else {
+                    $('#senha_entrada').attr('type', 'password');
+                }
+            });
+        });
+    </script>
+
          <input type="submit" value="Entrar">
     </form>
 
- <button type="button" onclick="toggleSenha()">Mostrar</button>
 
-<script>
-  function toggleSenha() {
-    const senhaInput = document.getElementById('senha_entrada');
-    const btn = event.target;
-
-    if (senhaInput.type === 'password') {
-      senhaInput.type = 'text';
-      btn.innerHTML = '<img src="../fotos/olho_aberto.png" alt="Ocultar senha" width="20">';
-    } else {
-      senhaInput.type = 'password';
-      btn.innerHTML = '<img src="../fotos/olho_fechado.png" alt="Mostrar senha" width="20">';
-    }
-  }
-</script>
 
 
 </body>
