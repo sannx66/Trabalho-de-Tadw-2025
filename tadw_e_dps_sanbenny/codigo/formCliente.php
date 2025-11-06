@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['tipo'] = $dados['tipo']; // 'c' ou 'g'
 
     $_SESSION['logado'] = true;
-    
+
     // REDIRECIONAR PARA O PAINEL
     header("Location: categorias.php");
     exit;

@@ -386,75 +386,572 @@ label.error {
 
 /* .. */
 
-/* ==================== RETIRADA PAGE ==================== */
-#retirada-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+/* BOLO CARDAPIO */
+/* ===========================
+   ESTILO TIPO CANVA — MENU DE BOLOS
+   =========================== */
+
+#cardapio-bolos {
+    background: linear-gradient(180deg, #f7c9d8, #f3b1c3, #ef97af);
     min-height: 100vh;
-    background: #ffc0cb; /* rosa claro */
+    margin: 0;
     padding: 20px;
+    font-family: "Georgia", serif;
+    color: #892b45;
 }
 
-#retirada-title {
-    font-size: 3em;
+/* Título principal */
+#cardapio-bolos h1 {
+    text-align: center;
+    color: #ca3f5d;
+    font-size: 40px;
     margin-bottom: 40px;
-    color: #fff;
-    text-shadow: 2px 2px #ff0000;
-    text-align: center;
 }
 
-#retirada-card {
-    background: #fff; /* branco */
-    padding: 50px 40px;
+/* CARD */
+#cardapio-bolos .bolo-card {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 25px;
+    margin: 35px auto;
+    max-width: 900px;
+
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 25px;
+    align-items: center;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Título do bolo */
+#cardapio-bolos .bolo-card h2 {
+    grid-column: span 2;
+    text-align: center;
+    color: #c23958;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+/* Imagem do produto */
+#cardapio-bolos .bolo-card img {
+    width: 200px;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* Texto */
+#cardapio-bolos .bolo-card p {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* Botão Quero */
+#cardapio-bolos .btn-comprar {
+    background: #ff6f91;
+    color: white;
+    border: none;
+    padding: 10px 25px;
     border-radius: 20px;
-    text-align: center;
-    max-width: 450px;
-    width: 100%;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-    border: 3px solid #ff0000; /* vermelho */
-    position: relative;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 10px;
 }
 
-#retirada-card input[type="text"],
-#retirada-card input[type="tel"] {
-    width: 90%;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 10px;
-    border: 2px solid #ff0000;
-    text-align: center;
-    font-size: 1em;
+#cardapio-bolos .btn-comprar:hover {
+    background: #e9587c;
+    transform: scale(1.05);
 }
 
-#retirada-card input[type="submit"] {
-    background: #ff0000;
+/* SETA DE VOLTAR — SEMPRE FIXA */
+#cardapio-bolos .voltar-seta {
+    position: fixed;        /* ✅ Fica fixa na tela */
+    top: 20px;              /* Distância do topo */
+    left: 20px;             /* Distância da esquerda */
+    font-size: 40px;        /* ✅ Seta maior */
+    color: #892b45;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 9999;          /* ✅ Fica acima de tudo */
+    transition: 0.2s;
+}
+
+#cardapio-bolos .voltar-seta:hover {
+    color: #b43655;
+    transform: scale(1.2);  /* Pequeno zoom ao passar o mouse */
+}
+
+
+/* ALERTA CARRINHO */
+#alert-carrinho {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ff99b8;
+    padding: 15px 20px;
+    color: white;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    display: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: opacity 0.4s;
+    z-index: 9999;
+}
+
+#alert-carrinho a {
     color: #fff;
     font-weight: bold;
+    text-decoration: underline;
+    margin-left: 8px;
+}
+
+#alert-carrinho a:hover {
+    opacity: 0.8;
+}
+
+/* ALERTA CENTRALIZADO */
+#alert-carrinho {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 350px;
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    z-index: 10001; /* acima de tudo */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    font-family: Arial, sans-serif;
+}
+
+/* Imagenzinha do carrinho */
+#alert-carrinho .alert-carrinho-img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* Texto */
+#alert-carrinho p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Link do carrinho */
+#alert-carrinho a {
+    background: #ff6f91;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+#alert-carrinho a:hover {
+    background: #e9587c;
+}
+
+/* Fundo escuro por trás (overlay) */
+#alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45);
+    z-index: 10000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Botões do alerta */
+#alert-carrinho .alert-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* Botão Ok */
+#alert-carrinho .alert-ok {
+    background: #999;
+    color: white;
     border: none;
-    padding: 12px 25px;
-    border-radius: 10px;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
     cursor: pointer;
-    font-size: 1.1em;
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
-#retirada-card input[type="submit"]:hover {
-    background: #ff4d4d;
+#alert-carrinho .alert-ok:hover {
+    background: #777;
 }
 
-/* Castiel flutuando */
-#retirada-castiel {
-    width: 120px;
-    margin-bottom: 30px;
-    animation: floatCastiel 3s ease-in-out infinite;
+/* Botão Ver Carrinho */
+#alert-carrinho .alert-ver {
+    background: #ff6f91;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
 }
 
-/* animação flutuar */
-@keyframes floatCastiel {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0); }
+#alert-carrinho .alert-ver:hover {
+    background: #e9587c;
 }
 
+
+/* ✅ Deixa todas as imagens dos produtos do mesmo tamanho */
+#cardapio-bolos img {
+    width: 250px;       /* tamanho fixo */
+    height: 250px;      /* altura fixa */
+    object-fit: contain; /* evita distorcer a imagem */
+    display: block;
+    margin: 0 auto;     /* centraliza */
+}
+
+
+/* .. */
+
+/* CARRINHO */
+/* ================================
+   NOVO DESIGN ROSA CHAMATIVO
+================================ */
+#carrinho-page {
+    background: #ffe6f1;
+    font-family: Arial, sans-serif;
+    padding: 30px 10px;
+}
+
+/* Seta voltar */
+#carrinho-page .seta-voltar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 45px;
+    text-decoration: none;
+    color: #ff2f7a;
+    font-weight: bold;
+    z-index: 9999;
+    transition: .2s;
+}
+#carrinho-page .seta-voltar:hover {
+    transform: scale(1.25);
+}
+
+/* Título */
+#carrinho-page .titulo-carrinho {
+    text-align: center;
+    font-size: 35px;
+    margin-top: 50px;
+    color: #ff2f7a;
+    font-weight: bold;
+}
+
+/* Cards da lista */
+#carrinho-page .lista-cards {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+/* Card */
+#carrinho-page .card-item {
+    display: flex;
+    background: white;
+    border-radius: 22px;
+    padding: 20px;
+    margin: 20px auto;
+    box-shadow: 0px 6px 18px rgba(255, 0, 98, 0.15);
+    gap: 20px;
+    transition: .3s;
+}
+#carrinho-page .card-item:hover {
+    transform: translateY(-3px);
+}
+
+/* Efeito remover */
+#carrinho-page .card-item.removendo {
+    opacity: 0;
+}
+
+/* FOTO MAIOR */
+#carrinho-page .card-foto img {
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 15px;
+}
+
+/* Info do card */
+#carrinho-page .card-info h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #ff2f7a;
+    font-weight: bold;
+}
+#carrinho-page .card-info .tipo {
+    color: #888;
+    font-size: 15px;
+}
+#carrinho-page .card-info .preco {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff2f7a;
+}
+
+/* QTD */
+#carrinho-page .quantidade-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0;
+}
+#carrinho-page .qtd-btn {
+    width: 35px;
+    height: 35px;
+    background: #ff2f7a;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: .2s;
+    font-weight: bold;
+}
+#carrinho-page .qtd-btn:hover {
+    background: #ff055e;
+}
+#carrinho-page .qtd-display {
+    width: 55px;
+    text-align: center;
+    font-size: 20px;
+    border: none;
+    background: transparent;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Total por item */
+#carrinho-page .total-item {
+    font-size: 18px;
+    font-weight: bold;
+    color: #444;
+    margin-top: 8px;
+}
+
+/* Remover */
+#carrinho-page .remover-card {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: #ff4f7e;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: .2s;
+    font-weight: bold;
+}
+#carrinho-page .remover-card:hover {
+    background: #ff2f65;
+}
+
+/* Total geral */
+#carrinho-page .total-geral {
+    text-align: center;
+    margin: 25px auto;
+    font-size: 28px;
+    color: #ff1e6f;
+    font-weight: bold;
+}
+
+/* Finalizar compra */
+#carrinho-page .btn-comprar-carrinho {
+    display: block;
+    margin: 20px auto 40px auto;
+    background: #ff2f7a;
+    color: white;
+    padding: 16px 45px;
+    border: none;
+    font-size: 22px;
+    border-radius: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+    box-shadow: 0px 6px 18px rgba(255, 0, 98, 0.30);
+}
+#carrinho-page .btn-comprar-carrinho:hover {
+    background: #ff055e;
+    transform: scale(1.07);
+}
+
+/* Adicionar produtos */
+#carrinho-page .link-adicionar {
+    display: block;
+    margin-top: 25px;
+    text-align: center;
+    font-size: 20px;
+    color: #ff2f7a;
+    font-weight: bold;
+    text-decoration: none;
+}
+#carrinho-page .link-adicionar:hover {
+    text-decoration: underline;
+    color: #ff055e;
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+
+    #carrinho-page .card-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #carrinho-page .card-foto img {
+        width: 160px;
+        height: 160px;
+        margin: 0 auto;
+    }
+
+    #carrinho-page .btn-comprar-carrinho {
+        width: 90%;
+    }
+}
+
+/* PAGAMENTO */
+/* ================================
+   ✅ PAGAMENTO – ESTILO PRÓPRIO
+================================ */
+#pagamento-page {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: #ffe9f0;
+}
+
+/* ✅ Título */
+#pagamento-page h2 {
+    text-align: center;
+    color: #b43159;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+/* ✅ Total da compra */
+#pagamento-page #total_compra {
+    color: #b43159;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+/* ✅ Caixa principal */
+#pagamento-page form {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* ✅ Campos de seleção */
+#pagamento-page label {
+    display: block;
+    font-size: 18px;
+    margin: 12px 0;
+    color: #6d2c3e;
+}
+
+/* ✅ Campo do troco */
+#pagamento-page .troco-container {
+    margin-top: 10px;
+    padding: 10px;
+    background: #fff0f5;
+    border-radius: 12px;
+    border: 2px solid #ff8db0;
+}
+
+#pagamento-page #troco {
+    width: 100%;
+    margin-top: 5px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #d47a92;
+}
+
+/* ✅ Botão continuar */
+#pagamento-page input[type="submit"] {
+    background: #ff6b8a;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 20px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0 auto;
+    width: 70%;
+    transition: 0.2s;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+#pagamento-page input[type="submit"]:hover {
+    background: #ff4f73;
+    transform: scale(1.05);
+}
+
+/* ✅ Link voltar */
+#pagamento-page a {
+    color: #b43159;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+}
+
+#pagamento-page a:hover {
+    color: #ff4f73;
+    text-decoration: underline;
+}
+
+/* ✅ Seta voltar (se quiser usar igual ao carrinho) */
+#pagamento-page .seta-voltar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 40px;
+    text-decoration: none;
+    color: #b43159;
+    font-weight: bold;
+    z-index: 9999;
+    transition: 0.2s;
+}
+
+#pagamento-page .seta-voltar:hover {
+    transform: scale(1.2);
+}
+
+/* .. */
