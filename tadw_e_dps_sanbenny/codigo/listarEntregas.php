@@ -61,7 +61,7 @@
     }
         ?>
         </table>
-        <a href="home.php">Voltar</a>
+        <br><a href="home.php">Voltar</a><br>
 </body>
 
 </html>

@@ -38,6 +38,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de entrega</title>
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
     <h1>Cadastro de entrega</h1>
@@ -55,6 +56,6 @@
 
         <input type="submit" value="<?php echo $botao; ?>">
     </form>
-    <a href="home.php">Voltar</a>
+    <br><a href="home.php">Voltar</a><br>
 </body>
 </html>
