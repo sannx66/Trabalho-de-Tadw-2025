@@ -1,72 +1,145 @@
+<?php
+session_start();
+
+require_once "conexao.php";
+require_once "funcoes.php";
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $email = trim($_POST['email_entrada']);
+    $senha = trim($_POST['senha_entrada']);
+
+    // Verificar se o email existe
+    $clientes = listarClientes($conexao);
+
+    $emailExiste = false;
+    foreach ($clientes as $cli) {
+        if ($cli['email'] === $email) {
+            $emailExiste = true;
+            break;
+        }
+    }
+
+    if (!$emailExiste) {
+        echo "<script>
+                alert('Usuário não cadastrado');
+                window.location.href='formCliente.php';
+              </script>";
+        exit;
+    }
+
+    // Verificar senha usando a função existente
+    $iduser = verificarlogin($conexao, $email, $senha);
+
+    if ($iduser == 0) {
+        echo "<script>
+                alert('Senha incorreta');
+                window.location.href='formCliente.php';
+              </script>";
+        exit;
+    }
+
+    // LOGIN OK
+    $_SESSION['idcliente'] = $iduser;
+
+    // PEGAR NOME E TIPO DO CLIENTE
+    $dados = pegarDadosCliente($conexao, $iduser);
+
+    $_SESSION['nome'] = $dados['nome'];
+    $_SESSION['tipo'] = $dados['tipo']; // 'c' ou 'g'
+
+    // REDIRECIONAR PARA O PAINEL
+    header("Location: categorias.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+
     <link rel="stylesheet" href="estilo.css">
-    <script src="./jquery-3.7.1.min.js"></script>
-    <script src="./jquery.validate.min.js"></script>
+
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery.validate.min.js"></script>
+</head>
+<body>
+
+<!-- LOGO -->
+<img src="fotos/logo_diego.png" class="logo-canto">
+
+<!-- FORM LOGIN -->
+<form id="form_login" action="formCliente.php" method="post">
+
+    <label for="email_entrada">E-mail</label>
+    <input type="text" name="email_entrada" id="email_entrada" placeholder="Digite seu e-mail">
+
+    <label for="senha_entrada">Senha</label>
+
+    <div id="login-senha">
+        <input 
+            type="password" 
+            name="senha_entrada" 
+            id="senha_entrada" 
+            placeholder="Digite sua senha">
+
+        <!-- OLHINHO -->
+        <button type="button" class="mostrarSenhaLogin">
+            <img src="fotos/olho_fechado.png" alt="">
+        </button>
+    </div>
+
+    <input type="submit" value="Entrar">
+
+    <!-- MENSAGEM DE ERRO PERSONALIZADA -->
+    <p id="erroLogin" style="color:red; font-size:13px; font-weight:600; margin-top:10px;"></p>
+
+</form>
+
 <script>
-    $(document).ready(function () {
-    $("#formulario_entrada").validate({
-        // regras para cada campo
+$(document).ready(function(){
+
+    /* ✅ VALIDAÇÃO DO FORMULÁRIO */
+    $("#form_login").validate({
         rules: {
             email_entrada: {
                 required: true,
-                email: true // Adiciona uma validação para garantir que o campo seja um e-mail válido
+                email: true
             },
             senha_entrada: {
-                required: true,
+                required: true
             }
         },
-        // mensagens de erro para cada regra
         messages: {
             email_entrada: {
-                required: "Você deve informar um e-mail",
-                email: "Por favor, insira um e-mail válido"
+                required: "Informe seu e-mail",
+                email: "Digite um e-mail válido"
             },
             senha_entrada: {
-                required: "Você deve informar uma senha",
+                required: "Informe sua senha"
             }
         }
     });
+
+    /* ✅ OLHINHO */
+    $(".mostrarSenhaLogin").click(function(){
+        let campo = $("#senha_entrada");
+        let img = $(this).find("img");
+
+        if(campo.attr("type") === "password"){
+            campo.attr("type", "text");
+            img.attr("src", "fotos/olho_aberto.png");
+        } else {
+            campo.attr("type", "password");
+            img.attr("src", "fotos/olho_fechado.png");
+        }
+    });
+
 });
 </script>
-<style>
-        .error {
-            color: red;
-        }
-</style>
-</head>
-<body>
-    <form id="formulario_entrada" action="./verificarlogin.php" method="post">
-        E-mail: <br>
-        <input type="text" name="email_entrada" id="email_entrada"> <br><br>
-
-        Senha: <br>
-        <input type="password" name="senha_entrada" id="senha_entrada"><br><br>
-
-           <button id="mostrarSenha">Mostrar senha</button>
-
-    <script>
-        $(document).ready(function() {
-            $('#mostrarSenha').click(function() {
-                let tipo = $('#senha_entrada').attr('type');
-                if (tipo == 'password') {
-                    $('#senha_entrada').attr('type', 'text');
-                } else {
-                    $('#senha_entrada').attr('type', 'password');
-                }
-            });
-        });
-    </script>
-
-         <input type="submit" value="Entrar">
-    </form>
-
-
-
 
 </body>
 </html>

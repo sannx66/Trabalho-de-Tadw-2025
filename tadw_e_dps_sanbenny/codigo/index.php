@@ -6,6 +6,12 @@
     <link rel="stylesheet" href="estilo.css">
     <link rel="stylesheet" href="index.css">
     <title>Document</title>
+
+    <?php if (isset($_GET['erro']) && $_GET['erro'] == 'usuario_nao_cadastrado'): ?>
+<script>
+    alert("Usuário não cadastrado");
+</script>
+<?php endif; ?>
 </head>
 <body>
   <div id="pai2">
