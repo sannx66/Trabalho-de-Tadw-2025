@@ -127,6 +127,5 @@ $cafes = listarProdutostipo($conexao, 'cafe');
             }, 300);
         }
     </script>
-
 </body>
 </html>

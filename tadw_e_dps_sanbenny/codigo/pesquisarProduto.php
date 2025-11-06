@@ -60,7 +60,8 @@
       }
     }
   }
+  
   ?>
 </body>
-
+<a href="home.php">Voltar</a>
 </html>
