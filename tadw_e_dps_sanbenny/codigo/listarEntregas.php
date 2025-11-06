@@ -1,5 +1,5 @@
 <?php
-    require_once "verificarLogado.php";
+    require_once "verificarlogado.php";
 
     if ($_SESSION['tipo'] == 'c') {
         header("Location: home.php");
@@ -54,8 +54,8 @@
             echo "<td>$identrega</td>";
             echo "<td>$entregador</td>";
             echo "<td>$idcarrinho</td>";
-            echo "<td><a href='deletarCliente.php?id=$idcliente'>Excluir</a></td>";
-            echo "<td><a href='formCliente.php?id=$idcliente'>Editar</a></td>";
+            echo "<td><a href='deletarEntrega.php?id=$identrega'>Excluir</a></td>";
+            echo "<td><a href='formEntrega.php?id=$identrega'>Editar</a></td>";
             echo "</tr>";
         }
     }
