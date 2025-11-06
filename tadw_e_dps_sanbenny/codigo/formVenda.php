@@ -51,5 +51,6 @@
         <input type="submit" value="Registrar Venda">
     </form>
     <button onclick="aviso()">Teste</button>
+    <a href="home.php">Voltar</a>
 </body>
 </html>

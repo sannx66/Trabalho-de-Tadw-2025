@@ -81,5 +81,6 @@ $cafes = listarProdutostipo($conexao, 'cafe');
             });
         });
     </script>
+    
 </body>
 </html>

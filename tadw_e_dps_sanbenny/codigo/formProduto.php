@@ -85,5 +85,6 @@
 
         <input type="submit" value="<?php echo $botao; ?>"> 
     </form>
+    <a href="home.php">Voltar</a>
 </body>
 </html>
