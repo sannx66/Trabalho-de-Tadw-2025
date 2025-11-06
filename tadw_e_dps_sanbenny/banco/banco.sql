@@ -194,24 +194,24 @@ VALUES
 
 
 
-INSERT INTO tb_cliente (email, senha, nome, telefone, endereco, status, tipo) 
+INSERT INTO tb_cliente (email, senha, nome, telefone, endereco, tipo) 
 VALUES 
-  ('todyy@gmail.com', '$2y$10$NNO2ImXLB1TeOax/jukMreCZY7IFaevZlPawodDFAWeRO.nud9lN6', 'Iasmin', '123456789', 'rua 2314', 'd', 'c'),
-  ('lucas@gmail.com', '$2y$10$fNII/7jYWfca8TGFvzbmbe3feMcnT5NxzcFEWX527DLuEEX2geTsi', 'Lucas Silva', '987654321', 'av. Paulista, 1500', 'd', 'c'),
-  ('jose@example.com', '$2y$10$uqNYJrwzGYx09s6usxU/COqBLr3BCt0UuHg7uSEGKKBTM9qVVRRo.r', 'José Pereira', '1122334455', 'rua 4567', 'd', 'c'),
-  ('mariana@hotmail.com', 'NYI3PQqIi51kJ8yQxDkySUJBRYdvB3S', 'Mariana Costa', '9988776655', 'rua das Flores, 1000', 'd', 'c'),
-  ('bruna@outlook.com', '$2y$10$xiHegr15l.V5wqkm.oI.ge0WMcveQ3lwdUe9SBoJz3ZXGMsrPEQfa', 'Bruna Almeida', '6677889900', 'av. Rio Branco, 200', 'd', 'c'),
-  ('fabio@site.com', '$2y$10$Deuid4rp13VZRroRqFr1DeU2Sea8JL5cn7R1cCnMayShBjgUVaN7u', 'Fábio Costa', '5556667777', 'rua Jardim, 32', 'd', 'c'),
-  ('camila@dominio.com', '$2y$10$8BaoWpw62Bb87yq/RbCj/O1gzVIovQL0xpnUWTzWP2shEIM79oOS2', 'Camila Souza', '4445556666', 'rua do Sol, 850', 'd', 'c'),
-  ('pedro@exemplo.com', '$2y$10$T6H7PwSXLtcJ3jbkUIxODu3YP9mYri3Bfe7uCNXqUv1v.aLBPK1em', 'Pedro Lima', '3334445555', 'av. Central, 50', 'd', 'c'),
-  ('ana@teste.com', '$2y$10$0UksXMAs2N/K/gGhi9qYnukFwRNYADPMj3XGN4.16nEm6jgW0/H5C', 'Ana Oliveira', '2223334444', 'rua das Palmeiras, 22', 'd', 'c'),
-  ('roberto@company.com', 'qxb3Ac45iwqGvRqUIsXOWeaEvaAiEm3XRcGL5cAZeYb2HX7diEiea', 'Roberto Martins', '1212121212', 'rua do Parque, 123', 'd', 'c'),
-  ('larissa@webmail.com', '$2y$10$AlTFehh2YGuNQrlFbMszRODsdj7rFzu.n6aezpo0bEfOSLC.b4aD2', 'Larissa Santos', '1987654321', 'av. Brasil, 750', 'd', 'c'),
-  ('andrea@admin.com', '$2y$10$hBJ2R3qBWCh74W6hRJd10u40UUQtgpeT.FOvOLf7ZeBhFiCCAnSAG', 'Andrea Silva', '6667778888', 'rua dos Gestores, 11', 'd', 'g'),
-  ('izabella@gmail.com', '$2y$10$ggCi30mzrHtWbKkZBVu9ausXWDxPMioVzuagSepzMvxy8GbIAJx1G', 'Izabella de Souza', '77777777', 'rua 7', 'd', 'g'),
-  ('sandy@gmail.com', '$2y$10$PXQ6aFIXs4euBweyjQ2Ctu0aDG7Zvlf3CMLYhJ7eiMR/uU3OSQ3VS', 'Sandy Mirelle', '66666666', 'rua 6', 'd', 'g'),
-  ('toddy@gmail.com', '$2y$10$IF6V8Xqy/dWhisf2HsQuIe1k428oyDI.rd4h3vh9S1fRrVIlIf6Vq', 'Iasminny Mendes', '99999999', 'rua 9', 'd', 'g');
-  ('toddy@gmail.com', '$2y$10$IF6V8Xqy/dWhisf2HsQuIe1k428oyDI.rd4h3vh9S1fRrVIlIf6Vq', 'Iasminny Mendes', '99999999', 'rua 9', 'd', 'g'),
+  ('todyy@gmail.com', '$2y$10$NNO2ImXLB1TeOax/jukMreCZY7IFaevZlPawodDFAWeRO.nud9lN6', 'Iasmin', '123456789', 'rua 2314', 'c'),
+  ('lucas@gmail.com', '$2y$10$fNII/7jYWfca8TGFvzbmbe3feMcnT5NxzcFEWX527DLuEEX2geTsi', 'Lucas Silva', '987654321', 'av. Paulista, 1500', 'c'),
+  ('jose@example.com', '$2y$10$uqNYJrwzGYx09s6usxU/COqBLr3BCt0UuHg7uSEGKKBTM9qVVRRo.r', 'José Pereira', '1122334455', 'rua 4567', 'c'),
+  ('mariana@hotmail.com', 'NYI3PQqIi51kJ8yQxDkySUJBRYdvB3S', 'Mariana Costa', '9988776655', 'rua das Flores, 1000', 'c'),
+  ('bruna@outlook.com', '$2y$10$xiHegr15l.V5wqkm.oI.ge0WMcveQ3lwdUe9SBoJz3ZXGMsrPEQfa', 'Bruna Almeida', '6677889900', 'av. Rio Branco, 200', 'c'),
+  ('fabio@site.com', '$2y$10$Deuid4rp13VZRroRqFr1DeU2Sea8JL5cn7R1cCnMayShBjgUVaN7u', 'Fábio Costa', '5556667777', 'rua Jardim, 32', 'c'),
+  ('camila@dominio.com', '$2y$10$8BaoWpw62Bb87yq/RbCj/O1gzVIovQL0xpnUWTzWP2shEIM79oOS2', 'Camila Souza', '4445556666', 'rua do Sol, 850', 'c'),
+  ('pedro@exemplo.com', '$2y$10$T6H7PwSXLtcJ3jbkUIxODu3YP9mYri3Bfe7uCNXqUv1v.aLBPK1em', 'Pedro Lima', '3334445555', 'av. Central, 50', 'c'),
+  ('ana@teste.com', '$2y$10$0UksXMAs2N/K/gGhi9qYnukFwRNYADPMj3XGN4.16nEm6jgW0/H5C', 'Ana Oliveira', '2223334444', 'rua das Palmeiras, 22', 'c'),
+  ('roberto@company.com', 'qxb3Ac45iwqGvRqUIsXOWeaEvaAiEm3XRcGL5cAZeYb2HX7diEiea', 'Roberto Martins', '1212121212', 'rua do Parque, 123', 'c'),
+  ('larissa@webmail.com', '$2y$10$AlTFehh2YGuNQrlFbMszRODsdj7rFzu.n6aezpo0bEfOSLC.b4aD2', 'Larissa Santos', '1987654321', 'av. Brasil, 750', 'c'),
+  ('andrea@admin.com', '$2y$10$hBJ2R3qBWCh74W6hRJd10u40UUQtgpeT.FOvOLf7ZeBhFiCCAnSAG', 'Andrea Silva', '6667778888', 'rua dos Gestores, 11', 'g'),
+  ('izabella@gmail.com', '$2y$10$ggCi30mzrHtWbKkZBVu9ausXWDxPMioVzuagSepzMvxy8GbIAJx1G', 'Izabella de Souza', '77777777', 'rua 7', 'g'),
+  ('sandy@gmail.com', '$2y$10$PXQ6aFIXs4euBweyjQ2Ctu0aDG7Zvlf3CMLYhJ7eiMR/uU3OSQ3VS', 'Sandy Mirelle', '66666666', 'rua 6', 'g'),
+  ('toddy@gmail.com', '$2y$10$IF6V8Xqy/dWhisf2HsQuIe1k428oyDI.rd4h3vh9S1fRrVIlIf6Vq', 'Iasminny Mendes', '99999999', 'rua 9', 'g');
+  ('toddy@gmail.com', '$2y$10$IF6V8Xqy/dWhisf2HsQuIe1k428oyDI.rd4h3vh9S1fRrVIlIf6Vq', 'Iasminny Mendes', '99999999', 'rua 9', 'g'),
 
 INSERT INTO tb_entrega (identrega, entregador, idcarrinho) 
 VALUES

@@ -1,7 +1,7 @@
 <?php
 
 function cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco) { 
-    $sql = "INSERT INTO tb_cliente (email, senha, nome, telefone, endereco, status, tipo) VALUES (?, ?, ?, ?, ?, 'd', 'c')";
+    $sql = "INSERT INTO tb_cliente (email, senha, nome, telefone, endereco, tipo) VALUES (?, ?, ?, ?, ?, 'c')";
     $comando = mysqli_prepare($conexao, $sql);
 
     mysqli_stmt_bind_param($comando, 'sssss', $email, $senha, $nome, $telefone, $endereco);
@@ -30,11 +30,11 @@ function listarClientes($conexao) {
 };
 // funcionando
 
-function editarCliente($conexao, $email, $senha, $nome, $telefone, $endereco, $status, $tipo, $idcliente) {
-    $sql = "UPDATE tb_cliente SET email=?, senha=?, nome=?, telefone=?, endereco=?, status=?, tipo=? WHERE idcliente=?";
+function editarCliente($conexao, $email, $senha, $nome, $telefone, $endereco, $tipo, $idcliente) {
+    $sql = "UPDATE tb_cliente SET email=?, senha=?, nome=?, telefone=?, endereco=?, tipo=? WHERE idcliente=?";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'sisisssi', $email, $senha, $nome, $telefone, $endereco, $status, $tipo, $idcliente);
+    mysqli_stmt_bind_param($comando, 'ssssssi', $email, $senha, $nome, $telefone, $endereco, $tipo, $idcliente);
     
     $funcionou = mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
