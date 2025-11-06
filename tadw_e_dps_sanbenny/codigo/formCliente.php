@@ -48,6 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['nome'] = $dados['nome'];
     $_SESSION['tipo'] = $dados['tipo']; // 'c' ou 'g'
 
+    $_SESSION['logado'] = true;
+    
     // REDIRECIONAR PARA O PAINEL
     header("Location: categorias.php");
     exit;
@@ -72,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <img src="fotos/logo_diego.png" class="logo-canto">
 
 <!-- FORM LOGIN -->
-<form id="form_login" action="formCliente.php" method="post">
+<form id="form_login"  method="post">
 
     <label for="email_entrada">E-mail</label>
     <input type="text" name="email_entrada" id="email_entrada" placeholder="Digite seu e-mail">
