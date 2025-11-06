@@ -41,7 +41,7 @@
                 echo "</li>";
 
                 echo "<li>";
-                echo "<a href='listarEntrega.php'>Lista de Entrega</a>";
+                echo "<a href='listarEntregas.php'>Lista de Entregas</a>";
                 echo "</li>";
 
                 echo "<li>";
