@@ -1,182 +1,132 @@
 <?php
     if (isset($_GET['id'])) {
-        // echo "editar";
-
         require_once "conexao.php";
         require_once "funcoes.php";
 
         $id = $_GET['id'];
-        
         $cliente = pesquisarClienteId($conexao, $id);
         $nome = $cliente['nome'];
         $telefone = $cliente['telefone'];
         $endereco = $cliente['endereco'];
-
         $botao = "Atualizar";
-    }
-    else {
-        // echo "novo";
+    } else {
         $id = 0;
         $nome = "";
         $telefone = "";
         $endereco = "";
-
         $botao = "Cadastrar";
     }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="estilo.css">
-    <script src="./jquery-3.7.1.min.js"></script>
-    <script src="./jquery.validate.min.js"></script>
-    <script src="./jquery.mask.min.js"></script>
-</head>
-    <script>
-        $(document).ready(function () {
-            $("#formulario").validate({
-                // regras para cada campo
-                rules: {
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro de Cliente</title>
 
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    email2: {
-                        required: true,
-                        equalTo: "#email",
-                    },
+<link rel="stylesheet" href="estilo.css">
 
-                    senha: {
-                        required: true,
-                    },
+<!-- scripts -->
+<script src="jquery-3.7.1.min.js"></script>
+<script src="jquery.validate.min.js"></script>
 
-                    senha2: {
-                        required: true,
-                        equalTo: "#senha",
-                    },
-                    nome: {
-                        required: true,
-                        minlength: 2,
-                    },
-                    telefone: {
-                         required: true,
-                         phoneUS: true // se quiser validar telefone US, ou usar regex personalizada
-                    },
+<!-- ✅ arquivo correto -->
+<script src="jquery.mask.js"></script>
 
-                    endereco: {
-                         required: true,
-                    }
-                },
-                // mensagens de erro para cada regra
-                messages: {
-
-                    email: {
-                        required: "Você deve informar um e-mail",
-                        email: "Por favor, insira um e-mail válido",
-                    },
-                    email2: {
-                        required: "Você deve confirmar seu e-mail",
-                        equalTo: "Os e-mails informados devem ser iguais.",
-                    },
-                    senha: {
-                        required: "Você deve informar um e-mail",
-                    },
-                     senha2: {
-                        required: "Você deve confirmar seu e-mail",
-                        equalTo: "Os e-mails informados devem ser iguais.",
-                    },
-                    nome: {
-                        required: "Esse campo deve ser preenchido",
-                        minlength: "O tamanho mínimo é 2.",
-                    },
-
-                    telefone: {
-                         required: "Informe seu telefone",
-                         phoneUS: "Informe um telefone válido",
-                    },
-
-                    endereco: {
-                        required: "Informe seu endereço",
-                     }
-
-                }
-            })
-        });
-    </script>
-    <style>
-        .error {
-            color: white;
-        }
-    </style> 
 </head>
 <body>
-    <form id="formulario" action="salvarUsuario.php" method="post">
 
-        E-mail: <br>
-        <input type="text" name="email" id="email"> <br><br>
+<!-- ✅ LOGO -->
+<img src="fotos/logo_diego.png" class="logo-canto">
 
-        Confirme seu e-mail: <br>
-        <input type="text" name="email2" id="email2">
-        <br><br>
+<form id="formulario" action="salvarUsuario.php" method="post">
 
-        Senha: <br>
-        <input type="password" name="senha" id="senha"><br><br>
-       
-   <button id="mostrarSenha">Mostrar senha</button>
+    E-mail: <br>
+    <input type="text" name="email" id="email" placeholder="Digite seu e-mail"> 
+    <br><br>
 
-    <script>
-        $(document).ready(function() {
-            $('#mostrarSenha').click(function() {
-                let tipo = $('#senha').attr('type');
-                if (tipo == 'password') {
-                    $('#senha').attr('type', 'text');
-                } else {
-                    $('#senha').attr('type', 'password');
-                }
-            });
-        });
-    </script>
-<br><br>
-        Confirme sua senha: <br>
-        <input type="password" name="senha2" id="senha2"> <br><br>
+    Confirme seu e-mail: <br>
+    <input type="text" name="email2" id="email2" placeholder="Confirme seu e-mail"> 
+    <br><br>
 
-           <button id="mostrarSenha">Mostrar senha</button>
+    Senha: <br>
+    <div class="campo-senha">
+        <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+        <button type="button" class="mostrarSenha" data-target="senha">
+            <img src="fotos/olho_fechado.png" alt="">
+        </button>
+    </div>
+    <br>
 
-    <script>
-        $(document).ready(function() {
-            $('#mostrarSenha').click(function() {
-                let tipo = $('#senha2').attr('type');
-                if (tipo == 'password') {
-                    $('#senha2').attr('type', 'text');
-                } else {
-                    $('#senha2').attr('type', 'password');
-                }
-            });
-        });
-    </script>
-<br><br>
+    Confirme sua senha: <br>
+    <div class="campo-senha">
+        <input type="password" name="senha2" id="senha2" placeholder="Confirme sua senha">
+        <button type="button" class="mostrarSenha" data-target="senha2">
+            <img src="fotos/olho_fechado.png" alt="">
+        </button>
+    </div>
+    <br>
 
+    Nome: <br>
+    <input type="text" name="nome" id="nome" placeholder="Digite seu nome"> 
+    <br><br>
 
-        Nome: <br>
-        <input type="text" name="nome" id="nome"> <br><br>
+    Telefone: <br>
+    <input type="text" name="telefone" id="telefone" placeholder="(00) 00000-0000"> 
+    <br><br>
 
-        Telefone: <br>
-        <input type="text" name="telefone" id="telefone"> <br><br>
+    Endereço: <br>
+    <input type="text" name="endereco" id="endereco" placeholder="Digite seu endereço"> 
+    <br><br>
 
-        Endereço: <br>
-        <input type="text" name="endereco" id="endereco"> <br><br>
+    <input type="submit" value="<?php echo $botao; ?>">
+</form>
 
-        <input type="submit" value="Cadastrar">
-    </form>
+<script>
+$(document).ready(function () {
 
-      <script>
-        $(document).ready(function() {
-            $('#telefone').mask('(00) 00000-0000');
-        });
-    </script>
+    // ✅ máscara funcionando agora
+    $('#telefone').mask('(00) 00000-0000');
+
+    // ✅ validação funcionando
+    $("#formulario").validate({
+        rules: {
+            email: { required: true, email: true },
+            email2: { required: true, equalTo: "#email" },
+            senha: { required: true },
+            senha2: { required: true, equalTo: "#senha" },
+            nome: { required: true, minlength: 2 },
+            telefone: { required: true },
+            endereco: { required: true }
+        },
+        messages: {
+            email: { required: "Você deve informar um e-mail", email: "E-mail inválido" },
+            email2: { required: "Confirme seu e-mail", equalTo: "Os e-mails devem ser iguais" },
+            senha: { required: "Informe sua senha" },
+            senha2: { required: "Confirme sua senha", equalTo: "As senhas devem ser iguais" },
+            nome: { required: "Esse campo deve ser preenchido", minlength: "Digite pelo menos 2 letras" },
+            telefone: { required: "Informe seu telefone" },
+            endereco: { required: "Informe seu endereço" }
+        }
+    });
+});
+
+// ✅ OLHINHO FUNCIONANDO
+document.querySelectorAll(".mostrarSenha").forEach(btn => {
+    btn.addEventListener("click", function () {
+        const campo = document.getElementById(this.dataset.target);
+        const img = this.querySelector("img");
+
+        if (campo.type === "password") {
+            campo.type = "text";
+            img.src = "fotos/olho_aberto.png";
+        } else {
+            campo.type = "password";
+            img.src = "fotos/olho_fechado.png";
+        }
+    });
+});
+</script>
+
 </body>
 </html>

@@ -1,3 +1,147 @@
+/* CADASTRAR CLIENTEEEEE */
+
+/* ====== FONTES ====== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;600&display=swap');
+
+/* ====== FUNDO ====== */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #fbdade, #f3b8c0);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ====== LOGO ====== */
+.logo-canto {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 130px;
+}
+
+/* ====== FORM ====== */
+#formulario {
+    background: #ffffff;
+    width: 380px;
+    padding: 35px;
+    margin: 120px auto 40px auto;
+    border-radius: 25px;
+    text-align: center; /* títulos centralizados */
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+}
+
+/* ====== LABELS ====== */
+#formulario label,
+#formulario br {
+    text-align: center;
+}
+
+#formulario label {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: #333; /* letras pretas */
+    display: block;
+    margin-bottom: 6px;
+}
+
+/* ====== INPUTS ====== */
+#formulario input[type="text"],
+#formulario input[type="password"],
+#formulario input[type="email"] {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 2px solid #f1c4ca;
+    background: #ffeef1;
+    font-size: 15px;
+    outline: none;
+    box-shadow: inset 3px 3px 6px #e0b3ba, inset -3px -3px 6px #ffffff;
+    font-weight: 500;
+    color: #333;
+}
+
+/* ====== INPUT FOCADO ====== */
+#formulario input:focus {
+    border: 2px solid #ff9eb0;
+    background: #ffe4ea;
+    transition: 0.2s;
+}
+
+/* ====== BOTÃO ====== */
+#formulario input[type="submit"] {
+    margin-top: 15px;
+    width: 100%;
+    padding: 14px;
+    border-radius: 18px;
+    border: none;
+    background: #ff9eb0;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    cursor: pointer;
+
+    /* botão saltado (sombra embaixo) */
+    box-shadow: 0px 8px 0px #d47a89;
+    transition: 0.2s ease-in-out;
+}
+
+#formulario input[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 11px 0px #c66875;
+}
+
+#formulario input[type="submit"]:active {
+    transform: translateY(2px);
+    box-shadow: 0px 4px 0px #a65460;
+    transition: 0.1s;
+}
+
+/* ====== CAMPO SENHA COM OLHINHO ====== */
+.campo-senha {
+    position: relative;
+}
+
+.campo-senha .mostrarSenha {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.campo-senha .mostrarSenha img {
+    width: 22px;
+    opacity: 0.85;
+}
+
+/* ====== MENSAGENS DE ERRO ====== */
+label.error {
+    color: #b30000;
+    font-size: 13px;
+    margin-top: 5px;
+    display: block;
+    font-weight: 600;
+}
+
+input.error {
+    border-color: #ff6a6a !important;
+    background: #ffe5e5 !important;
+}
+
+label.error {
+    color: #ff0000 !important;  /* vermelho forte */
+    font-size: 11px !important; /* menorzinho */
+    margin-top: 4px;
+    display: block;
+    font-weight: 500;
+}
+/* .. */
+
+
 body {
     background-image: url('fotos/rosinha.png');
     background-repeat: no-repeat;
