@@ -78,7 +78,7 @@
     }
         ?>
         </table>
-        <a href="formProduto.php">Voltar</a>
+        <a href="home.php">Voltar</a>
 </body>
 
 </html>
