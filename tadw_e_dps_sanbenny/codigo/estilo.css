@@ -264,6 +264,128 @@ label.error {
 /* .. */
 
 
+/* CATEGORIAS */
+
+
+/* 💗 ESTILO EXCLUSIVO PARA CATEGORIAS 💗 */
+#categorias-page {
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 20px;
+    background: linear-gradient(to bottom, #f8d7dc, #e8b7c0);
+    font-family: 'Playfair Display', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ✅ Título estilo Canva */
+#categorias-page h1 {
+    font-size: 70px;
+    color: #b84c73;
+    font-family: 'Great Vibes', cursive;
+    margin-bottom: 50px;
+    transform: skewX(-10deg); /* Deixa igual ao Canva */
+}
+
+/* ✅ Grid 2 colunas responsivo */
+#categorias-page .categorias-grid {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 60px;
+}
+
+/* ✅ Botões estilo Canva */
+#categorias-page .categoria-btn {
+    display: block;
+    background: linear-gradient(to right, #ffe2e6, #f8b5c2);
+    padding: 35px 20px;
+    border-radius: 12px;
+    box-shadow: 10px 10px 0px #9f8b8b;
+    font-size: 40px;
+    color: #b84c73;
+    text-decoration: none;
+    transition: 0.25s ease;
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    transform: skewX(-10deg); /* ITÁLICO VISUAL IGUAL AO CANVA */
+}
+
+#categorias-page .categoria-btn:hover {
+    transform: skewX(-10deg) scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* ✅ Ícone carrinho */
+#categorias-page .carrinho img {
+    width: 130px;
+    margin-top: 60px;
+    transform: skewX(-10deg);
+}
+
+/* ✅ Ícone gerente */
+#categorias-page .gerencia img {
+    width: 180px;
+    margin-top: 40px;
+    transform: skewX(-10deg);
+}
+
+/* ✅ Deslogar */
+#categorias-page a[href="deslogar.php"] {
+    margin-top: 30px;
+    font-size: 30px;
+    text-decoration: none;
+    color: #b84c73;
+    font-family: 'Playfair Display', serif;
+    transform: skewX(-10deg);
+}
+
+/* ✅ Responsivo */
+@media (max-width: 900px) {
+    #categorias-page h1 {
+        font-size: 50px;
+    }
+
+    #categorias-page .categorias-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    #categorias-page .categoria-btn {
+        font-size: 32px;
+        padding: 28px;
+    }
+
+    #categorias-page .carrinho img {
+        width: 100px;
+    }
+
+    #categorias-page .gerencia img {
+        width: 140px;
+    }
+}
+
+@media (max-width: 500px) {
+    #categorias-page h1 {
+        font-size: 38px;
+    }
+
+    #categorias-page .categoria-btn {
+        font-size: 26px;
+        padding: 24px;
+    }
+
+    #categorias-page .carrinho img {
+        width: 80px;
+    }
+}
+
+
+
+/* .. */
+
 /* ==================== RETIRADA PAGE ==================== */
 #retirada-page {
     display: flex;

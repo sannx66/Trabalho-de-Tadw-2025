@@ -13,32 +13,32 @@
     
 </head>
 
-<body>
-      
-   
+<body id="categorias-page">
+
     <h1><i>Categorias</i></h1> <br>
 
-    <a href="bolo.php">Bolos</a> <br> 
-    <a href="donuts.php">Donuts</a> <br> 
-    <a href="churros.php">Churros</a> <br> 
-    <a href="macarons.php">Macarons</a> <br> 
-    <a href="trufas.php">Trufas</a> <br> 
-    <a href="cafe.php">Cafés</a> <br> 
-    <a href="cha.php">Chás</a> <br> 
-    <a href="milkshake.php">Milshake</a> <br> <br><br>
-
-    <a href="carrinho.php"><img src="../fotos/carrinho.png"></a> <br><br>
- 
-<?php
-if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'g') {
-    echo '<a href="home.php"><img src="../fotos/bolo.png" alt="Bolo"></a><br><br>';
-}
-?>
+   <div class="categorias-grid">
+    <a href="bolo.php" class="categoria-btn">Bolos</a>
+    <a href="trufas.php" class="categoria-btn">Trufas</a>
+    <a href="donuts.php" class="categoria-btn">Donuts</a>
+    <a href="cafe.php" class="categoria-btn">Cafés</a>
+    <a href="churros.php" class="categoria-btn">Churros</a>
+    <a href="cha.php" class="categoria-btn">Chás</a>
+    <a href="macarons.php" class="categoria-btn">Macarons</a>
+    <a href="milkshake.php" class="categoria-btn">Milkshake</a>
+</div>
 
 
-<a href="deslogar.php">Deslogar</a>
+    <a href="carrinho.php" class="carrinho">
+        <img src="../fotos/carrinho.png">
+    </a>
 
-    
+    <?php
+    if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'g') {
+        echo '<a href="home.php" class="gerencia"><img src="../fotos/bolo.png" alt="Bolo"></a><br><br>';
+    }
+    ?>
+
+    <a href="deslogar.php">Deslogar</a>
 
 </body>
-</html>
