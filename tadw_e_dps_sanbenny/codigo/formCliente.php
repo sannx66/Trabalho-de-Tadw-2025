@@ -142,6 +142,5 @@ $(document).ready(function(){
 
 });
 </script>
-<a href="home.php">Voltar</a>
 </body>
 </html>

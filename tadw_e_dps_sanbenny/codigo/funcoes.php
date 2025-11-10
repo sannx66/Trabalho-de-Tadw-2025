@@ -1,6 +1,6 @@
 <?php
 
-function cadastrarCliente($conexao, $email, $senha, $nome, $telefone, $endereco) { 
+function salvarCliente($conexao, $email, $senha, $nome, $telefone, $endereco) { 
     $sql = "INSERT INTO tb_cliente (email, senha, nome, telefone, endereco, tipo) VALUES (?, ?, ?, ?, ?, 'c')";
     $comando = mysqli_prepare($conexao, $sql);
 

@@ -29,5 +29,5 @@ if ($id == 0) {
 }
 
 // Redireciona e encerra
-header("Location: ./listarProdutos.php");
+header("Location: listarProdutos.php");
 exit;
