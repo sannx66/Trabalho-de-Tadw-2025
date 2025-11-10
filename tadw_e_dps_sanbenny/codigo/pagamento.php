@@ -1,22 +1,23 @@
 <?php
+// Inicia a sessão para acessar o carrinho e dados do cliente
 session_start();
 
-// Se não houver itens no carrinho → volta
+// Se o carrinho estiver vazio, o usuário não deveria estar na tela de pagamento
 if (empty($_SESSION['carrinho'])) {
-    header("Location: carrinho.php");
+    header("Location: carrinho.php"); // redireciona de volta ao carrinho
     exit;
 }
 
-// Conexão e funções
+// Importa conexão com banco e funções auxiliares
 require_once "conexao.php";
 require_once "funcoes.php";
 
-// Calcula o total do carrinho com base na sessão
+// Calcula o total da compra somando todos os itens do carrinho
 $total = 0;
 
 foreach ($_SESSION['carrinho'] as $id => $qtd) {
-    $p = pesquisarProdutoId($conexao, $id);
-    $total += $p['valor_un'] * $qtd;
+    $p = pesquisarProdutoId($conexao, $id); // Busca produto no BD pelo ID
+    $total += $p['valor_un'] * $qtd; // soma valor unitário × quantidade
 }
 ?>
 
@@ -26,155 +27,197 @@ foreach ($_SESSION['carrinho'] as $id => $qtd) {
 <head>
     <meta charset="UTF-8">
     <title>Pagamento</title>
+
+    <!-- Carrega jQuery -->
     <script src="jquery-3.7.1.min.js"></script>
+
+    <!-- Plugin de máscara para formatar números (troco) -->
     <script src="jquery.mask.js"></script>
+
+    <!-- Arquivo CSS exclusivo dessa página -->
+    <link rel="stylesheet" href="estilo.css">
+
 </head>
 
-<body>
+<body id="pagamento_page">
 
-    <h1>PAGAMENTO</h1>
+<!-- ============================================
+     DIV PRINCIPAL QUE ISOLA O CSS DESTA PÁGINA
+=============================================== -->
+<div id="pagamento_page">
 
-    <!-- Exibe o total calculado -->
-    <p><b>Total da compra:</b> <span id="total"><?php echo number_format($total, 2, ',', '.'); ?></span> golds</p>
+    <!-- TÍTULO DA PÁGINA -->
+    <h1 id="pagamento_titulo">PAGAMENTO</h1>
 
-    <!-- FORMAS DE PAGAMENTO -->
-    <p><b>Escolha a forma de pagamento:</b></p>
+    <!-- MOSTRA O TOTAL DA COMPRA CALCULADO EM PHP -->
+    <p id="pagamento_total_text">
+        <b>Total da compra:</b>
+        <span id="pagamento_total">
+            <?php echo number_format($total, 2, ',', '.'); ?>
+        </span> golds
+    </p>
 
-    <!-- Cartão não tem troco -->
-    <label>
-        <input type="radio" name="pagamento" value="cartao"> Cartão
-    </label><br>
+    <!-- SEÇÃO: FORMAS DE PAGAMENTO -->
+    <div id="pagamento_forma_pagamento">
+        <p><b>Escolha a forma de pagamento:</b></p>
 
-    <!-- Golds pode ter troco -->
-    <label>
-        <input type="radio" name="pagamento" value="golds"> Golds
-    </label><br><br>
+        <!-- Opção cartão -->
+        <label class="pg_opcao">
+            <input type="radio" name="pagamento" value="cartao"> Cartão
+        </label><br>
 
-    <!-- CAMPO DE TROCO (inicia escondido) -->
-    <div id="troco_box" style="display:none; margin-bottom:15px;" aria-placeholder="0,00">
-        <label>
-            Para quanto vai o troco?
-            <input type="text" id="campo_troco">
-        </label>
+        <!-- Opção golds (dinheiro do seu site) -->
+        <label class="pg_opcao">
+            <input type="radio" name="pagamento" value="golds"> Golds
+        </label><br><br>
     </div>
 
-    <!-- RETIRADA -->
-    <p><b>Escolha a forma de retirada:</b></p>
+    <!-- CAMPO DE TROCO – aparece somente se escolher golds -->
+    <div id="pagamento_troco_box" style="display:none;">
+        <label>Troco para quanto?</label><br>
+        <input type="text" id="pagamento_troco">
+    </div>
 
-    <label>
-        <input type="radio" name="retirada" value="local" checked> Retirar no local
-    </label><br>
+    <!-- SEÇÃO: ESCOLHA DA RETIRADA -->
+    <div id="pagamento_retirada">
+        <p><b>Escolha a forma de retirada:</b></p>
 
-    <label>
-        <input type="radio" name="retirada" value="delivery"> Delivery (+5 golds)
-    </label><br><br>
+        <!-- Retirar no local (padrão) -->
+        <label class="pg_retirada">
+            <input type="radio" name="retirada" value="local" checked> Retirar no local
+        </label><br>
 
-    <!-- Botão continuar -->
-    <button onclick="continuar()">Continuar</button>
+        <!-- Delivery (cobra taxa) -->
+        <label class="pg_retirada">
+            <input type="radio" name="retirada" value="delivery"> Delivery (+5 golds)
+        </label><br><br>
+    </div>
 
-    <br><br>
-    <a href="carrinho.php">Voltar para o carrinho</a>
+    <!-- BOTÃO PARA IR PARA A PRÓXIMA ETAPA -->
+    <button id="pagamento_continuar_btn" onclick="continuar()">Continuar</button>
 
+    <!-- BOTÃO VOLTAR -->
+    <div>
+        <a id="pagamento_voltar" href="carrinho.php">Voltar para o carrinho</a>
+    </div>
 
-    <!-- ======================================================
-         SCRIPTS 
-         ====================================================== -->
-
-    <!-- jQuery (necessário para a máscara) -->
-    <script src="../jquery-3.7.1.min.js"></script>
-
-    <!-- Biblioteca de máscara -->
-    <script src="../jquery.mask.js"></script>
-
-    <script>
-
-        /* ======================================================
-           1. MÁSCARA DE DINHEIRO NO CAMPO DE TROCO
-           ====================================================== */
-
-        // Aplica a máscara: formato 0.000,00
-        $("#campo_troco").mask('#.##0,00', {reverse: true});
+</div> <!-- FIM DO CONTAINER PRINCIPAL -->
 
 
-        /* ======================================================
-           2. MOSTRAR/OCULTAR CAMPO DE TROCO
-           ====================================================== */
 
-        document.querySelectorAll("input[name='pagamento']").forEach(radio => {
-            radio.addEventListener("change", function () {
+<!-- ======================================================
+     JAVASCRIPT DA PÁGINA
+======================================================= -->
+<script>
 
-                // Se o valor selecionado for golds → exibir campo de troco
-                if (this.value === "golds") {
-                    document.getElementById("troco_box").style.display = "block";
-                } else {
-                    document.getElementById("troco_box").style.display = "none";
-                }
-            });
+    /*
+        ---------------------------------------------------
+        Ativa máscara de dinheiro no campo "troco"
+        Exemplo: digitar 1000 → vira 10,00
+        ---------------------------------------------------
+    */
+    $("#pagamento_troco").mask('#.##0,00', {reverse: true});
+
+
+    /*
+        ---------------------------------------------------
+        Mostra o campo de TROCO somente quando seleciona "golds"
+        ---------------------------------------------------
+    */
+    document.querySelectorAll("input[name='pagamento']").forEach(radio => {
+        radio.addEventListener("change", function () {
+
+            // Se escolher golds → mostra troco
+            if (this.value === "golds") {
+                document.getElementById("pagamento_troco_box").style.display = "block";
+            } 
+
+            // Qualquer outro → esconde troco
+            else {
+                document.getElementById("pagamento_troco_box").style.display = "none";
+            }
         });
+    });
 
 
-        /* ======================================================
-           3. Atualizar total se selecionar DELIVERY
-           ====================================================== */
+    /*
+        ---------------------------------------------------
+        Atualiza o TOTAL caso escolha "delivery"
+        (adiciona 5 golds no valor final)
+        ---------------------------------------------------
+    */
+    let totalOriginal = <?php echo $total; ?>;
 
-        let totalOriginal = <?php echo $total; ?>;
+    document.querySelectorAll("input[name='retirada']").forEach(radio => {
+        radio.addEventListener("change", function () {
+            let total = totalOriginal;
 
-        document.querySelectorAll("input[name='retirada']").forEach(radio => {
-            radio.addEventListener("change", function () {
-
-                let total = totalOriginal;
-
-                // Delivery soma +5
-                if (this.value === "delivery") {
-                    total += 5;
-                }
-
-                // Atualiza o total na tela
-                document.getElementById("total").innerText =
-                    total.toFixed(2).replace('.', ',');
-            });
-        });
-
-
-        /* ======================================================
-           4. BOTÃO CONTINUAR
-           ====================================================== */
-
-        function continuar() {
-
-            const pagamento = document.querySelector("input[name='pagamento']:checked");
-            const retirada = document.querySelector("input[name='retirada']:checked");
-            const troco = document.getElementById("campo_troco").value;
-
-            // Validar se escolheu ambas
-            if (!pagamento || !retirada) {
-                alert("Selecione as opções de pagamento e retirada");
-                return;
+            // Se for delivery, acrescenta 5 golds
+            if (this.value === "delivery") {
+                total += 5;
             }
 
-            // Se for DELIVERY → redirecionar para delivery.php
-            if (retirada.value === "delivery") {
-                let url = "delivery.php?pg=" + pagamento.value;
+            // Atualiza o texto na tela
+            document.getElementById("pagamento_total").innerText =
+                total.toFixed(2).replace('.', ',');
+        });
+    });
 
-                // enviar troco apenas se for golds e usuário digitou
-                if (pagamento.value === "golds" && troco !== "") {
-                    url += "&troco=" + troco;
-                }
 
-                window.location.href = url;
-                return;
-            }
+    /*
+        ---------------------------------------------------
+        Função do botão CONTINUAR
+        Decide para onde o cliente vai:
+        → delivery.php  (se for entrega)
+        → pagamento2.php (se for retirar no local)
+        ---------------------------------------------------
+    */
+    function continuar() {
 
-            // Se for LOCAL → ir para pagamento2.php
-            let url = "pagamento2.php?pg=" + pagamento.value + "&ret=" + retirada.value;
+        const pagamento = document.querySelector("input[name='pagamento']:checked");
+        const retirada = document.querySelector("input[name='retirada']:checked");
+        const troco = document.getElementById("pagamento_troco").value;
 
+        // Se não escolher tudo, alerta
+        if (!pagamento || !retirada) {
+            alert("Selecione as opções de pagamento e retirada");
+            return;
+        }
+
+        /*
+            --------------------------------------------
+            Se escolher DELIVERY → vai para delivery.php
+            --------------------------------------------
+        */
+        if (retirada.value === "delivery") {
+
+            let url = "delivery.php?pg=" + pagamento.value;
+
+            // inclui troco na URL
             if (pagamento.value === "golds" && troco !== "") {
                 url += "&troco=" + troco;
             }
 
             window.location.href = url;
+            return;
         }
-    </script>
+
+        /*
+            --------------------------------------------
+            Se retirar no local → pagamento2.php
+            --------------------------------------------
+        */
+        let url = "pagamento2.php?pg=" + pagamento.value + "&ret=" + retirada.value;
+
+        // envia troco também se existir
+        if (pagamento.value === "golds" && troco !== "") {
+            url += "&troco=" + troco;
+        }
+
+        window.location.href = url;
+    }
+
+</script>
 
 </body>
 </html>
