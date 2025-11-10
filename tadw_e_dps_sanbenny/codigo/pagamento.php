@@ -1,136 +1,180 @@
 <?php
-require_once "verificarlogado.php";
+session_start();
+
+// Se não houver itens no carrinho → volta
+if (empty($_SESSION['carrinho'])) {
+    header("Location: carrinho.php");
+    exit;
+}
+
+// Conexão e funções
 require_once "conexao.php";
 require_once "funcoes.php";
 
-/* ✅ RE-CALCULA O TOTAL ATUAL DO CARRINHO TODA VEZ QUE ABRIR A PÁGINA */
+// Calcula o total do carrinho com base na sessão
 $total = 0;
 
-if (!empty($_SESSION['carrinho'])) {
-    foreach ($_SESSION['carrinho'] as $id => $qtd) {
-        $p = pesquisarProdutoId($conexao, $id);
-        $total += $p['valor_un'] * $qtd;
-    }
+foreach ($_SESSION['carrinho'] as $id => $qtd) {
+    $p = pesquisarProdutoId($conexao, $id);
+    $total += $p['valor_un'] * $qtd;
 }
-
-$delivery_add = 5;
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagamento</title>
-    <link rel="stylesheet" href="estilo.css">
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery.mask.js"></script>
 </head>
 
-<body id="pagamento-page">
+<body>
 
-<h2>PAGAMENTO</h2>
+    <h1>PAGAMENTO</h1>
 
-<!-- ✅ TOTAL ATUALIZADO DE VERDADE -->
-<p>Total da compra: <span id="total_compra"><?= number_format($total, 2, ',', '.') ?> golds</span></p>
+    <!-- Exibe o total calculado -->
+    <p><b>Total da compra:</b> <span id="total"><?php echo number_format($total, 2, ',', '.'); ?></span> golds</p>
 
-<form id="pagamentoForm" method="post">
+    <!-- FORMAS DE PAGAMENTO -->
+    <p><b>Escolha a forma de pagamento:</b></p>
 
-    <!-- FORMA DE PAGAMENTO -->
+    <!-- Cartão não tem troco -->
     <label>
-        <input type="radio" name="opcao" value="cartao"> Cartão
-    </label>
+        <input type="radio" name="pagamento" value="cartao"> Cartão
+    </label><br>
 
+    <!-- Golds pode ter troco -->
     <label>
-        <input type="radio" name="opcao" value="dinheiro"> Golds / Dinheiro
-    </label>
+        <input type="radio" name="pagamento" value="golds"> Golds
+    </label><br><br>
 
-    <div class="troco-container" id="troco-container" style="display:none;">
-        Troco?: <br>
-        <input type="text" id="troco" name="troco" placeholder="golds">
+    <!-- CAMPO DE TROCO (inicia escondido) -->
+    <div id="troco_box" style="display:none; margin-bottom:15px;" aria-placeholder="0,00">
+        <label>
+            Para quanto vai o troco?
+            <input type="text" id="campo_troco">
+        </label>
     </div>
 
-    <!-- RETIRADA OU DELIVERY -->
-    <p>Escolha a forma de retirada:</p>
+    <!-- RETIRADA -->
+    <p><b>Escolha a forma de retirada:</b></p>
 
     <label>
         <input type="radio" name="retirada" value="local" checked> Retirar no local
-    </label>
+    </label><br>
 
     <label>
         <input type="radio" name="retirada" value="delivery"> Delivery (+5 golds)
-    </label>
+    </label><br><br>
 
-    <!-- ✅ GUARDA O TOTAL REAL -->
-    <input type="hidden" id="total_hidden" name="total" value="<?= $total ?>">
+    <!-- Botão continuar -->
+    <button onclick="continuar()">Continuar</button>
 
     <br><br>
-    <input type="submit" value="Continuar">
+    <a href="carrinho.php">Voltar para o carrinho</a>
 
-</form>
 
-<script>
-/* ELEMENTOS */
-const radiosPagamento = document.querySelectorAll('input[name="opcao"]');
-const trocoContainer = document.getElementById('troco-container');
-const trocoInput = document.getElementById('troco');
+    <!-- ======================================================
+         SCRIPTS 
+         ====================================================== -->
 
-const radiosRetirada = document.querySelectorAll('input[name="retirada"]');
-const totalSpan = document.getElementById('total_compra');
-const totalHidden = document.getElementById('total_hidden');
+    <!-- jQuery (necessário para a máscara) -->
+    <script src="../jquery-3.7.1.min.js"></script>
 
-let total = parseFloat(totalHidden.value);
+    <!-- Biblioteca de máscara -->
+    <script src="../jquery.mask.js"></script>
 
-/* ✅ TROCO */
-radiosPagamento.forEach(radio => {
-    radio.addEventListener('change', () => {
-        if (radio.value === 'dinheiro') {
-            trocoContainer.style.display = 'block';
-        } else {
-            trocoContainer.style.display = 'none';
-            trocoInput.value = '';
+    <script>
+
+        /* ======================================================
+           1. MÁSCARA DE DINHEIRO NO CAMPO DE TROCO
+           ====================================================== */
+
+        // Aplica a máscara: formato 0.000,00
+        $("#campo_troco").mask('#.##0,00', {reverse: true});
+
+
+        /* ======================================================
+           2. MOSTRAR/OCULTAR CAMPO DE TROCO
+           ====================================================== */
+
+        document.querySelectorAll("input[name='pagamento']").forEach(radio => {
+            radio.addEventListener("change", function () {
+
+                // Se o valor selecionado for golds → exibir campo de troco
+                if (this.value === "golds") {
+                    document.getElementById("troco_box").style.display = "block";
+                } else {
+                    document.getElementById("troco_box").style.display = "none";
+                }
+            });
+        });
+
+
+        /* ======================================================
+           3. Atualizar total se selecionar DELIVERY
+           ====================================================== */
+
+        let totalOriginal = <?php echo $total; ?>;
+
+        document.querySelectorAll("input[name='retirada']").forEach(radio => {
+            radio.addEventListener("change", function () {
+
+                let total = totalOriginal;
+
+                // Delivery soma +5
+                if (this.value === "delivery") {
+                    total += 5;
+                }
+
+                // Atualiza o total na tela
+                document.getElementById("total").innerText =
+                    total.toFixed(2).replace('.', ',');
+            });
+        });
+
+
+        /* ======================================================
+           4. BOTÃO CONTINUAR
+           ====================================================== */
+
+        function continuar() {
+
+            const pagamento = document.querySelector("input[name='pagamento']:checked");
+            const retirada = document.querySelector("input[name='retirada']:checked");
+            const troco = document.getElementById("campo_troco").value;
+
+            // Validar se escolheu ambas
+            if (!pagamento || !retirada) {
+                alert("Selecione as opções de pagamento e retirada");
+                return;
+            }
+
+            // Se for DELIVERY → redirecionar para delivery.php
+            if (retirada.value === "delivery") {
+                let url = "delivery.php?pg=" + pagamento.value;
+
+                // enviar troco apenas se for golds e usuário digitou
+                if (pagamento.value === "golds" && troco !== "") {
+                    url += "&troco=" + troco;
+                }
+
+                window.location.href = url;
+                return;
+            }
+
+            // Se for LOCAL → ir para pagamento2.php
+            let url = "pagamento2.php?pg=" + pagamento.value + "&ret=" + retirada.value;
+
+            if (pagamento.value === "golds" && troco !== "") {
+                url += "&troco=" + troco;
+            }
+
+            window.location.href = url;
         }
-    });
-});
-
-/* ✅ MÁSCARA DO TROCO */
-trocoInput.addEventListener('input', (e) => {
-    let value = e.target.value.replace(/\D/g, '');
-    value = (value / 100).toFixed(2);
-    e.target.value = value.replace('.', ',') + ' golds';
-});
-
-/* ✅ DELIVERY ATUALIZA TOTAL */
-radiosRetirada.forEach(radio => {
-    radio.addEventListener('change', () => {
-        let valor_total = total;
-
-        if (radio.value === 'delivery') {
-            valor_total += 5;
-        }
-
-        totalSpan.textContent = valor_total.toFixed(2).replace('.', ',') + ' golds';
-        totalHidden.value = valor_total;
-    });
-});
-
-/* ✅ REDIRECIONAMENTO AUTOMÁTICO */
-document.getElementById('pagamentoForm').addEventListener('submit', function(e) {
-
-    e.preventDefault();
-
-    const retirada = document.querySelector('input[name="retirada"]:checked').value;
-
-    if (retirada === 'delivery') {
-        this.action = 'delivery.php';
-    } else {
-        this.action = 'retirada.php';
-    }
-
-    this.submit();
-});
-</script>
-
-<br><br>
-<a href="carrinho.php">Voltar para o carrinho</a>
+    </script>
 
 </body>
 </html>

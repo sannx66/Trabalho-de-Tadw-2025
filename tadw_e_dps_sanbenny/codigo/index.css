@@ -1,6 +1,7 @@
 body{
   position: relative;
-  
+  background: #ff99b8;
+
 }
 .cadastro-container {
   position:absolute;

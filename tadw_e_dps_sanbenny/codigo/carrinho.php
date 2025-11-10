@@ -1,194 +1,130 @@
 <?php
-error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
-
-if (session_status() !== PHP_SESSION_ACTIVE) {
-    session_start();
-}
+session_start();
 
 require_once "conexao.php";
 require_once "funcoes.php";
-require_once "verificarlogado.php";
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho</title>
     <script src="../jquery-3.7.1.min.js"></script>
-    <link rel="stylesheet" href="estilo.css">
 </head>
 
-<body id="carrinho-page">
-
-<!-- SETA VOLTAR -->
-<a href="javascript:history.back();" class="seta-voltar">←</a>
-
-<h1 class="titulo-carrinho">Seu Carrinho</h1>
-
-<?php if (empty($_SESSION['carrinho'])): ?>
-
-    <p class="carrinho-vazio">Seu carrinho está vazio</p>
-
-<?php else: ?>
-
-<div class="lista-cards">
+<body>
 
 <?php
-$total = 0;
+if (empty($_SESSION['carrinho'])) {
+    echo "Carrinho vazio";
+} else {
 
-foreach ($_SESSION['carrinho'] as $id => $quantidade):
+    $total = 0;
 
-    $produto = pesquisarProdutoId($conexao, $id);
-    $total_unitario = $produto['valor_un'] * $quantidade;
-    $total += $total_unitario;
+    echo "<table border='1'>";
+    echo "<tr>";
+    echo "<td>Tipo</td>";
+    echo "<td>Nome</td>";
+    echo "<td>Preço</td>";
+    echo "<td>Quantidade</td>";
+    echo "<td>Total unitário</td>";
+    echo "<td>Remover</td>";
+    echo "</tr>";
 
-    $foto = "fotos/" . $produto['foto'];
+    foreach ($_SESSION['carrinho'] as $id => $quantidade) {
+
+        // pega produto pelo ID
+        $produto = pesquisarProdutoId($conexao, $id);
+
+        echo "<tr>";
+        echo "<td>" . $produto['tipo'] . "</td>";
+        echo "<td>" . $produto['nome'] . "</td>";
+
+        echo "<td> R$ <span class='preco_venda'>" . $produto['valor_un'] . "</span></td>";
+
+        echo "<td>
+                <input type='number' class='quantidade' 
+                       data-id='$id' 
+                       value='$quantidade' 
+                       min='1'>
+             </td>";
+
+        $total_unitario = $produto['valor_un'] * $quantidade;
+        echo "<td> R$ <span class='total_unitario'>$total_unitario</span></td>";
+        $total += $total_unitario;
+
+        // botão AJAX para remover sem recarregar
+        echo "<td><button class='remover' data-id='$id'>Remover</button></td>";
+
+        echo "</tr>";
+    }
+
+    echo "</table>";
+    echo "<h3>Total da compra: R$ <span id='total'>$total</span></h3>";
+}
 ?>
-    
-<!-- CARD -->
-<div class="card-item" id="card-<?= $id ?>">
 
-    <!-- FOTO -->
-    <div class="card-foto">
-        <?php if (!empty($produto['foto']) && file_exists($foto)): ?>
-            <img src="<?= $foto ?>" alt="<?= htmlspecialchars($produto['nome']) ?>">
-        <?php else: ?>
-            <img src="fotos/sem_foto.png" alt="Sem foto">
-        <?php endif; ?>
-    </div>
-
-    <!-- INFOS -->
-    <div class="card-info">
-        <h2><?= htmlspecialchars($produto['nome']) ?></h2>
-        <p class="tipo"><?= htmlspecialchars($produto['tipo']) ?></p>
-        <p class="preco">R$ <?= number_format($produto['valor_un'], 2, ',', '.') ?></p>
-
-        <!-- QUANTIDADE -->
-        <div class="quantidade-box">
-            <button type="button" class="qtd-btn menos" onclick="alterarQtd(<?= $id ?>, -1)">−</button>
-            <input type="text" id="qtd-<?= $id ?>" class="qtd-display" value="<?= $quantidade ?>" readonly>
-            <button type="button" class="qtd-btn mais" onclick="alterarQtd(<?= $id ?>, 1)">+</button>
-        </div>
-
-        <!-- TOTAL DO ITEM -->
-        <p class="total-item" id="total-item-<?= $id ?>">
-            Total: R$ <?= number_format($total_unitario, 2, ',', '.') ?>
-        </p>
-
-        <!-- REMOVER -->
-        <button class="remover-card" onclick="removerItem(<?= $id ?>)">Remover</button>
-    </div>
-
-</div>
-
-<?php endforeach; ?>
-
-</div>
-
-<!-- TOTAL GERAL -->
-<h2 class="total-geral">
-    Total da compra: R$ <span id="total-geral"><?= number_format($total, 2, ',', '.') ?></span>
-</h2>
-
-<!-- FINALIZAR -->
-<form action="pagamento.php" method="post">
-    <button type="submit" class="btn-comprar-carrinho">Finalizar compra</button>
-</form>
-
-<?php endif; ?>
-
-<!-- ADICIONAR MAIS PRODUTOS -->
-<p class="voltar-produtos">
-    <a href="categorias.php" class="link-adicionar">Adicionar produtos</a>
+<p>
+    <a href="categorias.php">Adicionar produtos</a> <br>
+    <a href="pagamento.php">Pagamento</a>
 </p>
 
-<!-- ✅✅ SCRIPT CORRIGIDO E FUNCIONAL -->
 <script>
-
-function recalcularTotalVisual() {
-    let total = 0;
-
-    document.querySelectorAll(".total-item").forEach(el => {
-        const valor = parseFloat(
-            el.textContent.replace("Total: R$ ", "").replace(",", ".")
-        );
-        if (!isNaN(valor)) total += valor;
-    });
-
-    document.getElementById("total-geral").textContent =
-        total.toFixed(2).replace(".", ",");
-}
-
-/* ✅ ALTERAR QUANTIDADE */
-function alterarQtd(id, muda) {
-
-    let campo = document.getElementById("qtd-" + id);
-    let atual = parseInt(campo.value);
-    let novo = atual + muda;
-
-    if (novo < 1) return;
-
-    campo.value = novo;
-
-    const preco = parseFloat(
-        document.querySelector("#card-" + id + " .preco")
-        .textContent.replace("R$ ", "").replace(",", ".")
-    );
-
-    const total_item = preco * novo;
-
-    document.getElementById("total-item-" + id).textContent =
-        "Total: R$ " + total_item.toFixed(2).replace(".", ",");
-
-    recalcularTotalVisual();
-
-    const fd = new FormData();
-    fd.append("id", id);
-    fd.append("quantidade", novo);
-
-    fetch("atualizar_item.php", {
-        method: "POST",
-        body: fd
-    })
-    .then(r => r.json())
-    .then(data => {
-        document.getElementById("total-geral").textContent =
-            data.total_geral;
-    });
-}
-
-/* ✅ REMOVER ITEM SEM PISCAR */
-function removerItem(id) {
-
-    fetch("remover_carrinho.php?id=" + id)
-        .then(r => r.json())
-        .then(data => {
-
-            let card = document.getElementById("card-" + id);
-            card.classList.add("removendo");
-
-            setTimeout(() => card.remove(), 250);
-
-            setTimeout(() => {
-
-                document.getElementById("total-geral").textContent =
-                    data.total_geral;
-
-                if (document.querySelectorAll(".card-item").length === 0) {
-                    document.body.innerHTML = `
-                        <a href='javascript:history.back();' class='seta-voltar'>←</a>
-                        <h1 class='titulo-carrinho'>Seu Carrinho</h1>
-                        <p class='carrinho-vazio'>Seu carrinho está vazio</p>
-                        <p class='voltar-produtos'>
-                            <a href='categorias.php' class='link-adicionar'>Adicionar produtos</a>
-                        </p>
-                    `;
-                }
-            }, 300);
+    function atualizar_total() {
+        let total = 0;
+        $('span.total_unitario').each(function() {
+            total += parseFloat($(this).text());
         });
-}
+        $('#total').text(total);
+    }
 
+    function somar() {
+        const linha = $(this).closest('tr');
+        const preco_unitario = parseFloat(linha.find('span.preco_venda').text());
+        const quantidade = parseInt($(this).val());
+        const id = $(this).data('id');
+
+        const total = preco_unitario * quantidade;
+        linha.find('span.total_unitario').text(total);
+
+        atualizar_total();
+
+        const dados = new URLSearchParams();
+        dados.append('id', id);
+        dados.append('quantidade', quantidade);
+
+        fetch('atualiza_carrinho.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: dados.toString()
+        })
+        .catch(err => console.log("Erro:", err));
+    }
+
+    $("input.quantidade").change(somar);
+
+    // Remover sem piscar a tela
+    $(".remover").click(function() {
+        const id = $(this).data('id');
+        const linha = $(this).closest('tr');
+
+        const dados = new URLSearchParams();
+        dados.append('id', id);
+
+        fetch('remover.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: dados.toString()
+        })
+        .then(() => {
+            linha.remove();     // tira da tela sem recarregar
+            atualizar_total();  // recalcula total
+        })
+        .catch(err => console.log("Erro ao remover:", err));
+    });
 </script>
 
 </body>

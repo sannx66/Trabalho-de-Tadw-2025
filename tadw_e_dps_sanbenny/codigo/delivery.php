@@ -1,29 +1,53 @@
 <?php
-session_start();
+require_once "verificarlogado.php"; // já tem session_start()
+
 require_once "conexao.php";
 require_once "funcoes.php";
-require_once "verificarlogado.php";
 
-// Se já houver endereço salvo, pré-preenche
-$nome = $_SESSION['cliente_nome'] ?? '';
-$telefone = $_SESSION['cliente_telefone'] ?? '';
-$endereco = $_SESSION['cliente_endereco'] ?? '';
-$observacoes = $_SESSION['cliente_observacoes'] ?? '';
+// Captura dados vindos do pagamento.php (GET)
+$forma_pagamento = $_GET['pg'] ?? '';
+$troco = $_GET['troco'] ?? '';
+
+// Se o formulário foi enviado, processa ANTES de gerar HTML
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    // Salva dados na sessão
+    $_SESSION['cliente_nome']        = $_POST['nome'];
+    $_SESSION['cliente_telefone']    = $_POST['telefone'];
+    $_SESSION['cliente_endereco']    = $_POST['endereco'];
+    $_SESSION['cliente_observacoes'] = $_POST['observacoes'];
+
+    // Redireciona para pagamento2.php
+    $url = "pagamento2.php?pg={$forma_pagamento}&ret=delivery";
+
+    if (!empty($troco)) {
+        $url .= "&troco={$troco}";
+    }
+
+    header("Location: $url");
+    exit;
+}
+
+// Se não enviou POST → mostrar tela com dados existentes
+$nome         = $_SESSION['cliente_nome']        ?? '';
+$telefone     = $_SESSION['cliente_telefone']    ?? '';
+$endereco     = $_SESSION['cliente_endereco']    ?? '';
+$observacoes  = $_SESSION['cliente_observacoes'] ?? '';
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delivery</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
+
     <h1>D E L I V E R Y</h1>
     <p>Obs: Taxa de entrega = 5 golds</p>
 
-    <form id="deliveryForm" action="retirada.php" method="post">
+    <form id="deliveryForm" method="post">
         <label>Nome:</label><br>
         <input type="text" name="nome" id="nome" value="<?= htmlspecialchars($nome) ?>" required><br><br>
 
@@ -36,7 +60,6 @@ $observacoes = $_SESSION['cliente_observacoes'] ?? '';
         <label>Observações:</label><br>
         <input type="text" name="observacoes" id="observacoes" value="<?= htmlspecialchars($observacoes) ?>"><br><br>
 
-        <input type="hidden" name="retirada" value="delivery">
         <input type="submit" value="Confirmar Endereço">
     </form>
 
@@ -47,16 +70,16 @@ $observacoes = $_SESSION['cliente_observacoes'] ?? '';
         const form = document.getElementById('deliveryForm');
 
         form.addEventListener('submit', function(event) {
-            // Checa se todos os campos obrigatórios estão preenchidos
-            const nome = document.getElementById('nome').value.trim();
-            const telefone = document.getElementById('telefone').value.trim();
-            const endereco = document.getElementById('endereco').value.trim();
-
-            if (!nome || !telefone || !endereco) {
+            if (
+                !document.getElementById('nome').value.trim() ||
+                !document.getElementById('telefone').value.trim() ||
+                !document.getElementById('endereco').value.trim()
+            ) {
                 alert("Por favor, preencha todos os campos obrigatórios!");
-                event.preventDefault(); // evita o envio do formulário
+                event.preventDefault();
             }
         });
     </script>
+
 </body>
 </html>
