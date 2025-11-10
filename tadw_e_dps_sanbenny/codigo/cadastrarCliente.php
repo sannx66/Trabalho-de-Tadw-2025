@@ -8,12 +8,15 @@
         $nome = $cliente['nome'];
         $telefone = $cliente['telefone'];
         $endereco = $cliente['endereco'];
-        $botao = "Atualizar";
+        $email = $cliente['email'];
+        $senha = '';
+        $botao = "Atualiza";
     } else {
         $id = 0;
         $nome = "";
         $telefone = "";
         $endereco = "";
+        $email = "";
         $botao = "Cadastrar";
     }
 ?>
@@ -39,19 +42,19 @@
 <!-- ✅ LOGO -->
 <img src="fotos/logo_diego.png" class="logo-canto">
 
-<form id="formulario" action="salvarUsuario.php" method="post">
+<form id="formulario" action="salvarUsuario.php?id=<?php echo $id; ?>" method="post">
 
     E-mail: <br>
-    <input type="text" name="email" id="email" placeholder="Digite seu e-mail"> 
+    <input type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Digite seu e-mail"> 
     <br><br>
 
     Confirme seu e-mail: <br>
-    <input type="text" name="email2" id="email2" placeholder="Confirme seu e-mail"> 
+    <input type="text" name="email2" id="email2" value="<?php echo $email; ?>" placeholder="Confirme seu e-mail"> 
     <br><br>
 
     Senha: <br>
     <div class="campo-senha">
-        <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+        <input type="password" name="senha" id="senha" value="<?php echo $senha; ?>" placeholder="Digite sua senha">
         <button type="button" class="mostrarSenha" data-target="senha">
             <img src="fotos/olho_fechado.png" alt="">
         </button>
@@ -60,7 +63,7 @@
 
     Confirme sua senha: <br>
     <div class="campo-senha">
-        <input type="password" name="senha2" id="senha2" placeholder="Confirme sua senha">
+        <input type="password" name="senha2" id="senha2" value="<?php echo $senha; ?>" placeholder="Confirme sua senha">
         <button type="button" class="mostrarSenha" data-target="senha2">
             <img src="fotos/olho_fechado.png" alt="">
         </button>
@@ -68,18 +71,19 @@
     <br>
 
     Nome: <br>
-    <input type="text" name="nome" id="nome" placeholder="Digite seu nome"> 
+    <input type="text" name="nome" id="nome"  value="<?php echo $nome; ?>" placeholder="Digite seu nome"> 
     <br><br>
 
     Telefone: <br>
-    <input type="text" name="telefone" id="telefone" placeholder="(00) 00000-0000"> 
+    <input type="text" name="telefone" id="telefone"  value="<?php echo $telefone; ?>" placeholder="(00) 00000-0000"> 
     <br><br>
 
     Endereço: <br>
-    <input type="text" name="endereco" id="endereco" placeholder="Digite seu endereço"> 
+    <input type="text" name="endereco" id="endereco"  value="<?php echo $endereco; ?>" placeholder="Digite seu endereço"> 
     <br><br>
 
     <input type="submit" value="<?php echo $botao; ?>">
+    
 </form>
 
 <script>
