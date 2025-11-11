@@ -16,7 +16,9 @@
   <link rel="stylesheet" href="estilo.css">
 </head>
 
-<body>
+<body id="pesquisar_entrega_page">
+<a href="home.php" class="voltar-seta-fixa">⟵</a>
+
   <form action="pesquisarEntrega.php" method="get">
     ID da entrega: <br>
     <input type="number" name="valor"> <br><br>
