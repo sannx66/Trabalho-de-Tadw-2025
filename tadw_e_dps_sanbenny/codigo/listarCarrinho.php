@@ -12,6 +12,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listar de Carrinhos</title>
+    <link rel="stylesheet" href="estilo.css">
+
     <style>
         img {
             width: 50px;
@@ -63,7 +65,7 @@
             echo "<td>$troco</td>";
             echo "<td>$data_hora</td>";
             echo "<td><a href='deletarCarrinho.php?id=$idcarrinho'>Excluir</a></td>";
-            echo "<td><a href='formCarrinho.php?id=$idcarrinho'>Editar</a></td>";
+            //echo "<td><a href='carrinho.php?id=$idcarrinho'>Editar</a></td>";
             echo "</tr>";
         }
     }

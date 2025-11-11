@@ -2,7 +2,7 @@
     require_once "verificarlogado.php";
 
     if ($_SESSION['tipo'] == 'c') {
-        header("Location: index.php");
+        header("Location: home.php");
     }
 ?>
 <!DOCTYPE html>

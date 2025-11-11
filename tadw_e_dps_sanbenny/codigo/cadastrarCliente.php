@@ -9,13 +9,14 @@
         $telefone = $cliente['telefone'];
         $endereco = $cliente['endereco'];
         $email = $cliente['email'];
-        $senha = '';
+        $senha = $cliente['senha'];
         $botao = "Atualiza";
     } else {
         $id = 0;
         $nome = "";
         $telefone = "";
         $endereco = "";
+        $senha = "";
         $email = "";
         $botao = "Cadastrar";
     }
