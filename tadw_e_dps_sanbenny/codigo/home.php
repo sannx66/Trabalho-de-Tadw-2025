@@ -48,6 +48,10 @@
                 echo "<a href='pesquisarEntrega.php'>Pesquisar Entrega</a>";
                 echo "</li>";
 
+                echo "<li>";
+                echo "<a href='listarCarrinho.php'>Lista de Carrinhos</a>";
+                echo "</li>";
+
 
 
             }
