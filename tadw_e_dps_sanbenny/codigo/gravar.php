@@ -2,31 +2,45 @@
 session_start();
 require_once "conexao.php";
 require_once "funcoes.php";
+require_once "verificarlogado.php";
 
-// ✅ NÃO PODE verificar carrinho vazio aqui
-// (pois o carrinho é esvaziado no final)
 
-// dados enviados
+// 🔥 NÃO pode verificar carrinho vazio aqui, pois ele é apagado no final
+// pegando dados que vieram do pagamento2.php
 $forma_pagamento = $_POST['forma_pagamento'];
-$forma_retirada = $_POST['forma_retirada'];
-$total_final = $_POST['total_final'];
-$taxa = $_POST['taxa'];
+$forma_retirada  = $_POST['forma_retirada'];
+$total_final     = floatval($_POST['total_final']);
+$taxa            = floatval($_POST['taxa']);
 
-// cliente logado
+$valor_pago_informado = isset($_POST['valor_pago']) ? $_POST['valor_pago'] : "";
+$troco_informado      = isset($_POST['troco']) ? $_POST['troco'] : "";
+
 $idcliente = $_SESSION['idcliente'] ?? 1;
-
 $data_hora = date("Y-m-d H:i:s");
 
-// 1) GRAVAR tb_carrinho
-$sql = "INSERT INTO tb_carrinho (idcliente, valor_entrega, valor_total, valor_pago, troco, data_hora)
-        VALUES (?, ?, ?, ?, ?, ?)";
-$stmt = mysqli_prepare($conexao, $sql);
-$valor_pago = 0;
-$troco = 0;
+// ✅ transforma valor com virgula "50,00" → 50.00
+function moneyToFloat($v) {
+    return floatval(str_replace(['.', ','], ['', '.'], $v));
+}
 
-mysqli_stmt_bind_param(
-    $stmt,
-    "idddds",
+// ✅ Valor entregue pelo cliente
+$valor_pago = ($valor_pago_informado !== "")
+    ? moneyToFloat($valor_pago_informado)
+    : $total_final;
+
+// ✅ Se informou troco → calcula troco REAL
+$troco = ($troco_informado !== "")
+    ? moneyToFloat($troco_informado) - $total_final
+    : 0;
+
+// ✅ NÃO deixa troco negativo
+if ($troco < 0) {
+    $troco = 0;
+}
+
+// ✅ SALVAR CARRINHO usando sua função
+$idcarrinho = salvarCarrinho(
+    $conexao,
     $idcliente,
     $taxa,
     $total_final,
@@ -35,34 +49,17 @@ mysqli_stmt_bind_param(
     $data_hora
 );
 
-mysqli_stmt_execute($stmt);
-
-// pega ID do carrinho gerado
-$idcarrinho = mysqli_insert_id($conexao);
-
-// 2) GRAVAR ITENS tb_item_venda
+// ✅ SALVAR ITENS usando sua função
 foreach ($_SESSION['carrinho'] as $idproduto => $qtd) {
-
-    $sql_item = "INSERT INTO tb_item_venda (idcarrinho, idproduto, quantidade)
-                 VALUES (?, ?, ?)";
-    $stmt_item = mysqli_prepare($conexao, $sql_item);
-
-    mysqli_stmt_bind_param($stmt_item, "iii", $idcarrinho, $idproduto, $qtd);
-    mysqli_stmt_execute($stmt_item);
+    salvarItemVenda($conexao, $idcarrinho, $idproduto, $qtd);
 }
 
-// 3) GRAVAR ENTREGA
+// ✅ SALVAR ENTREGA usando sua função
 if ($forma_retirada == "delivery") {
-
-    $sql_ent = "INSERT INTO tb_entrega (entregador, idcarrinho)
-                VALUES ('a definir', ?)";
-    $stmt_ent = mysqli_prepare($conexao, $sql_ent);
-
-    mysqli_stmt_bind_param($stmt_ent, "i", $idcarrinho);
-    mysqli_stmt_execute($stmt_ent);
+    salvarEntrega($conexao, "a definir", $idcarrinho);
 }
 
-// limpar carrinho
+// ✅ limpar carrinho
 unset($_SESSION['carrinho']);
 ?>
 
@@ -71,7 +68,7 @@ unset($_SESSION['carrinho']);
 <head>
     <meta charset="UTF-8">
     <title>Pedido Finalizado</title>
-    <link rel="stylesheet" href="estilo.css"> 
+    <link rel="stylesheet" href="estilo.css">
 </head>
 
 <body id="final_page">
