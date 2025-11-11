@@ -21,6 +21,6 @@ if ($idcliente == 0){
 }
 
 
- header("Location: listarClientes.php");
+ header("Location: index.php");
 
 ?>

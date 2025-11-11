@@ -286,59 +286,9 @@ function salvarItemVenda($conexao, $idcarrinho, $idproduto, $quantidade) {
 };
 // funcionando
 
-function calculoTotal ($conexao, $idproduto, $quantidade) {
-    $sql = "SELECT valor_un FROM tb_produto WHERE idproduto = ?";
-    $comando = mysqli_prepare($conexao, $sql);
-    mysqli_stmt_bind_param($comando, 'i', $idproduto);
-    mysqli_stmt_execute($comando);
-    $resultado = mysqli_stmt_get_result($comando);
-    $produto = mysqli_fetch_assoc($resultado);
-    mysqli_stmt_close($comando);
-
-    if ($produto) {
-        return $quantidade * $produto['valor_un'];
-    } else {
-        return 0;
-    }
-
-};
-// funcionou
-
-function calculoEntrega ($conexao, $idcarrinho, $valor_total) {
-    $sql = "SELECT valor_entrega FROM tb_carrinho WHERE idcarrinho = ?";
-    $comando = mysqli_prepare($conexao, $sql);
-    mysqli_stmt_bind_param($comando, 'i', $idcarrinho);
-    mysqli_stmt_execute($comando);
-    $resultado = mysqli_stmt_get_result($comando);
-    $carrinho = mysqli_fetch_assoc($resultado);
-    mysqli_stmt_close($comando);
-
-    if ($carrinho) {
-        $soma= $valor_total + $carrinho['valor_entrega'];
-    } else {
-        $soma = $valor_total;
-    }
-    return $soma;
-};
-// funcionou
 
 
-function calculoTroco($conexao, $idcarrinho) {
-    $sql = "SELECT valor_pago, valor_total FROM tb_carrinho WHERE idcarrinho = ?";
-    $comando = mysqli_prepare($conexao, $sql);
-    mysqli_stmt_bind_param($comando, 'i', $idcarrinho);
-    mysqli_stmt_execute($comando);
-    $resultado = mysqli_stmt_get_result($comando);
-    $carrinho = mysqli_fetch_assoc($resultado);
-    mysqli_stmt_close($comando);
 
-    if ($carrinho) {
-        return $carrinho['valor_pago'] - $carrinho['valor_total'];
-    } else {
-        return 'nao tem carrinho';
-    }
-};
-// Funcionou
 //sandy
 
 function salvarEntrega($conexao, $entregador, $idcarrinho) {
