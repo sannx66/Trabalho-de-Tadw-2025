@@ -4,7 +4,7 @@
         require_once "funcoes.php";
 
         $id = $_GET['id'];
-        $cliente = pesquisarClienteId($conexao, $id);
+        $cliente = pesquisarClienteNome($conexao, $id);
         $nome = $cliente['nome'];
         $telefone = $cliente['telefone'];
         $endereco = $cliente['endereco'];
