@@ -13,7 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listar de Carrinhos</title>
     <link rel="stylesheet" href="estilo.css">
-
+    <!-- SETA VOLTAR FIXA -->
+    <a href="categorias.php" class="voltar-seta">←</a>
     <style>
         img {
             width: 50px;
@@ -71,6 +72,7 @@
     }
         ?>
         </table>
+        <br><a href="home.php">Voltar</a>
 </body>
 
 </html>
