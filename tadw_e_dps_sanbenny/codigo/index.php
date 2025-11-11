@@ -13,31 +13,29 @@
 </script>
 <?php endif; ?>
 </head>
-<body>
-  <div id="pai2">
-    <img src="./fotos/logo_diego.png" alt="logo_doceria" style="
-    width: 500px;
-    padding: 100px;
-">
-  </div>
-  <div id="pai">
-    <div class="cadastro-container">
-      <h1><b>Doceria</b></h1>
+<body id="index_page">
+
+    <div id="index_container">
+
+        <!-- LOGO -->
+        <div id="index_left">
+            <img id="index_logo" src="./fotos/logo_diego.png" alt="logo_doceria">
+        </div>
+
+        <!-- TEXTOS E BOTÕES -->
+        <div id="index_right">
+
+            <h1 id="index_title">Doceria</h1>
+            <h3 id="index_subtitle">Le Doux Amour</h3>
+
+            <a class="index_button" href="cadastrarCliente.php">Cadastrar</a>
+            <a class="index_button" href="formCliente.php">Entrar</a>
+
+        </div>
+
     </div>
-    
-    <div class="ledoux-container">
-        <h3>Le Doux Amour</h3>
-    </div>
-        
-    <div class="botaocadastrar-container">
-            <b><i><a href="cadastrarCliente.php">Cadastrar</a></i></b> <br><br>
-    </div>
-    
-    <div class="botaoform-container">
-            <b><i><a href="formCliente.php">Entrar</a></i></b> <br><br>
-    </div>
-  </div>
-    
 
 </body>
+
+
 </html>
