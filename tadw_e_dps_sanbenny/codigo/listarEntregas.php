@@ -24,7 +24,10 @@
     </style>
 </head>
 
-<body>
+<body id="lista_entregas_page">
+<a href="home.php" class="voltar-seta-fixa">⟵</a>
+
+
     <h1>Lista de entregas</h1>
 
     <?php

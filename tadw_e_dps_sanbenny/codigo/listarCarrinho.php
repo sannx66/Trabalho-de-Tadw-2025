@@ -1,54 +1,57 @@
 <?php
-    require_once "verificarlogado.php";
+require_once "verificarlogado.php";
 
-    if ($_SESSION['tipo'] == 'c') {
-        header("Location: home.php");
-    }
+if ($_SESSION['tipo'] == 'c') {
+    header("Location: home.php");
+    exit();
+}
+
+require_once "conexao.php";
+require_once "funcoes.php";
+
+$lista_carrinho = listarCarrinho($conexao);
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listar de Carrinhos</title>
+    <title>Lista de Carrinhos</title>
+
+    <!-- ✅ Usa o mesmo CSS do listarClientes -->
     <link rel="stylesheet" href="estilo.css">
-    <!-- SETA VOLTAR FIXA -->
-    <a href="categorias.php" class="voltar-seta">←</a>
-    <style>
-        img {
-            width: 50px;
-            height: 50px;
-        }
-    </style>
+
 </head>
 
-<body>
-    <h1>Lista de carrinhos</h1>
+<body id="lista_carrinhos_page">
+<a href="home.php" class="voltar-seta-fixa">⟵</a>
+
+
+    <!-- Seta voltar -->
+    <a href="home.php" class="voltar-seta">⟵</a>
+
+    <h1>Lista de Carrinhos</h1>
 
     <?php
-    require_once "conexao.php";
-    require_once "funcoes.php";
-
-    $lista_carrinho= listarCarrinho($conexao);
-
     if (count($lista_carrinho) == 0) {
-        echo "Não existem carrinhos cadastrados";
+        echo "<p>Nenhum carrinho encontrado.</p>";
     } else {
-    ?>
-        <table border="1">
-            <tr>
-                <td>Id</td>
-                <td>Idcliente</td>
-                <td>Valor_entrega</td>
-                <td>Valor_total</td>
-                <td>Valor_pago</td>
-                <td>Troco</td>
-                <td>Data_hora</td>
-                <td colspan="2">Ação</td>
-            </tr>
-        <?php
+        echo "<table border='1' class='tabela-listagem'>";
+        echo "<tr>";
+        echo "<th>ID Carrinho</th>";
+        echo "<th>Cliente</th>";
+        echo "<th>Valor Entrega</th>";
+        echo "<th>Valor Total</th>";
+        echo "<th>Valor Pago</th>";
+        echo "<th>Troco</th>";
+        echo "<th>Data / Hora</th>";
+        echo "<th>Ação</th>";
+        echo "</tr>";
+
         foreach ($lista_carrinho as $carrinho) {
+
             $idcarrinho = $carrinho['idcarrinho'];
             $idcliente = $carrinho['idcliente'];
             $valor_entrega = $carrinho['valor_entrega'];
@@ -57,22 +60,36 @@
             $troco = $carrinho['troco'];
             $data_hora = $carrinho['data_hora'];
 
+            // ✅ 1: Busca o cliente pelo ID
+            $clienteReal = pesquisarClienteId($conexao, $idcliente);
+            $nomeReal = $clienteReal ? $clienteReal["nome"] : "";
+
+            // ✅ 2: Usa pesquisarClienteNome() como você pediu
+            $lista = pesquisarClienteNome($conexao, $nomeReal);
+            $cliente = $lista[0] ?? null;
+
+            // ✅ Nome final
+            $nomeCliente = $cliente ? $cliente["nome"] : "Cliente não encontrado";
+
             echo "<tr>";
             echo "<td>$idcarrinho</td>";
-            echo "<td>$idcliente</td>";
+            echo "<td>$nomeCliente</td>";
             echo "<td>$valor_entrega</td>";
             echo "<td>$valor_total</td>";
             echo "<td>$valor_pago</td>";
             echo "<td>$troco</td>";
             echo "<td>$data_hora</td>";
             echo "<td><a href='deletarCarrinho.php?id=$idcarrinho'>Excluir</a></td>";
-            //echo "<td><a href='carrinho.php?id=$idcarrinho'>Editar</a></td>";
             echo "</tr>";
         }
+
+        echo "</table>";
     }
-        ?>
-        </table>
-        <br><a href="home.php">Voltar</a>
+    ?>
+
+    <br>
+    <a href="home.php" class="voltar-link">Voltar</a>
+
 </body>
 
 </html>

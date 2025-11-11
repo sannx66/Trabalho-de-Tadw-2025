@@ -40,22 +40,24 @@
     <title>Formulário de entrega</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
-<body>
+<body id="form_entrega_page">
+<a href="home.php" class="voltar-seta-fixa">⟵</a>
+
     <h1>Cadastro de entrega</h1>
-    <form action="salvarEntrega.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="id" value="<?php echo $id; ?>">
+    <form action="salvarEntrega.php?id=<?php echo $id; ?>" method="post">
 
-        Id da entrega: <br>
-        <input type="number" name="identrega" value="<?php echo $identrega; ?>"> <br><br>
+    <label>Id da entrega:</label>
+    <input type="number" name="identrega" value="<?php echo $identrega; ?>">
 
-        Entregador: <br>
-        <input type="text" name="entregador" value="<?php echo $entregador; ?>"> <br><br>
+    <label>Entregador:</label>
+    <input type="text" name="entregador" value="<?php echo $entregador; ?>">
 
-        Id do carrinho: <br>
-        <input type="number" name="idcarrinho" value="<?php echo $idcarrinho; ?>"> <br><br>
+    <label>Id do carrinho:</label>
+    <input type="number" name="idcarrinho" value="<?php echo $idcarrinho; ?>">
 
-        <input type="submit" value="<?php echo $botao; ?>">
-    </form>
+    <input type="submit" value="<?php echo $botao; ?>">
+</form>
+
     <br><a href="home.php">Voltar</a><br>
 </body>
 </html>

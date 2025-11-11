@@ -1,29 +1,31 @@
 <?php
-    require_once "verificarlogado.php";
+require_once "verificarlogado.php";
 
-    if ($_SESSION['tipo'] == 'c') {
-        header("Location: home.php");
-    }
+if ($_SESSION['tipo'] == 'c') {
+    header("Location: home.php");
+}
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Clientes</title>
+
+    <!-- CSS global -->
     <link rel="stylesheet" href="estilo.css">
-    
-    <style>
-        img {
-            width: 50px;
-            height: 50px;
-        }
-    </style>
+
+    <!-- ✅ CSS exclusivo desta página -->
+    <link rel="stylesheet" href="lista_clientes.css">
 </head>
 
-<body>
-    <h1>Lista de clientes</h1>
+<body id="lista_clientes_page">
+<a href="home.php" class="voltar-seta-fixa">⟵</a>
+
+
+    <h1 id="lista_clientes_titulo">Lista de Clientes</h1>
 
     <?php
     require_once "conexao.php";
@@ -32,7 +34,7 @@
     $lista_clientes = listarClientes($conexao);
 
     if (count($lista_clientes) == 0) {
-        echo "Não existem clientes cadastrados";
+        echo "<p>Nenhum cliente cadastrado.</p>";
     } else {
     ?>
         <table border="1">
@@ -45,13 +47,23 @@
                 <td colspan="2">Ação</td>
             </tr>
         <?php
+        echo "<table id='lista_clientes_tabela'>";
+        echo "<tr>";
+        echo "<th>ID</th>";
+        echo "<th>Email</th>";
+        echo "<th>Nome</th>";
+        echo "<th>Telefone</th>";
+        echo "<th>Endereço</th>";
+        echo "<th colspan='2'>Ações</th>";
+        echo "</tr>";
+
         foreach ($lista_clientes as $cliente) {
             $idcliente = $cliente['idcliente'];
             $email = $cliente['email'];
             $nome = $cliente['nome'];
             $telefone = $cliente['telefone'];
             $endereco = $cliente['endereco'];
-          
+
             echo "<tr>";
             echo "<td>$idcliente</td>";
             echo "<td>$email</td>";
@@ -62,10 +74,12 @@
             echo "<td><a href='cadastrarCliente.php?id=$idcliente'>Editar</a></td>";
             echo "</tr>";
         }
-    }
-        ?>
-        </table>
-        <a href="home.php">Voltar</a>
-</body>
 
+        echo "</table>";
+    }
+    ?>
+
+    <a href="home.php" id="lista_clientes_voltar">⟵ Voltar</a>
+
+</body>
 </html>

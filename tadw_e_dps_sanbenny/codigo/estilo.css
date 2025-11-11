@@ -1336,3 +1336,943 @@ input.quantidade {
         font-size: 32px;
     }
 }
+
+/* home.php */
+
+/* =============================
+   HOME ADMIN – LAYOUT FINAL
+   ============================= */
+
+/* Fundo */
+#home_admin_page {
+    background: linear-gradient(135deg, #ffe7ef, #ffd3e3);
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: "Poppins", Arial, sans-serif;
+}
+
+/* CONTAINER GERAL COM DUAS COLUNAS */
+#home_admin_container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+/* =============================
+   COLUNA ESQUERDA (SETA + MENU)
+   ============================= */
+#home_left_col {
+    width: 50%;
+}
+
+/* Seta voltar */
+#home_admin_voltar {
+    font-size: 45px;
+    color: #c73462;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 25px;
+}
+
+#home_admin_voltar:hover {
+    transform: translateX(-4px);
+    transition: 0.2s;
+}
+
+/* MENU */
+#home_admin_menu {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#home_admin_menu li a {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    background: #fff4f8;
+    border: 2px solid #ffcede;
+    border-radius: 18px;
+    text-align: center;
+    color: #a32c52;
+    font-size: 19px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.25s ease;
+    box-shadow: 0 4px 12px rgba(255, 120, 150, 0.15);
+}
+
+#home_admin_menu li a:hover {
+    background: #ffd9e7;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(255, 120, 150, 0.25);
+}
+
+/* =============================
+   COLUNA DIREITA (LOGO GRANDE)
+   ============================= */
+#home_right_col {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#home_admin_logo {
+    width: 420px;       /* TAMANHO LINDO */
+    max-width: 100%;
+    height: auto;
+}
+
+/* pesquisar cliente */
+
+/* CSS exclusivo para pesquisarCliente.php */
+#pesquisar_cliente_page {
+    font-family: Poppins, Arial, sans-serif;
+    background: linear-gradient(135deg, #ffe0ea, #f7c2d3);
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+#pesquisar_cliente_form {
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 400px;
+    text-align: center;
+}
+
+#pesquisar_cliente_form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #d6a6b7;
+    border-radius: 8px;
+    outline: none;
+}
+
+#pesquisar_cliente_form input[type="submit"] {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #ffcfe0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+#pesquisar_cliente_form input[type="submit"]:hover {
+    background: #f4adc5;
+}
+
+#pesquisar_cliente_tabela {
+    width: 90%;
+    max-width: 850px;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#pesquisar_cliente_tabela th {
+    background: #f9b9cf;
+    padding: 12px;
+    font-size: 17px;
+    color: #7a1d3b;
+}
+
+#pesquisar_cliente_tabela td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #f3d3e0;
+}
+
+#pesquisar_cliente_voltar {
+    text-decoration: none;
+    color: #7a1d3b;
+    font-size: 20px;
+    margin-top: 20px;
+    transition: 0.2s;
+}
+
+#pesquisar_cliente_voltar:hover {
+    color: #b52f63;
+}
+
+/* listar clientes */
+/* CSS exclusivo para listaClientes.php */
+#lista_clientes_page {
+    background: linear-gradient(135deg, #ffe0ea, #f7c2d3);
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px;
+    font-family: Poppins, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+#lista_clientes_titulo {
+    font-size: 38px;
+    color: #7a1d3b;
+    margin-bottom: 10px;
+}
+
+#lista_clientes_tabela {
+    width: 95%;
+    max-width: 1000px;
+    background: #ffffff;
+    border-collapse: collapse;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#lista_clientes_tabela th {
+    background: #f8b9cc;
+    padding: 14px;
+    font-size: 18px;
+    color: #7a1d3b;
+    text-align: center;
+}
+
+#lista_clientes_tabela td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #f3d3e0;
+    font-size: 16px;
+}
+
+#lista_clientes_tabela tr:nth-child(even) {
+    background: #fff5f9;
+}
+
+#lista_clientes_tabela a {
+    color: #b02d59;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#lista_clientes_tabela a:hover {
+    text-decoration: underline;
+}
+
+#lista_clientes_voltar {
+    text-decoration: none;
+    font-size: 22px;
+    color: #7a1d3b;
+    margin-top: 20px;
+    transition: 0.25s;
+}
+
+#lista_clientes_voltar:hover {
+    color: #b32c5f;
+    transform: translateX(-4px);
+}
+
+/* listar produtos */
+/* =============================
+   CSS EXCLUSIVO — listaProdutos
+   ID ÚNICO PARA NÃO AFETAR O SITE
+   ============================= */
+
+   /* Seta voltar fixa no topo esquerdo */
+.voltar-seta-fixa {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    font-size: 34px;
+    color: #7a1d3b; /* mesmo rosa do seu tema */
+    text-decoration: none;
+    z-index: 9999;
+    transition: 0.25s;
+    font-weight: bold;
+}
+
+.voltar-seta-fixa:hover {
+    color: #b32c5f;
+    transform: scale(1.1);
+}
+
+   #lista_produtos_page {
+    background: linear-gradient(135deg, #ffe0ea, #f7c2d3);
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    font-family: Poppins, Arial, sans-serif;
+}
+
+#lista_produtos_titulo {
+    font-size: 38px;
+    color: #7a1d3b;
+    margin-bottom: 10px;
+}
+
+#lista_produtos_tabela {
+    width: 95%;
+    max-width: 1200px;
+    background: #ffffff;
+    border-collapse: collapse;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#lista_produtos_tabela th {
+    background: #f8b9cc;
+    padding: 14px;
+    font-size: 18px;
+    color: #7a1d3b;
+    text-align: center;
+}
+
+#lista_produtos_tabela td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #f3d3e0;
+    font-size: 16px;
+}
+
+#lista_produtos_tabela tr:nth-child(even) {
+    background: #fff5f9;
+}
+
+/* Fotos menores e uniformes */
+.lista_produtos_foto {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+#lista_produtos_tabela a {
+    color: #b02d59;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#lista_produtos_tabela a:hover {
+    text-decoration: underline;
+}
+
+#lista_produtos_voltar {
+    text-decoration: none;
+    font-size: 22px;
+    color: #7a1d3b;
+    margin-top: 20px;
+    transition: 0.25s;
+}
+
+#lista_produtos_voltar:hover {
+    color: #b32c5f;
+    transform: translateX(-4px);
+}
+
+/* form produto */
+/* =============================
+   CSS EXCLUSIVO — formProduto.php
+   ID ÚNICO PARA NÃO AFETAR OUTRAS PÁGINAS
+============================= */
+
+#form_produto_page {
+    background: linear-gradient(135deg, #ffe0ea, #f7c2d3);
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    font-family: Poppins, Arial, sans-serif;
+}
+
+#form_produto_titulo {
+    font-size: 35px;
+    color: #7a1d3b;
+    margin-bottom: 10px;
+}
+
+#form_produto_container {
+    background: #ffffff;
+    padding: 35px 40px;
+    width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#form_produto_container label {
+    font-size: 17px;
+    font-weight: 600;
+    color: #7a1d3b;
+}
+
+#form_produto_container input[type="text"],
+#form_produto_container input[type="number"],
+#form_produto_container input[type="file"],
+#form_produto_container select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #d6a6b7;
+    border-radius: 8px;
+    background: #fff7fa;
+    outline: none;
+}
+
+#form_produto_container input[type="submit"] {
+    background: #ffcfe0;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #7a1d3b;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+#form_produto_container input[type="submit"]:hover {
+    background: #f4adc5;
+    transform: translateY(-3px);
+}
+
+#form_produto_voltar {
+    text-decoration: none;
+    color: #7a1d3b;
+    font-size: 22px;
+    margin-top: 10px;
+    transition: 0.25s;
+}
+
+#form_produto_voltar:hover {
+    color: #b52f63;
+    transform: translateX(-4px);
+}
+
+/* pesquisar produto */
+
+/* =============================
+   CSS EXCLUSIVO — pesquisarProduto.php
+   ID ÚNICO PARA NÃO AFETAR O SITE TODO
+============================= */
+
+#pesquisar_produto_page {
+    background: linear-gradient(135deg, #ffe0ea, #f7c2d3);
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    font-family: Poppins, Arial, sans-serif;
+}
+
+#pesquisar_produto_form {
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 400px;
+    text-align: center;
+}
+
+#pesquisar_produto_form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #d6a6b7;
+    border-radius: 8px;
+    outline: none;
+    background: #fff7fa;
+}
+
+#pesquisar_produto_form input[type="submit"] {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #ffcfe0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s;
+    font-weight: 600;
+    color: #7a1d3b;
+}
+
+#pesquisar_produto_form input[type="submit"]:hover {
+    background: #f4adc5;
+}
+
+#pesquisar_produto_tabela {
+    width: 90%;
+    max-width: 900px;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#pesquisar_produto_tabela th {
+    background: #f8b9cc;
+    padding: 12px;
+    font-size: 17px;
+    color: #7a1d3b;
+}
+
+#pesquisar_produto_tabela td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #f3d3e0;
+}
+
+/* Foto padrão */
+.pesquisar_produto_foto {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+#pesquisar_produto_voltar {
+    text-decoration: none;
+    color: #7a1d3b;
+    font-size: 22px;
+    margin-top: 10px;
+    transition: 0.25s;
+}
+
+#pesquisar_produto_voltar:hover {
+    color: #b52f63;
+    transform: translateX(-4px);
+}
+
+/* listar carrinho */
+
+/* LISTAR CARRINHOS – estilo rosinha igual listar produtos */
+#lista_carrinhos_page {
+    background: linear-gradient(135deg, #ffe0ea, #f7c2d3);
+    min-height: 100vh;
+    margin: 0;
+    padding: 60px 40px 40px 40px;
+    font-family: Poppins, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Título */
+#lista_carrinhos_page h1 {
+    font-size: 38px;
+    color: #7a1d3b;
+    margin-bottom: 10px;
+}
+
+/* Tabela */
+#lista_carrinhos_page .tabela-listagem {
+    width: 95%;
+    max-width: 1000px;
+    background: #ffffff;
+    border-collapse: collapse;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#lista_carrinhos_page .tabela-listagem th {
+    background: #f8b9cc;
+    padding: 14px;
+    font-size: 18px;
+    color: #7a1d3b;
+    text-align: center;
+}
+
+#lista_carrinhos_page .tabela-listagem td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #f3d3e0;
+    font-size: 16px;
+}
+
+#lista_carrinhos_page .tabela-listagem tr:nth-child(even) {
+    background: #fff5f9;
+}
+
+/* Links da tabela */
+#lista_carrinhos_page .tabela-listagem a {
+    color: #b02d59;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#lista_carrinhos_page .tabela-listagem a:hover {
+    text-decoration: underline;
+}
+
+/* ✅ SETA FIXA NO TOPO ESQUERDO */
+.voltar-seta-fixa {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    font-size: 34px;
+    color: #7a1d3b;
+    text-decoration: none;
+    z-index: 9999;
+    transition: 0.25s;
+    font-weight: bold;
+}
+
+.voltar-seta-fixa:hover {
+    color: #b32c5f;
+    transform: scale(1.1);
+}
+
+/* Remover estilo da seta antiga */
+.voltar-seta {
+    display: none;
+}
+
+/* Link inferior (Voltar texto) */
+#lista_carrinhos_page .voltar-link {
+    text-decoration: none;
+    font-size: 22px;
+    color: #7a1d3b;
+    margin-top: 20px;
+    transition: 0.25s;
+}
+
+#lista_carrinhos_page .voltar-link:hover {
+    color: #b32c5f;
+    transform: translateX(-4px);
+}
+
+/* listar entregas */
+
+/* ✅ LISTAR ENTREGAS — estilo rosinha igual listar produtos */
+
+#lista_entregas_page {
+    background: linear-gradient(135deg, #ffe0ea, #f7c2d3);
+    min-height: 100vh;
+    margin: 0;
+    padding: 60px 40px 40px 40px;
+    font-family: Poppins, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* ✅ Título */
+#lista_entregas_page h1 {
+    font-size: 38px;
+    color: #7a1d3b;
+    margin-bottom: 10px;
+}
+
+/* ✅ Tabela */
+#lista_entregas_page table {
+    width: 95%;
+    max-width: 1000px;
+    background: #ffffff;
+    border-collapse: collapse;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#lista_entregas_page th {
+    background: #f8b9cc;
+    padding: 14px;
+    font-size: 18px;
+    color: #7a1d3b;
+    text-align: center;
+}
+
+#lista_entregas_page td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #f3d3e0;
+    font-size: 16px;
+}
+
+#lista_entregas_page tr:nth-child(even) {
+    background: #fff5f9;
+}
+
+/* ✅ Ações (links) */
+#lista_entregas_page a {
+    color: #b02d59;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#lista_entregas_page a:hover {
+    text-decoration: underline;
+}
+
+/* ✅ Seta fixa no topo esquerdo */
+.voltar-seta-fixa {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    font-size: 34px;
+    color: #7a1d3b;
+    text-decoration: none;
+    z-index: 9999;
+    transition: 0.25s;
+    font-weight: bold;
+}
+
+.voltar-seta-fixa:hover {
+    color: #b32c5f;
+    transform: scale(1.1);
+}
+
+/* form entrega */
+/* ✅ FORMULÁRIO DE ENTREGA — estilo rosinha  */
+
+#form_entrega_page {
+    background: linear-gradient(135deg, #ffe0ea, #f7c2d3);
+    min-height: 100vh;
+    margin: 0;
+    padding: 80px 20px 40px 20px;
+    font-family: Poppins, Arial, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ✅ Título */
+#form_entrega_page h1 {
+    font-size: 36px;
+    color: #7a1d3b;
+    margin-bottom: 25px;
+}
+
+/* ✅ Formulário */
+#form_entrega_page form {
+    background: #ffffff;
+    padding: 25px 30px;
+    width: 95%;
+    max-width: 450px;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Labels */
+#form_entrega_page form label,
+#form_entrega_page form input {
+    font-size: 18px;
+    color: #7a1d3b;
+}
+
+/* ✅ Inputs */
+#form_entrega_page input[type="text"],
+#form_entrega_page input[type="number"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #f3d3e0;
+    border-radius: 8px;
+    background: #fff5f9;
+    outline: none;
+    font-size: 17px;
+    transition: 0.2s;
+}
+
+#form_entrega_page input[type="text"]:focus,
+#form_entrega_page input[type="number"]:focus {
+    border-color: #d25a84;
+}
+
+/* ✅ Botão */
+#form_entrega_page input[type="submit"] {
+    background: #d25a84;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+#form_entrega_page input[type="submit"]:hover {
+    background: #b32c5f;
+    transform: scale(1.03);
+}
+
+/* ✅ Seta fixa no topo esquerdo */
+.voltar-seta-fixa {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    font-size: 34px;
+    color: #7a1d3b;
+    text-decoration: none;
+    z-index: 9999;
+    transition: 0.25s;
+    font-weight: bold;
+}
+
+.voltar-seta-fixa:hover {
+    color: #b32c5f;
+    transform: scale(1.1);
+}
+
+/* pesquiar entrega */
+/* ✅ PESQUISAR ENTREGA — estilo rosinha */
+
+#pesquisar_entrega_page {
+    background: linear-gradient(135deg, #ffe0ea, #f7c2d3);
+    min-height: 100vh;
+    margin: 0;
+    padding: 80px 20px 40px 20px;
+    font-family: Poppins, Arial, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+/* ✅ Formulário */
+#pesquisar_entrega_page form {
+    background: #ffffff;
+    padding: 25px 30px;
+    width: 95%;
+    max-width: 420px;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#pesquisar_entrega_page input[type="number"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #f3d3e0;
+    border-radius: 8px;
+    background: #fff5f9;
+    outline: none;
+    font-size: 17px;
+}
+
+#pesquisar_entrega_page input[type="number"]:focus {
+    border-color: #d25a84;
+}
+
+#pesquisar_entrega_page input[type="submit"] {
+    background: #d25a84;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 19px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+#pesquisar_entrega_page input[type="submit"]:hover {
+    background: #b32c5f;
+    transform: scale(1.03);
+}
+
+/* ✅ Tabela */
+#pesquisar_entrega_page table {
+    width: 95%;
+    max-width: 600px;
+    background: #ffffff;
+    border-collapse: collapse;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+#pesquisar_entrega_page th {
+    background: #f8b9cc;
+    padding: 12px;
+    font-size: 17px;
+    color: #7a1d3b;
+    text-align: center;
+}
+
+#pesquisar_entrega_page td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #f3d3e0;
+    font-size: 16px;
+}
+
+#pesquisar_entrega_page tr:nth-child(even) {
+    background: #fff5f9;
+}
+
+/* ✅ Seta fixa no topo esquerdo */
+.voltar-seta-fixa {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    font-size: 34px;
+    color: #7a1d3b;
+    text-decoration: none;
+    z-index: 9999;
+    transition: 0.25s;
+    font-weight: bold;
+}
+
+.voltar-seta-fixa:hover {
+    color: #b32c5f;
+    transform: scale(1.1);
+}
+
+/* ✅ Link voltar simples (se ainda usar) */
+#pesquisar_entrega_page .voltar-link {
+    font-size: 20px;
+    color: #7a1d3b;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: 0.25s;
+}
+
+#pesquisar_entrega_page .voltar-link:hover {
+    color: #b32c5f;
+    transform: translateX(-4px);
+}

@@ -1,68 +1,55 @@
 <?php
-    require_once "./verificarlogado.php";
-    
+require_once "./verificarlogado.php";
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
     <title>Home</title>
 </head>
-<body>
+<body id="home_admin_page">
 
-        <?php
-            if ($_SESSION['tipo'] == 'g') {
-                echo "<li>";
-                echo "<a href='listarClientes.php'>Lista de Clientes</a>";
-                echo "</li>";
+<body id="home_admin_page">
 
-                echo "<li>";
-                echo "<a href='pesquisarCliente.php'>Pesquisar Cliente</a>";
-                echo "</li>";
+<div id="home_admin_container">
 
+    <div id="home_left_col">
 
-                echo "<li>";
-                echo "<a href='listarProdutos.php'>Lista de Produtos</a>";
-                echo "</li>";
+        <!-- BOTÃO VOLTAR -->
+        <a id="home_admin_voltar" href="categorias.php">⟵</a>
 
+        <!-- MENU CENTRAL -->
+        <ul id="home_admin_menu">
+            <?php
+                if ($_SESSION['tipo'] == 'g') {
+                    echo "<li><a href='listarClientes.php'>Lista de Clientes</a></li>";
+                    echo "<li><a href='pesquisarCliente.php'>Pesquisar Cliente</a></li>";
+                    echo "<li><a href='listarProdutos.php'>Lista de Produtos</a></li>";
+                    echo "<li><a href='formProduto.php'>Formulário de Produto</a></li>";
+                    echo "<li><a href='pesquisarProduto.php'>Pesquisar Produto</a></li>";
+                    echo "<li><a href='formEntrega.php'>Formulário de Entrega</a></li>";
+                    echo "<li><a href='listarEntregas.php'>Lista de Entregas</a></li>";
+                    echo "<li><a href='pesquisarEntrega.php'>Pesquisar Entrega</a></li>";
+                    echo "<li><a href='listarCarrinho.php'>Lista de Carrinhos</a></li>";
+                } else {
+                    echo "<p id='home_admin_negado'>Apenas para autorizados :)</p>";
+                }
+            ?>
+        </ul>
 
-                echo "<li>";
-                echo "<a href='formProduto.php'>Formulário de  Produto</a>";
-                echo "</li>";
+    </div>
 
-                echo "<li>";
-                echo "<a href='pesquisarProduto.php'>Pesquisar Produto</a>";
-                echo "</li>";
+    <!-- COLUNA DIREITA: IMAGEM -->
+    <div id="home_right_col">
+        <img id="home_admin_logo" src="fotos/logo_diego.png" alt="Logo">
+    </div>
 
-                echo "<li>";
-                echo "<a href='formEntrega.php'>Formulário de Entrega</a>";
-                echo "</li>";
+</div>
 
-                echo "<li>";
-                echo "<a href='listarEntregas.php'>Lista de Entregas</a>";
-                echo "</li>";
-
-                echo "<li>";
-                echo "<a href='pesquisarEntrega.php'>Pesquisar Entrega</a>";
-                echo "</li>";
-
-                echo "<li>";
-                echo "<a href='listarCarrinho.php'>Lista de Carrinhos</a>";
-                echo "</li>";
-
+</body>
 
 
-            }
-            else {
-                echo "Apenas para autorizados :)"; 
-            }
-        ?>
-      
-        <li>
-            <a href="categorias.php">Voltar</a>
-        </li>
-    
 </body>
 </html>
