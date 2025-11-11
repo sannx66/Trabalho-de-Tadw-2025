@@ -42,7 +42,7 @@ $observacoes  = $_SESSION['cliente_observacoes'] ?? '';
     <title>Delivery</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
-<body>
+<body id="delivery_page">
 
     <h1>D E L I V E R Y</h1>
     <p>Obs: Taxa de entrega = 5 golds</p>
@@ -79,7 +79,29 @@ $observacoes  = $_SESSION['cliente_observacoes'] ?? '';
                 event.preventDefault();
             }
         });
+
+       
+    const tel = document.getElementById("telefone");
+
+    tel.addEventListener("input", function () {
+        let v = tel.value.replace(/\D/g, ""); // remove tudo que não é número
+
+        if (v.length > 11) v = v.slice(0, 11);
+
+        if (v.length > 6) {
+            tel.value = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+        } 
+        else if (v.length > 2) {
+            tel.value = `(${v.slice(0,2)}) ${v.slice(2)}`;
+        }
+        else if (v.length > 0) {
+            tel.value = `(${v}`;
+        }
+    });
+
     </script>
+
+
 
 </body>
 </html>

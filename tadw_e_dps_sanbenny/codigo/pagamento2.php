@@ -33,8 +33,12 @@ $total_final = $total + $taxa;
 <head>
     <meta charset="UTF-8">
     <title>Confirmação</title>
+    <link rel="stylesheet" href="estilo.css">
+
 </head>
-<body>
+
+<body id="confirmacao_page">
+    <img id="confirm_logo" src="fotos/logo_diego.png" alt="Logo">
 
     <h1>CONFIRMAR PAGAMENTO</h1>
 

@@ -986,6 +986,353 @@ input.quantidade {
     color: #8c3d3d;
 }
 
+/* pagamento2 */
+/* ================================
+   CONFIRMAÇÃO DO PAGAMENTO – ESTILO EXCLUSIVO
+   ================================ */
+   #confirmacao_page {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #fbdade, #f3b8c0);
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    padding-top: 60px;
+    position: relative;
+}
+
+/* LOGO NO CANTO DIREITO */
+#confirmacao_page #confirm_logo {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 150px;
+}
+
+/* TÍTULO */
+#confirmacao_page h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 38px;
+    color: #d45c7b;
+    letter-spacing: 5px;
+    margin-bottom: 25px;
+}
+
+/* TEXTO */
+#confirmacao_page p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #7a3549;
+    margin: 10px 0;
+}
+
+/* BOTÃO FINALIZAR */
+#confirmacao_page button {
+    margin-top: 20px;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 18px;
+    background: #ff9eb0;
+    color: #fff;
+    font-size: 20px;
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    cursor: pointer;
+
+    box-shadow: 0px 8px 0px #d47a89;
+    transition: 0.2s ease-in-out;
+}
+
+#confirmacao_page button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 11px 0px #c66875;
+}
+
+#confirmacao_page button:active {
+    transform: translateY(2px);
+    box-shadow: 0px 4px 0px #a65460;
+}
+
+/* LINK VOLTAR */
+#confirmacao_page a {
+    display: inline-block;
+    margin-top: 25px;
+    color: #7a3549;
+    font-weight: 600;
+    font-size: 17px;
+    text-decoration: none;
+}
+
+#confirmacao_page a:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVO */
+@media (max-width: 700px) {
+    #confirmacao_page #confirm_logo {
+        width: 120px;
+        right: 15px;
+        top: 15px;
+    }
+
+    #confirmacao_page h1 {
+        font-size: 30px;
+    }
+}
 
 
 /* ................ */
+
+
+/* delivery */
+/* ================================
+   DELIVERY PAGE – ESTILO EXCLUSIVO
+   ================================ */
+   #delivery_page {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #fbdade, #f3b8c0);
+    font-family: "Poppins", sans-serif;
+    min-height: 100vh;
+    padding-top: 40px;
+    text-align: center;
+}
+
+/* Título */
+#delivery_page h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 40px;
+    color: #d45c7b;
+    letter-spacing: 8px;
+    margin-bottom: 5px;
+}
+
+/* Subtexto */
+#delivery_page p {
+    font-size: 16px;
+    color: #7a3549;
+    font-weight: 500;
+}
+
+/* Container do formulário */
+#delivery_page #deliveryForm {
+    background: #ffffff;
+    width: 350px;
+    margin: 30px auto 0 auto;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+    text-align: left;
+}
+
+/* Labels */
+#delivery_page label {
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Inputs */
+#delivery_page input[type="text"] {
+    width: 100%;
+    padding: 12px 14px;
+    margin-top: 4px;
+    border-radius: 12px;
+    border: 2px solid #f1c4ca;
+    background: #ffeef1;
+    font-size: 15px;
+    outline: none;
+    box-shadow: inset 2px 2px 4px #e0b3ba, inset -2px -2px 4px #ffffff;
+    color: #333;
+}
+
+#delivery_page input[type="text"]:focus {
+    border-color: #ff9eb0;
+    background: #ffe4ea;
+}
+
+/* Botão */
+#delivery_page input[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    border-radius: 18px;
+    border: none;
+    background: #ff9eb0;
+    color: white;
+    font-size: 18px;
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0px 6px 0px #d47a89;
+    transition: 0.2s ease-in-out;
+}
+
+#delivery_page input[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 9px 0px #c66875;
+}
+
+#delivery_page input[type="submit"]:active {
+    transform: translateY(2px);
+    box-shadow: 0px 3px 0px #a65460;
+}
+
+/* Link voltar */
+#delivery_page a {
+    display: inline-block;
+    margin-top: 25px;
+    color: #7a3549;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+#delivery_page a:hover {
+    text-decoration: underline;
+}
+
+/* LOGO DO LADO */
+#delivery_page #delivery_logo {
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    width: 180px;
+    height: auto;
+    user-select: none;
+}
+
+/* Ajuste responsivo para celular */
+@media (max-width: 700px) {
+    #delivery_page #delivery_logo {
+        position: static;
+        display: block;
+        margin: 0 auto;
+        width: 140px;
+        padding-bottom: 20px;
+    }
+
+    #delivery_page #deliveryForm {
+        margin-top: 10px;
+    }
+}
+
+/* gravar.php */
+/* ==========================================================
+      PÁGINA FINALIZADA — ESTILO EXCLUSIVO (#final_page)
+   ========================================================== */
+   #final_page {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #fbdade, #f3b8c0);
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    padding-top: 80px;
+    position: relative;
+}
+
+/* LOGO NO CANTO DIREITO */
+#final_page #final_logo {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 150px;
+    height: auto;
+    user-select: none;
+}
+
+/* ===============================
+   ANIMAÇÃO DO CASTIEL (OPÇÃO D)
+   Flutuar + Glow rosa
+   =============================== */
+
+@keyframes castielFloat {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes castielGlow {
+    0%   { filter: drop-shadow(0px 5px 10px rgba(255, 140, 160, 0.3)); }
+    50%  { filter: drop-shadow(0px 7px 14px rgba(255, 90, 140, 0.55)); }
+    100% { filter: drop-shadow(0px 5px 10px rgba(255, 140, 160, 0.3)); }
+}
+
+#final_page #final_img {
+    width: 230px;
+    margin-bottom: 20px;
+
+    /* Animação dupla */
+    animation: castielFloat 4s ease-in-out infinite,
+               castielGlow 3s ease-in-out infinite;
+}
+
+/* TÍTULO */
+#final_page h1 {
+    font-family: "Playfair Display", serif;
+    color: #d45c7b;
+    font-size: 40px;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+/* TEXTOS */
+#final_page p {
+    font-size: 20px;
+    color: #7a3549;
+    font-weight: 500;
+    margin: 8px 0;
+}
+
+/* ID DO PEDIDO */
+#final_page p b {
+    color: #d8718a;
+    font-size: 22px;
+}
+
+/* BOTÃO VOLTAR AO MENU */
+#final_page a {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 28px;
+    border-radius: 18px;
+    background: #ff9eb0;
+    color: #fff;
+    font-size: 20px;
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0px 6px 0px #d47a89;
+    transition: 0.2s ease-in-out;
+}
+
+/* HOVER */
+#final_page a:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 10px 0px #c66875;
+}
+
+/* ACTIVE */
+#final_page a:active {
+    transform: translateY(2px);
+    box-shadow: 0px 4px 0px #a65460;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 700px) {
+    #final_page #final_logo {
+        width: 120px;
+        right: 15px;
+        top: 15px;
+    }
+
+    #final_page #final_img {
+        width: 180px;
+    }
+
+    #final_page h1 {
+        font-size: 32px;
+    }
+}

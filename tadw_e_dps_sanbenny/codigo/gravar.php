@@ -3,10 +3,8 @@ session_start();
 require_once "conexao.php";
 require_once "funcoes.php";
 
-if (empty($_SESSION['carrinho'])) {
-    header("Location: carrinho.php");
-    exit;
-}
+// ✅ NÃO PODE verificar carrinho vazio aqui
+// (pois o carrinho é esvaziado no final)
 
 // dados enviados
 $forma_pagamento = $_POST['forma_pagamento'];
@@ -26,8 +24,16 @@ $stmt = mysqli_prepare($conexao, $sql);
 $valor_pago = 0;
 $troco = 0;
 
-mysqli_stmt_bind_param($stmt, "idddds",
-    $idcliente, $taxa, $total_final, $valor_pago, $troco, $data_hora);
+mysqli_stmt_bind_param(
+    $stmt,
+    "idddds",
+    $idcliente,
+    $taxa,
+    $total_final,
+    $valor_pago,
+    $troco,
+    $data_hora
+);
 
 mysqli_stmt_execute($stmt);
 
@@ -65,10 +71,16 @@ unset($_SESSION['carrinho']);
 <head>
     <meta charset="UTF-8">
     <title>Pedido Finalizado</title>
+    <link rel="stylesheet" href="estilo.css"> 
 </head>
-<body>
+
+<body id="final_page">
+
+    <img id="final_logo" src="fotos/logo_diego.png" alt="Logo">
+    <img id="final_img" src="fotos/castiel.webp" alt="Castiel">
 
     <h1>Pedido Finalizado!</h1>
+
     <p>Seu pedido foi registrado com sucesso.</p>
     <p>ID do pedido: <b><?php echo $idcarrinho; ?></b></p>
 
