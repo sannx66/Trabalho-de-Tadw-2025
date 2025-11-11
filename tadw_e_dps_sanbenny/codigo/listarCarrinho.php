@@ -1,5 +1,5 @@
 <?php
-    require_once "verificarLogado.php";
+    require_once "verificarlogado.php";
 
     if ($_SESSION['tipo'] == 'c') {
         header("Location: home.php");
@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listar Carrinho</title>
+    <title>Listar de Carrinhos</title>
     <style>
         img {
             width: 50px;
@@ -29,7 +29,7 @@
 
     $lista_carrinho= listarCarrinho($conexao);
 
-    if (count($lista_clientes) == 0) {
+    if (count($lista_carrinho) == 0) {
         echo "Não existem carrinhos cadastrados";
     } else {
     ?>
