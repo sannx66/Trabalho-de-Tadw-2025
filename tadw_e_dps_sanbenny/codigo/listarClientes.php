@@ -38,7 +38,7 @@
         <table border="1">
             <tr>
                 <td>Id</td>
-                <td>Foto</td>
+                <!-- <td>Foto</td> -->
                 <td>Nome</td>
                 <td>CPF</td>
                 <td>Endereço</td>

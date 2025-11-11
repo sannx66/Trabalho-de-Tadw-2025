@@ -41,23 +41,58 @@ function editarCliente($conexao, $email, $senha, $nome, $telefone, $endereco, $t
     
     return $funcionou; 
 };
+
 // funcionando
 
 
 function deletarCliente($conexao, $idcliente) {
-    $sql = "DELETE FROM tb_cliente WHERE idcliente = ?";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'i', $idcliente);
+    // 1. Inicia a transação para segurança
+    mysqli_begin_transaction($conexao);
 
-    $funcionou = mysqli_stmt_execute($comando);
-    mysqli_stmt_close($comando);
-    
-    return $funcionou;
-};
+    try {
+        // 2. DELETA OS REGISTROS FILHOS (tb_carrinho)
+        $sql_carrinho = "DELETE FROM tb_carrinho WHERE idcliente = ?";
+        $comando_carrinho = mysqli_prepare($conexao, $sql_carrinho);
+        mysqli_stmt_bind_param($comando_carrinho, 'i', $idcliente);
+        mysqli_stmt_execute($comando_carrinho); // <-- Aqui seu erro era anteriormente!
+        mysqli_stmt_close($comando_carrinho);
+
+        // 3. DELETA O REGISTRO PAI (tb_cliente)
+        $sql_cliente = "DELETE FROM tb_cliente WHERE idcliente = ?";
+        $comando_cliente = mysqli_prepare($conexao, $sql_cliente);
+        mysqli_stmt_bind_param($comando_cliente, 'i', $idcliente);
+        $funcionou = mysqli_stmt_execute($comando_cliente);
+        mysqli_stmt_close($comando_cliente);
+
+        // 4. Confirma as alterações (se as duas deleções funcionaram)
+        mysqli_commit($conexao);
+        return $funcionou;
+
+    } catch (mysqli_sql_exception $e) {
+        // 5. Desfaz as alterações se algo falhou
+        mysqli_rollback($conexao);
+        return false;
+    }
+}
 // funcionando
 
-function pesquisarClienteNome($conexao, $nome) {
+function pesquisarClienteId($conexao, $idcliente) {
+    $sql = "SELECT * FROM tb_cliente WHERE idcliente = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idcliente);
+
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $cliente = mysqli_fetch_assoc($resultado);
+
+    mysqli_stmt_close($comando);
+    return $cliente;
+};
+
+function pesquisarclienteNome($conexao, $nome)
+{
     $sql = "SELECT * FROM tb_cliente WHERE nome LIKE ?";
     $comando = mysqli_prepare($conexao, $sql);
 
@@ -68,14 +103,15 @@ function pesquisarClienteNome($conexao, $nome) {
 
     $resultados = mysqli_stmt_get_result($comando);
 
-    $lista_clientes = [];
+    $lista_cliente = [];
     while ($cliente = mysqli_fetch_assoc($resultados)) {
-        $lista_clientes[] = $cliente;
+        $lista_cliente[] = $cliente;
     }
     mysqli_stmt_close($comando);
 
-    return $lista_clientes;
+    return $lista_cliente;
 };
+
 
 
 //sandy 
@@ -246,16 +282,36 @@ function editarCarrinho($conexao, $idcliente, $valor_entrega, $valor_total, $val
 
 
 function deletarCarrinho($conexao, $idcarrinho) { 
-    $sql = "DELETE FROM tb_carrinho WHERE idcarrinho = ?";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'i', $idcarrinho);
+    // 1. Inicia a transação para garantir a integridade dos dados
+    mysqli_begin_transaction($conexao);
 
-    $funcionou = mysqli_stmt_execute($comando);
-    mysqli_stmt_close($comando);
-    
-    return $funcionou;
-};
+    try {
+        // 2. DELETA OS REGISTROS FILHOS (tb_entrega)
+        // Isso remove a restrição de chave estrangeira
+        $sql_entrega = "DELETE FROM tb_entrega WHERE idcarrinho = ?";
+        $comando_entrega = mysqli_prepare($conexao, $sql_entrega);
+        mysqli_stmt_bind_param($comando_entrega, 'i', $idcarrinho);
+        mysqli_stmt_execute($comando_entrega); 
+        mysqli_stmt_close($comando_entrega);
+        
+        // 3. DELETA O REGISTRO PAI (tb_carrinho)
+        $sql_carrinho = "DELETE FROM tb_carrinho WHERE idcarrinho = ?";
+        $comando = mysqli_prepare($conexao, $sql_carrinho);
+        mysqli_stmt_bind_param($comando, 'i', $idcarrinho);
+        $funcionou = mysqli_stmt_execute($comando);
+        mysqli_stmt_close($comando);
+
+        // 4. Confirma as alterações (se as duas deleções funcionaram)
+        mysqli_commit($conexao);
+        return $funcionou;
+        
+    } catch (mysqli_sql_exception $e) {
+        // 5. Desfaz as alterações se algo falhou
+        mysqli_rollback($conexao);
+        // Opcional: Você pode logar o erro aqui ($e->getMessage())
+        return false;
+    }
+}
 // funcionando
 
 

@@ -84,3 +84,5 @@ a{
 #carrinho_titulo::after {
     content: "";
     width: 150px;
+}
+

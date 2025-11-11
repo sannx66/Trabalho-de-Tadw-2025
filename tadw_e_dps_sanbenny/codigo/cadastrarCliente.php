@@ -2,9 +2,14 @@
     if (isset($_GET['id'])) {
         require_once "conexao.php";
         require_once "funcoes.php";
+    }
+
+    if (isset($_GET['id'])) {   
 
         $id = $_GET['id'];
-        $cliente = pesquisarClienteNome($conexao, $id);
+
+        $cliente = pesquisarClienteId($conexao, $id);
+
         $nome = $cliente['nome'];
         $telefone = $cliente['telefone'];
         $endereco = $cliente['endereco'];

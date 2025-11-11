@@ -15,12 +15,16 @@ $tipo = "c";
 $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
 if ($idcliente == 0){
+    
     salvarCliente($conexao, $email, $senha_hash, $nome, $telefone, $endereco);
+
+    header("Location: index.php");
 }else{
     editarCliente($conexao, $email, $senha, $nome, $telefone, $endereco, $tipo, $idcliente);
+    
+    header("Location: listarClientes.php");
+
 }
 
-
- header("Location: index.php");
 
 ?>
