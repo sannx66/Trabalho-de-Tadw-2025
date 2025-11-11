@@ -1336,3 +1336,103 @@ input.quantidade {
         font-size: 32px;
     }
 }
+
+/* home.php */
+
+/* =============================
+   HOME ADMIN – LAYOUT FINAL
+   ============================= */
+
+/* Fundo */
+#home_admin_page {
+    background: linear-gradient(135deg, #ffe7ef, #ffd3e3);
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: "Poppins", Arial, sans-serif;
+}
+
+/* CONTAINER GERAL COM DUAS COLUNAS */
+#home_admin_container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+/* =============================
+   COLUNA ESQUERDA (SETA + MENU)
+   ============================= */
+#home_left_col {
+    width: 50%;
+}
+
+/* Seta voltar */
+#home_admin_voltar {
+    font-size: 45px;
+    color: #c73462;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 25px;
+}
+
+#home_admin_voltar:hover {
+    transform: translateX(-4px);
+    transition: 0.2s;
+}
+
+/* MENU */
+#home_admin_menu {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#home_admin_menu li a {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    background: #fff4f8;
+    border: 2px solid #ffcede;
+    border-radius: 18px;
+    text-align: center;
+    color: #a32c52;
+    font-size: 19px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.25s ease;
+    box-shadow: 0 4px 12px rgba(255, 120, 150, 0.15);
+}
+
+#home_admin_menu li a:hover {
+    background: #ffd9e7;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(255, 120, 150, 0.25);
+}
+
+/* =============================
+   COLUNA DIREITA (LOGO GRANDE)
+   ============================= */
+#home_right_col {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#home_admin_logo {
+    width: 420px;       /* TAMANHO LINDO */
+    max-width: 100%;
+    height: auto;
+}
+
