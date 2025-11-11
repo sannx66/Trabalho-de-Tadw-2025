@@ -11,6 +11,8 @@ if (empty($_SESSION['carrinho'])) {
 // Importa conexão com banco e funções auxiliares
 require_once "conexao.php";
 require_once "funcoes.php";
+require_once "verificarlogado.php";
+
 
 // Calcula o total da compra somando todos os itens do carrinho
 $total = 0;

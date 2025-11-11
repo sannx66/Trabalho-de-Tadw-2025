@@ -3,6 +3,8 @@ session_start();
 
 require_once "conexao.php";
 require_once "funcoes.php";
+require_once "verificarlogado.php";
+
 ?>
 
 <!DOCTYPE html>
