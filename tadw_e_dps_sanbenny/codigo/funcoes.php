@@ -57,20 +57,26 @@ function deletarCliente($conexao, $idcliente) {
 };
 // funcionando
 
-function pesquisarClienteId($conexao, $idcliente) {
-    $sql = "SELECT * FROM tb_cliente WHERE idcliente = ?";
+function pesquisarClienteNome($conexao, $nome) {
+    $sql = "SELECT * FROM tb_cliente WHERE nome LIKE ?";
     $comando = mysqli_prepare($conexao, $sql);
 
-    mysqli_stmt_bind_param($comando, 'i', $idcliente);
+    $nome = "%" . $nome . "%";
+    mysqli_stmt_bind_param($comando, 's', $nome);
 
     mysqli_stmt_execute($comando);
-    $resultado = mysqli_stmt_get_result($comando);
 
-    $cliente = mysqli_fetch_assoc($resultado);
+    $resultados = mysqli_stmt_get_result($comando);
 
+    $lista_clientes = [];
+    while ($cliente = mysqli_fetch_assoc($resultados)) {
+        $lista_clientes[] = $cliente;
+    }
     mysqli_stmt_close($comando);
-    return $cliente;
+
+    return $lista_clientes;
 };
+
 
 //sandy 
 
