@@ -17,12 +17,10 @@ if ($_SESSION['tipo'] != 'g') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pesquisar Cliente</title>
     <link rel="stylesheet" href="estilo.css">
-    <link rel="stylesheet" href="pesquisar_cliente.css"> <!-- ✅ SEU CSS EXTERNO -->
 </head>
 
 <body id="pesquisar_cliente_page">
 
-    <!-- FORMULÁRIO -->
     <form id="pesquisar_cliente_form" action="pesquisarCliente.php" method="get">
         <h2>Pesquisar Cliente</h2>
         <br>
@@ -41,7 +39,6 @@ if ($_SESSION['tipo'] != 'g') {
         require_once "conexao.php";
         require_once "funcoes.php";
 
-        // A função de pesquisa
         $clientes = pesquisarClienteNome($conexao, $nomePesquisa);
 
         if (empty($clientes)) {
@@ -72,7 +69,6 @@ if ($_SESSION['tipo'] != 'g') {
     }
     ?>
 
-    <!-- BOTÃO VOLTAR -->
     <a id="pesquisar_cliente_voltar" href="home.php">⟵ Voltar</a>
 
 </body>

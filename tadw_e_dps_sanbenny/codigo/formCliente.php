@@ -9,7 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = trim($_POST['email_entrada']);
     $senha = trim($_POST['senha_entrada']);
 
-    // Verificar se o email existe
     $clientes = listarClientes($conexao);
 
     $emailExiste = false;
@@ -39,10 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
-    // LOGIN OK
     $_SESSION['idcliente'] = $iduser;
 
-    // PEGAR NOME E TIPO DO CLIENTE
     $dados = pegarDadosCliente($conexao, $iduser);
 
     $_SESSION['nome'] = $dados['nome'];
@@ -50,11 +47,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $_SESSION['logado'] = true;
 
-    // REDIRECIONAR PARA O PAINEL
     header("Location: categorias.php");
     exit;
 }
 ?>
+
+<!-- se apagar dá errado -->
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -70,10 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
 
-<!-- LOGO -->
 <img src="fotos/logo_diego.png" class="logo-canto">
 
-<!-- FORM LOGIN -->
 <form id="form_login"  method="post">
 
     <label for="email_entrada">E-mail</label>
@@ -88,7 +84,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             id="senha_entrada" 
             placeholder="Digite sua senha">
 
-        <!-- OLHINHO -->
         <button type="button" class="mostrarSenhaLogin">
             <img src="fotos/olho_fechado.png" alt="">
         </button>
@@ -96,7 +91,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <input type="submit" value="Entrar">
 
-    <!-- MENSAGEM DE ERRO PERSONALIZADA -->
     <p id="erroLogin" style="color:red; font-size:13px; font-weight:600; margin-top:10px;"></p>
 
 </form>
@@ -104,7 +98,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <script>
 $(document).ready(function(){
 
-    /* ✅ VALIDAÇÃO DO FORMULÁRIO */
     $("#form_login").validate({
         rules: {
             email_entrada: {
@@ -126,7 +119,6 @@ $(document).ready(function(){
         }
     });
 
-    /* ✅ OLHINHO */
     $(".mostrarSenhaLogin").click(function(){
         let campo = $("#senha_entrada");
         let img = $(this).find("img");

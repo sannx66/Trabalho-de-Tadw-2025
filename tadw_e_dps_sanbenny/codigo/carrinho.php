@@ -96,7 +96,6 @@ if (empty($_SESSION['carrinho'])) {
 
 <script>
 
-// ✅ Atualiza total geral
 function atualizar_total() {
     let total = 0;
     $("span.total_unitario").each(function() {
@@ -105,7 +104,6 @@ function atualizar_total() {
     $("#total").text(total);
 }
 
-// ✅ Atualiza quantidade
 $(".quantidade").on("change", function() {
     const input = $(this);
     const id = input.data("id");
@@ -127,13 +125,11 @@ $(".quantidade").on("change", function() {
     });
 });
 
-// ✅ Botão +
 $(".aumentar").click(function() {
     const input = $(this).siblings(".quantidade");
     input.val(parseInt(input.val()) + 1).change();
 });
 
-// ✅ Botão -
 $(".diminuir").click(function() {
     const input = $(this).siblings(".quantidade");
     if (parseInt(input.val()) > 1) {
@@ -141,7 +137,6 @@ $(".diminuir").click(function() {
     }
 });
 
-// ✅ Remover item
 $(".remover").click(function() {
     const id = $(this).data("id");
     const linha = $(this).closest("tr");

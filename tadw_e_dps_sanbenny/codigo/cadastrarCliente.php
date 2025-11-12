@@ -32,20 +32,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cadastro de Cliente</title>
-
 <link rel="stylesheet" href="estilo.css">
-
-<!-- scripts -->
 <script src="jquery-3.7.1.min.js"></script>
 <script src="jquery.validate.min.js"></script>
-
-<!-- ✅ arquivo correto -->
 <script src="jquery.mask.js"></script>
 
 </head>
 <body>
 
-<!-- ✅ LOGO -->
 <img src="fotos/logo_diego.png" class="logo-canto">
 
 <form id="formulario" action="salvarUsuario.php?id=<?php echo $id; ?>" method="post">
@@ -95,10 +89,8 @@
 <script>
 $(document).ready(function () {
 
-    // ✅ máscara funcionando agora
     $('#telefone').mask('(00) 00000-0000');
 
-    // ✅ validação funcionando
     $("#formulario").validate({
         rules: {
             email: { required: true, email: true },
@@ -121,7 +113,6 @@ $(document).ready(function () {
     });
 });
 
-// ✅ OLHINHO FUNCIONANDO
 document.querySelectorAll(".mostrarSenha").forEach(btn => {
     btn.addEventListener("click", function () {
         const campo = document.getElementById(this.dataset.target);

@@ -14,16 +14,11 @@ if ($_SESSION['tipo'] != 'g') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pesquisar Produto</title>
-
     <link rel="stylesheet" href="estilo.css">
-
-    <!-- ✅ CSS exclusivo desta página -->
-    <link rel="stylesheet" href="pesquisar_produto.css">
 </head>
 
 <body id="pesquisar_produto_page">
 
-    <!-- FORMULÁRIO -->
     <form id="pesquisar_produto_form" action="pesquisarProduto.php" method="get">
         <h2>Pesquisar Produto</h2>
         <br>
@@ -74,7 +69,6 @@ if ($_SESSION['tipo'] != 'g') {
     }
     ?>
 
-    <!-- BOTÃO VOLTAR -->
     <a id="pesquisar_produto_voltar" href="home.php">⟵ Voltar</a>
 
 </body>

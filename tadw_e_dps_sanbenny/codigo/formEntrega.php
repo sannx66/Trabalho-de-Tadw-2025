@@ -7,7 +7,6 @@
 ?>
 <?php
     if (isset($_GET['id'])) {
-        // echo "editar";
         
 
         require_once "conexao.php";
@@ -23,7 +22,6 @@
         $botao = "Atualizar";
     }
     else {
-        // echo "novo";
         $id = 0;
         $identrega = "";
         $entregador = "";
