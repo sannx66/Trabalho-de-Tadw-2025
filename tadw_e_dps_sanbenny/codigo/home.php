@@ -17,10 +17,8 @@ require_once "./verificarlogado.php";
 
     <div id="home_left_col">
 
-        <!-- BOTÃO VOLTAR -->
         <a id="home_admin_voltar" href="categorias.php">⟵</a>
 
-        <!-- MENU CENTRAL -->
         <ul id="home_admin_menu">
             <?php
                 if ($_SESSION['tipo'] == 'g') {
@@ -41,7 +39,6 @@ require_once "./verificarlogado.php";
 
     </div>
 
-    <!-- COLUNA DIREITA: IMAGEM -->
     <div id="home_right_col">
         <img id="home_admin_logo" src="fotos/logo_diego.png" alt="Logo">
     </div>

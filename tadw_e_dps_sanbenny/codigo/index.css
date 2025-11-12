@@ -1,9 +1,4 @@
-/* ==========================
-   PÁGINA DE ENTRADA – DOCERIA
-   Layout elegante e limpo
-   ========================== */
 
-/* FUNDO GERAL */
 #index_page {
   background: linear-gradient(135deg, #ffe0ea, #f7c2d3);
   min-height: 100vh;
@@ -15,7 +10,6 @@
   font-family: "Montserrat", sans-serif;
 }
 
-/* CONTAINER GERAL 2 COLUNAS */
 #index_container {
   width: 90%;
   max-width: 1250px;
@@ -25,7 +19,6 @@
   gap: 40px;
 }
 
-/* COLUNA ESQUERDA – LOGO */
 #index_left {
   width: 50%;
   display: flex;
@@ -39,14 +32,12 @@
   filter: drop-shadow(0 6px 14px rgba(0,0,0,0.18));
 }
 
-/* COLUNA DIREITA – TEXTOS E BOTÕES */
 #index_right {
   width: 50%;
   text-align: center;
   color: #7b2240;
 }
 
-/* TÍTULOS */
 #index_title {
   font-size: 62px;
   font-weight: 700;
@@ -64,7 +55,6 @@
   color: #8c3453;
 }
 
-/* BOTÕES PRINCIPAIS */
 .index_button {
   display: block;
   width: 280px;
@@ -86,7 +76,6 @@
   box-shadow: 0 8px 18px rgba(255, 130, 160, 0.25);
 }
 
-/* linha dourada abaixo */
 #carrinho_titulo::after {
     content: "";
     width: 150px;

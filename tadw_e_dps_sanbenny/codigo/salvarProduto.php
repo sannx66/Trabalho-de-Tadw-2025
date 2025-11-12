@@ -28,6 +28,5 @@ if ($id == 0) {
     editarProduto($conexao, $id, $foto, $nome, $disponivel, $tipo, $ingredientes, $valor_un, $observacoes);
 }
 
-// Redireciona e encerra
 header("Location: listarProdutos.php");
 exit;

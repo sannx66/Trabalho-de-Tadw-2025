@@ -24,7 +24,6 @@
         $botao = "Atualizar";
     }
     else {
-        // echo "novo";
         $id = 0;
         $entregador = "";
         $idcarrinho = "";

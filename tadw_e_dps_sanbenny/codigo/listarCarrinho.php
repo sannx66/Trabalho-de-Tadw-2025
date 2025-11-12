@@ -20,7 +20,6 @@ $lista_carrinho = listarCarrinho($conexao);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Carrinhos</title>
 
-    <!-- ✅ Usa o mesmo CSS do listarClientes -->
     <link rel="stylesheet" href="estilo.css">
 
 </head>
@@ -29,7 +28,6 @@ $lista_carrinho = listarCarrinho($conexao);
 <a href="home.php" class="voltar-seta-fixa">⟵</a>
 
 
-    <!-- Seta voltar -->
     <a href="home.php" class="voltar-seta">⟵</a>
 
     <h1>Lista de Carrinhos</h1>
@@ -60,15 +58,12 @@ $lista_carrinho = listarCarrinho($conexao);
             $troco = $carrinho['troco'];
             $data_hora = $carrinho['data_hora'];
 
-            // ✅ 1: Busca o cliente pelo ID
             $clienteReal = pesquisarClienteId($conexao, $idcliente);
             $nomeReal = $clienteReal ? $clienteReal["nome"] : "";
 
-            // ✅ 2: Usa pesquisarClienteNome() como você pediu
             $lista = pesquisarClienteNome($conexao, $nomeReal);
             $cliente = $lista[0] ?? null;
 
-            // ✅ Nome final
             $nomeCliente = $cliente ? $cliente["nome"] : "Cliente não encontrado";
 
             echo "<tr>";

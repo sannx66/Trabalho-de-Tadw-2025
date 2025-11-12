@@ -15,7 +15,6 @@ $bolos = listarProdutostipo($conexao, 'bolo');
 
 <body id="cardapio-bolos">
 
-    <!-- SETA VOLTAR FIXA -->
     <a href="categorias.php" class="voltar-seta">←</a>
 
     <h1>🍰 Bolos Disponíveis</h1>
@@ -72,7 +71,6 @@ $bolos = listarProdutostipo($conexao, 'bolo');
     </div>
 </div>
 
-    <!-- OVERLAY ESCURO -->
     <div id="alert-overlay"></div>
 
 
@@ -100,7 +98,6 @@ $bolos = listarProdutostipo($conexao, 'bolo');
                     alerta.style.opacity = '1';
                 }, 10);
 
-                // FECHA AUTOMATICAMENTE APÓS 5s
                 setTimeout(() => fecharAlerta(), 5000);
             })
             .catch(error => {
@@ -109,7 +106,6 @@ $bolos = listarProdutostipo($conexao, 'bolo');
         });
     });
 
-    // ✅ BOTÃO "OK" FECHA O ALERTA NA HORA
     document.getElementById('alert-ok').addEventListener('click', fecharAlerta);
 
     function fecharAlerta() {

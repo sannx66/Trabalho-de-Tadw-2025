@@ -1,10 +1,9 @@
 <?php
-require_once "verificarlogado.php"; // já tem session_start()
-
+require_once "verificarlogado.php"; 
 require_once "conexao.php";
 require_once "funcoes.php";
 
-// Captura dados vindos do pagamento.php (GET)
+// Captura dados vindos do pagamento.php 
 $forma_pagamento = $_GET['pg'] ?? '';
 $troco = $_GET['troco'] ?? '';
 
@@ -28,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-// Se não enviou POST → mostrar tela com dados existentes
 $nome         = $_SESSION['cliente_nome']        ?? '';
 $telefone     = $_SESSION['cliente_telefone']    ?? '';
 $endereco     = $_SESSION['cliente_endereco']    ?? '';

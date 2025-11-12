@@ -15,7 +15,6 @@ $cafes = listarProdutostipo($conexao, 'cafe');
 
 <body id="cardapio-bolos">
 
-    <!-- SETA VOLTAR FIXA -->
     <a href="categorias.php" class="voltar-seta">←</a>
 
     <h1>☕ Cafés Disponíveis</h1>
@@ -63,7 +62,6 @@ $cafes = listarProdutostipo($conexao, 'cafe');
         <?php endforeach; ?>
     <?php endif; ?>
 
-    <!-- ALERTA GRANDE CENTRALIZADO -->
     <div id="alert-carrinho">
         <img src="fotos/carrinho.png" alt="Carrinho" class="alert-carrinho-img">
         <p>Produto adicionado ao carrinho!</p>
@@ -74,10 +72,8 @@ $cafes = listarProdutostipo($conexao, 'cafe');
         </div>
     </div>
 
-    <!-- OVERLAY ESCURO -->
     <div id="alert-overlay"></div>
 
-    <!-- SCRIPT DO ALERTA -->
     <script>
         document.querySelectorAll('.comprar').forEach(form => {
             form.addEventListener('submit', function(e) {
@@ -102,7 +98,6 @@ $cafes = listarProdutostipo($conexao, 'cafe');
                         alerta.style.opacity = '1';
                     }, 10);
 
-                    // Fecha automaticamente em 5s
                     setTimeout(() => fecharAlerta(), 5000);
                 })
                 .catch(error => {
@@ -111,7 +106,6 @@ $cafes = listarProdutostipo($conexao, 'cafe');
             });
         });
 
-        // Botão OK fecha imediatamente
         document.getElementById('alert-ok').addEventListener('click', fecharAlerta);
 
         function fecharAlerta() {
