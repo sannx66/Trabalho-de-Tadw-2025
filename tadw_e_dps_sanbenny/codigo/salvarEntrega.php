@@ -2,17 +2,15 @@
 require_once "conexao.php";
 require_once "funcoes.php";
 
-$id = $_POST['id'];
-$identrega = $_POST["identrega"];
+$id = $_GET['id'];
 $entregador = $_POST["entregador"];
 $idcarrinho = $_POST["idcarrinho"];
 
 
 if ($id == 0) {
-    salvarEntrega($conexao, $identrega, $entregador, $idcarrinho);
+    salvarEntrega($conexao, $entregador, $idcarrinho);
 } else {
-    editarEntrega($conexao, $entregador, $idcarrinho, $identrega);
-
+    editarEntrega($conexao, $entregador, $idcarrinho, $id);
 }
 
 header("Location: listarEntregas.php");

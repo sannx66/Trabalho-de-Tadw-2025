@@ -362,6 +362,8 @@ function salvarEntrega($conexao, $entregador, $idcarrinho) {
    
    mysqli_stmt_execute($comando);
    mysqli_stmt_close($comando);
+
+   header('listarEntregas.php');
 }
 
 // funcionando
