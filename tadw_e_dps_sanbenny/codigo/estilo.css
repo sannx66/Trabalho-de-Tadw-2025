@@ -769,6 +769,7 @@ input.quantidade {
     transform: translateY(-2px);
 }
 
+/* PAGAMENTO */
 
 #pagamento_page {
     background: linear-gradient(#fcd3d3, #f7bcbc);
@@ -804,6 +805,7 @@ input.quantidade {
     font-weight: bold;
 }
 
+/* total dourado */
 #pagamento_total {
     color: #d4af37; 
     font-size: 24px;
@@ -2169,3 +2171,64 @@ input.quantidade {
     background-color: #d32f2f;
     transform: scale(1.05);
 }
+
+
+/* erro.pph */
+
+html, body {
+height: 100%;
+margin: 0;
+padding: 0;
+}
+
+/* fundo */
+#erro_pagina_unique_9f3a {
+background: #ffc0cb; 
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+
+#erro_wrapper_unique_9f3a {
+text-align: center;
+padding: 20px;
+width: 100%;
+max-width: 720px;
+box-sizing: border-box;
+}
+
+
+#erro_img_unique_9f3a {
+display: block;
+margin: 0 auto 20px;
+width: clamp(160px, 40vw, 320px);
+height: auto;
+border-radius: 12px;
+box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+
+#erro_msg_unique_9f3a {
+margin: 0;
+font-size: clamp(16px, 2.5vw, 22px);
+color: #4a004a;
+font-weight: 600;
+}
+
+#seta_voltar_unique_9f3a {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 32px;
+  text-decoration: none;
+  color: #4a004a; /* cor da seta */
+  transition: color 0.25s ease;
+  z-index: 1000;
+}
+
+#seta_voltar_unique_9f3a:hover {
+  color: #d63384; /* muda a cor quando passa o mouse */
+}
+

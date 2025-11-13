@@ -60,5 +60,4 @@
   }
   ?>
 </body>
-<a href="home.php">Voltar</a>
-</html>
+ <a id="voltar-link" href="home.php">⟵ Voltar</a></html>
