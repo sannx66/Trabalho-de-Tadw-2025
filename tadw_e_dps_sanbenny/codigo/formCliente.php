@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             break;
         }
     }
+    // verifica se o email existe no banco, e se existir ele troca o 'false ' por 'true'
 
     if (!$emailExiste) {
         echo "<script>
@@ -27,7 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
-    // Verificar senha usando a função existente
     $iduser = verificarlogin($conexao, $email, $senha);
 
     if ($iduser == 0) {
@@ -52,7 +52,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
-<!-- se apagar dá errado -->
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -60,10 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-
     <link rel="stylesheet" href="estilo.css">
-
-    <script src="jquery-3.7.1.min.js"></script>
+     <script src="jquery-3.7.1.min.js"></script>
     <script src="jquery.validate.min.js"></script>
 </head>
 <body>

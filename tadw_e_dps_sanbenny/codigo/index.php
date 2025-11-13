@@ -17,12 +17,10 @@
 
     <div id="index_container">
 
-        <!-- LOGO -->
         <div id="index_left">
             <img id="index_logo" src="./fotos/logo_diego.png" alt="logo_doceria">
         </div>
 
-        <!-- TEXTOS E BOTÕES -->
         <div id="index_right">
 
             <h1 id="index_title">Doceria</h1>

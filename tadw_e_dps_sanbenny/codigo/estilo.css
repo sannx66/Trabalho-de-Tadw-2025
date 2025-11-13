@@ -1,9 +1,8 @@
 /* CADASTRAR CLIENTEEEEE */
 
-/* ====== FONTES ====== */
+/* Fontes personalizadas*/
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;600&display=swap');
 
-/* ====== FUNDO ====== */
 body {
     margin: 0;
     padding: 0;
@@ -11,7 +10,6 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-/* ====== LOGO ====== */
 .logo-canto {
     position: absolute;
     top: 20px;
@@ -19,7 +17,6 @@ body {
     width: 130px;
 }
 
-/* ====== FORM ====== */
 #formulario {
     background: #ffffff;
     width: 380px;
@@ -30,7 +27,6 @@ body {
     box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
 }
 
-/* ====== LABELS ====== */
 #formulario label,
 #formulario br {
     text-align: center;
@@ -45,7 +41,6 @@ body {
     margin-bottom: 6px;
 }
 
-/* ====== INPUTS ====== */
 #formulario input[type="text"],
 #formulario input[type="password"],
 #formulario input[type="email"] {
@@ -61,14 +56,13 @@ body {
     color: #333;
 }
 
-/* ====== INPUT FOCADO ====== */
 #formulario input:focus {
     border: 2px solid #ff9eb0;
     background: #ffe4ea;
     transition: 0.2s;
 }
 
-/* ====== BOTÃO ====== */
+/* botão */
 #formulario input[type="submit"] {
     margin-top: 15px;
     width: 100%;
@@ -98,7 +92,6 @@ body {
     transition: 0.1s;
 }
 
-/* ====== CAMPO SENHA COM OLHINHO ====== */
 .campo-senha {
     position: relative;
 }
@@ -118,7 +111,7 @@ body {
     opacity: 0.85;
 }
 
-/* ====== MENSAGENS DE ERRO ====== */
+/* mensagens de erro */
 label.error {
     color: #b30000;
     font-size: 13px;
@@ -139,13 +132,11 @@ label.error {
     display: block;
     font-weight: 500;
 }
-/* .. */
 
 /* FORM CLIENTEEEEEEE */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;600&display=swap');
 
-/* ====== FUNDO ====== */
 body {
     margin: 0;
     padding: 0;
@@ -153,7 +144,6 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-/* LOGO */
 .logo-canto {
     position: absolute;
     top: 20px;
@@ -161,7 +151,6 @@ body {
     width: 130px;
 }
 
-/* FORM LOGIN */
 #form_login {
     background: #ffffff;
     width: 380px;
@@ -172,7 +161,6 @@ body {
     box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
 }
 
-/* LABELS */
 #form_login label {
     font-family: 'Playfair Display', serif;
     font-size: 19px;
@@ -182,7 +170,6 @@ body {
     margin-bottom: 6px;
 }
 
-/* INPUTS */
 #form_login input[type="text"],
 #form_login input[type="password"] {
     width: 100%;
@@ -197,14 +184,13 @@ body {
     color: #333;
 }
 
-/* INPUT FOCUS */
 #form_login input:focus {
     border: 2px solid #ff9eb0;
     background: #ffe4ea;
     transition: .2s;
 }
 
-/* BOTÃO */
+/* botão */
 #form_login input[type="submit"] {
     margin-top: 10px;
     width: 100%;
@@ -231,12 +217,12 @@ body {
     box-shadow: 0px 4px 0px #a65460;
 }
 
-/* CAMPO SENHA */
+/* senha */
 #login-senha {
     position: relative;
 }
 
-/* BOTÃO OLHINHO */
+/* olhinho */
 #login-senha .mostrarSenhaLogin {
     position: absolute;
     right: 14px;
@@ -261,7 +247,6 @@ label.error {
     margin-bottom: 10px;
 }
 
-/* .. */
 
 
 /* CATEGORIAS */
@@ -338,7 +323,7 @@ label.error {
     transform: skewX(-10deg);
 }
 
-/* ✅ Responsivo */
+/* deixar o responsive */
 @media (max-width: 900px) {
     #categorias-page h1 {
         font-size: 50px;
@@ -380,11 +365,8 @@ label.error {
 
 
 
-/* .. */
 
 /* BOLO CARDAPIO */
-
- 
 
 #cardapio-bolos {
     background: linear-gradient(180deg, #f7c9d8, #f3b1c3, #ef97af);
@@ -1138,6 +1120,7 @@ input.quantidade {
     user-select: none;
 }
 
+/* deixar responsive, acho q precisava só de um, mas vai que ne */
 @media (max-width: 700px) {
     #delivery_page #delivery_logo {
         position: static;
