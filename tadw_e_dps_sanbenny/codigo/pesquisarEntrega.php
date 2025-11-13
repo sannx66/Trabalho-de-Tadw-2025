@@ -21,7 +21,7 @@
 
   <form action="pesquisarEntrega.php" method="get">
     ID da entrega: <br>
-    <input type="number" name="valor"> <br><br>
+    <input type="number" name="valor" min="0"> <br><br>
 
     <input type="submit" value="Pesquisar">
   </form>
