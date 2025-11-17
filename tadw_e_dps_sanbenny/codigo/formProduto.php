@@ -87,7 +87,7 @@ if (isset($_GET['id'])) {
         <input type="text" name="ingredientes" value="<?php echo $ingredientes; ?>">
 
         <label>Valor Unitário:</label>
-        <input type="number" name="valor_un" value="<?php echo $valor_un; ?>">
+        <input type="number" min ="5" name="valor_un" value="<?php echo $valor_un; ?>">
 
         <label>Observações:</label>
         <input type="text" name="observacoes" value="<?php echo $observacoes; ?>">
